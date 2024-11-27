@@ -89,12 +89,7 @@ const instituteSchema = new mongoose.Schema({
   },
   createdAt: { type: Date, default: Date.now },
   
-  departmentIds: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Department', // Reference to the Department model
-    },
-  ]  
+  department: [String]  
   });
 
 
