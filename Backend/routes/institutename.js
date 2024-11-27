@@ -12,7 +12,6 @@ router.get('/institute-name', verifyToken, async (req, res) => {
       if (!institute) {
         return res.status(404).json({ message: 'Institute not found' });
       }
-  
       res.status(200).json({ instituteName: institute.basicInfo.instituteName });
     } catch (error) {
       console.error('Error fetching institute name:', error);

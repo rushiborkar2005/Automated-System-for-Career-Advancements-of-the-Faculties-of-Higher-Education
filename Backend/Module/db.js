@@ -14,5 +14,8 @@ db.on('error', ()=>{
 db.on('disconnected', ()=>{
     console.log('MongoDB disconnected');
 })
-
-module.exports= db
+const getdb = (instituteName) => {
+    const db = mongoose.connection.useDb(instituteName);
+    return db;
+  };
+module.exports= {db,getdb};
