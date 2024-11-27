@@ -104,7 +104,12 @@ const FacultySchema = new mongoose.Schema({
   sectionC: [SectionCSchema],
 
 }, { timestamps: true });
+// const myDatabase = mongoose.connection.useDb();
+// const Faculty = mydatabase.model('Faculty', FacultySchema);
 
-const Faculty = mongoose.model('Faculty', FacultySchema);
+const Faculty = (db) => {
+  return db.model('Faculty', FacultySchema);
+};
+
 
 module.exports = Faculty;
