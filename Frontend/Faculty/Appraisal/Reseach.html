@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>
+   Government of National Capital Territory of Delhi
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="Research.css">
+ </head>
+ <body>
+  <div class="header">
+   <img alt="Government Logo" height="50" src="SatyamevJayate.jpg" width="50"/>
+   <div class="title">
+    <h1>
+     Government of National Capital Territory of Delhi
+    </h1>
+    <p>
+     राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार
+    </p>
+   </div>
+   <div class="language">
+    <select>
+     <option>
+      English
+     </option>
+     <!-- Add other languages as needed -->
+    </select>
+   </div>
+  </div>
+  <div class="navbar">
+   <ul>
+    <li>
+     <a href="#">
+      Home
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      Edit Profile
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <div class="app">Fill Appraisal Form </div>
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      Important Links
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      Report
+     </a>
+    </li>
+   </ul>
+   <div class="search">
+    <input placeholder="Search" type="text"/>
+    <button>
+     <i class="fa fa-search">
+     </i>
+    </button>
+   </div>
+  </div>
+
+    <main>
+      <div class="container">
+        <div class="page-header">
+          <div>
+            <h2>Appraisal Form</h2>
+            <p class="breadcrumb">Home/Appraisal Form</p>
+          </div>
+          <div class="faculty-dropdown">
+            Faculty <span class="dropdown-arrow">▼</span>
+          </div>
+        </div>
+
+        <nav class="section-nav">
+          <button>Teaching Process</button>
+          <button>Student's Feedback</button>
+          <button>Departmental Activities</button>
+          <button>Institute Activities</button>
+          <button class="active">ACR</button>
+          <button>Contribution to Society</button>
+          <button>Score</button>
+        </nav>
+
+        <div class="score-section">
+          <h3>E. ACR (Max Point 20)</h3>
+          <h4>b. Research Publications (Max Point 10)</h4>
+          <div class="score-input">
+            <span>Score Obtained:</span>
+            <input type="text" id="scoreObtained" value="0" readonly />
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Sr. No</th>
+                <th>Name of Publication</th>
+                <th class="category">Category</th>
+                <th>Supporting Document</th>
+                <th class="score">Score</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="entriesTableBody">
+              <!-- Table content will be dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="add-button">
+          <button onclick="openModal()">+ Add</button>
+        </div>
+
+        <div class="navigation-buttons">
+          <button
+            class="prev-btn"
+            onclick="window.location.href = 'DepartmentalActivities.html';">
+            Back
+          </button>
+          <div class="right-buttons">
+            <button class="draft-btn">Save As Draft</button>
+            <button class="submit-btn">Submit</button>
+            <button
+              class="next-btn"
+              onclick="window.location.href = 'Result.html';">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Faculty Entry</h3>
+          <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <form id="facultyForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Name of Publication</label>
+            <input type="text" name="publication" required />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select type="text" name="category" required>
+              <option value="">Select Category</option>
+              <option value="SCI">SCI</option>
+              <option value="SCI-Extended">SCI-Extended</option>
+              <option value="Scopus">Scopus</option>
+              <option value="Scopus Indexed">Scopus Indexed</option>
+              <option value="WOS">WOS</option>
+              <option value="UGC Recognized">UGC Recognized</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Supporting Document</label>
+            <input type="file" name="supportingDocument" required />
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" class="reset-btn" onclick="resetForm()">
+              Reset
+            </button>
+            <button type="submit" class="submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="Research.js"></script>
+  </body>
+</html>
