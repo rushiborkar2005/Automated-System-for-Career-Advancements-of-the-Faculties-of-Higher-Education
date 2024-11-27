@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Appraisal System</title>
+    <link rel="stylesheet" href="AdminHomePage.css" />
+    <link rel="stylesheet" href="teaching.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+          alt="Government Emblem"
+          class="emblem" />
+        <div class="header-text">
+          <h1>Government of National Capital Territory of Delhi</h1>
+          <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+        </div>
+      </div>
+    </header>
+
+    <nav class="navigation">
+      <div class="nav-content">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Manage Departments</a></li>
+          <li><a href="#">Manage Faculty</a></li>
+          <li><a href="#">Manage Assessment committee</a></li>
+          <li><a href="#">Create Appraisal Forms</a></li>
+          <li><a href="#">Reports</a></li>
+        </ul>
+        <div class="search-container">
+          <input type="search" id="search" placeholder="Search" />
+          <button id="searchBtn">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+              <div>
+                <h2>Appraisal Form</h2>
+                <p class="breadcrumb">Home/Appraisal Form</p>
+              </div>
+              <div class="faculty-dropdown">
+                Faculty <span class="dropdown-arrow">▼</span>
+              </div>
+            </div>
+    
+            <nav class="section-nav">
+              <button class="active">Teaching Process</button>
+              <button>Publications</button>
+              <button>Professional Development</button>
+              <button>Awards & Honors</button>
+              <button>Institute Development Activities</button>
+              <button>Score</button>
+            </nav>
+    
+            <div class="score-section">
+              <h3>
+                A. Teaching Process (Max Point 20) Note: 10 Credit points for each
+                semester
+              </h3>
+              <div class="score-input">
+                <span>Score Obtained:</span>
+                <input type="text" id="scoreObtained" value="0" readonly />
+              </div>
+            </div>
+    
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sr. No</th>
+                    <th>Semester</th>
+                    <th>Subject code</th>
+                    <th>Subject Name</th>
+                    <th>No. of Scheduled Classes</th>
+                    <th>No. of actually held Classes</th>
+                    <th>Supporting Document</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="entriesTableBody">
+                  <!-- Table content will be dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+    
+            <div class="add-button">
+              <button onclick="openModal()">+ Add</button>
+            </div>
+    
+            <div class="navigation-buttons">
+              <button class="prev-btn">Previous</button>
+              <div class="right-buttons">
+                <button class="draft-btn">Save As Draft</button>
+                <button class="submit-btn">Submit</button>
+                <button class="next-btn">Next</button>
+              </div>
+      
+    </main>
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Add Faculty Entry</h3>
+            <span class="close" onclick="closeModal()">&times;</span>
+          </div>
+          <form id="facultyForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label>Subject Name</label>
+              <input type="text" name="subjectName" required />
+            </div>
+            <div class="form-group">
+              <label>Subject Code</label>
+              <input type="text" name="subjectCode" required />
+            </div>
+            <div class="form-group">
+              <label>Semester</label>
+              <select name="semester" required>
+                <option value="">Select Semester</option>
+                <option value="1st">1st</option>
+                <option value="2nd">2nd</option>
+                <option value="3rd">3rd</option>
+                <option value="4th">4th</option>
+                <option value="5th">5th</option>
+                <option value="6th">6th</option>
+                <option value="7th">7th</option>
+                <option value="8th">8th</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>No. of Scheduled Classes</label>
+              <input type="number" name="scheduledClasses" required />
+            </div>
+            <div class="form-group">
+              <label>No. of Actually Held Classes</label>
+              <input type="number" name="actualClasses" required />
+            </div>
+            <div class="form-buttons">
+              <button type="button" class="reset-btn" onclick="resetForm()">
+                Reset
+              </button>
+              <button type="submit" class="submit-btn">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    <script src="teaching.js"></script>
+  </body>
+</html>

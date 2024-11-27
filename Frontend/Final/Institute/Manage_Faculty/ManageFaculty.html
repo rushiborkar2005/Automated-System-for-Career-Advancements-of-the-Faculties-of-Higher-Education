@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management System - Delhi Government</title>
+    <link rel="stylesheet" href="ManageFaculty.css">
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem">
+            <div class="header-text">
+                <h1>Government of National Capital Territory of Delhi</h1>
+                <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Manage Departments</a>
+            <a href="#">Manage Faculty</a>
+            <a href="#">Manage Assessment committee</a>
+            <a href="#">Create Appraisal Forms</a>
+            <a href="#">Reports</a>
+        </div>
+        <div class="search-container">
+            <input type="search" placeholder="Search..." id="searchInput">
+            <button type="button" class="search-btn">🔍</button>
+        </div>
+    </nav>
+
+    <main>
+
+        <h2 class="page-title">Manage Faculty</h2>
+
+        <div class="dashboard-cards">
+            <div class="card total-faculty">
+                <div class="card-icon">👥</div>
+                <div class="card-content">
+                    <h3>50</h3>
+                    <p>Total Faculty</p>
+                    <a href="#" class="card-link">View List →</a>
+                </div>
+            </div>
+
+            <div class="card add-faculty">
+                <div class="card-icon">➕</div>
+                <div class="card-content">
+                    <h3>Add New</h3>
+                    <p>Faculty</p>
+                    <a href="addfaculty.html" class="card-link" id="addFacultyBtn">Add →</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="facultyModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add New Faculty</h2>
+                <form id="facultyForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <select id="department" required>
+                            <option value="">Select Department</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="math">Mathematics</option>
+                            <option value="physics">Physics</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Add Faculty</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/ManageFacuty.js"></script>
+    <script src="js/ManageFacuty.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<html>
+ <head>
+  <title>
+   Government of National Capital Territory of Delhi
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="loginform.css">
+ </head>
+ <body>
+  <div class="header">
+   <img alt="Government Logo" height="50" src="Satyamev jayte.png" width="50"/>
+   <div class="title">
+    <h1>
+     Government of National Capital Territory of Delhi
+    </h1>
+    <p>
+     राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार
+    </p>
+   </div>
+   <div class="language">
+    <select>
+     <option>
+      English
+     </option>
+     <!-- Add other languages as needed -->
+    </select>
+   </div>
+  </div>
+  <div class="navbar">
+   <ul>
+    <li>
+     <a href="homepage.html">
+      Home
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      About Us
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      Resources
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      Important Links
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      Contact Us
+     </a>
+    </li>
+   </ul>
+   <div class="search">
+    <input placeholder="Search" type="text"/>
+    <button>
+     <i class="fa fa-search">
+     </i>
+    </button>
+   </div>
+  </div>
+  <main>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <select id="loginAs" required>
+                    <option value="">Login as</option>
+                    <option value="employee">Employee</option>
+                    <option value="admin">Administrator</option>
+                    <option value="public">Public User</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Username/E-mail/Employee ID" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-button">LOGIN</button>
+        </form>
+    </div>
+</main>
+ </body>
+</html>

@@ -1,0 +1,59 @@
+.registration-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .registration-container h1 {
+    font-size: 2rem;
+    color: #1e88e5;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  fieldset {
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  legend {
+    font-size: 1.25rem;
+    color: #1e88e5;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    border-color: #1e88e5;
+    outline: none;
+    box-shadow: 0 0 4px rgba(30, 136, 229, 0.5);
+  }
+  
+  .b1 {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  button:hover {
+    background-color: #1565c0;
+  }
+  

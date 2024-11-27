@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management - Delhi Government</title>
+    <link rel="stylesheet" href="addfaculty.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Logo" class="govt-logo">
+                <div class="header-text">
+                    <h1>Government of National Capital Territory of Delhi</h1>
+                    <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#">Manage Departments</a>
+        <a href="#">Manage Faculty</a>
+        <a href="#">Manage Assessment committee</a>
+        <a href="#">Create Appraisal Forms</a>
+        <a href="#">Reports</a>
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumb">
+            <h2>Manage Faculty</h2>
+        </div>
+
+        <div class="admin-section">
+            <div class="admin-icon">👤</div>
+            <span>Administrator ▼</span>
+        </div>
+
+        <div class="faculty-form">
+            <h2>Faculty Details</h2>
+            <form id="facultyForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <select id="title">
+                            <option value="">Select Title</option>
+                            <option value="Dr.">Dr</option>
+                            <option value="Prof.">Prof</option>
+                            <option value="Mr.">Mr</option>
+                            <option value="Ms.">Ms</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle name</label>
+                        <input type="text" id="middleName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="departmentName">Department Name</label>
+                        <input type="text" id="departmentName">
+                    </div>
+                    <div class="form-group">
+                        <label for="facultyId">Faculty Id</label>
+                        <input type="text" id="facultyId">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateOfJoining">Date of Joining</label>
+                        <input type="date" id="dateOfJoining">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="designation">Designation</label>
+                        <input type="text" id="designation">
+                    </div>
+                    <div class="form-group">
+                        <label for="facultyEmail">Faculty Email</label>
+                        <input type="email" id="facultyEmail">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn save">Save As Draft</button>
+                    <button type="button" class="btn cancel">Cancel</button>
+                    <button type="submit" class="btn submit">Submit & Add</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="addfacutly.js"></script>
+</body>
+</html>
