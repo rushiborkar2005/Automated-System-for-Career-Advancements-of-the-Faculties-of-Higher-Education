@@ -33,7 +33,45 @@ router.post('/addFaculty',verifyToken ,async (req, res) => {
       employeeType,
     } = req.body;
 
-    
+    if(designation==='Hod')
+    {
+
+
+
+
+      
+    }
+    else
+    {
+      const newFaculty = new Faculty({
+        title,
+        firstName,
+        middleName,
+        lastName,
+        gender,
+        dateOfBirth,
+        address,
+        city,
+        zipcode,
+        state,
+        country,
+        departmentName,
+        facultyId,
+        dateOfJoining,
+        designation,
+        facultyEmail,
+        educationQualification,
+        areasOfSpecialization,
+        experiences,
+        employeeType,
+        
+      });
+  
+      
+      const savedFaculty = await newFaculty.save();
+  
+      
+    }
     // const department = await Department.findById(departmentId);
     // if (!department) {
     //   return res.status(404).json({ message: 'Department not found' });
@@ -87,6 +125,7 @@ router.post('/addFaculty',verifyToken ,async (req, res) => {
   }
 });
 
+
 // module.exports = router;
 
 
@@ -119,7 +158,3 @@ router.post('/addFaculty',verifyToken ,async (req, res) => {
 // });
 
 module.exports = router;
-
-
-
-

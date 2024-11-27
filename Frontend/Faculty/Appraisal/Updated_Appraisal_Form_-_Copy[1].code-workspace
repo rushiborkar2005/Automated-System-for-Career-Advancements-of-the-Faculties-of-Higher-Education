@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../Zoom"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Updated_Appraisal_Form_-_Copy[1]"
+	},
+	"extensions": {
+		"recommendations": []
+	}
+}
