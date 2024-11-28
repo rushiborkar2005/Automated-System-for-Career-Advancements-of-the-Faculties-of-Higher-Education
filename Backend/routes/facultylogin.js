@@ -36,7 +36,7 @@ router.post('/facultylogin', async (req, res) => {
         }
         const token = jwt.sign({
             userId: user._id,
-            domain: emaildomain
+            db: institute_name.replace(/[^a-zA-Z0-9]/g, '_')
         }, JWT_SECRET, {
             expiresIn: '1h'
         });

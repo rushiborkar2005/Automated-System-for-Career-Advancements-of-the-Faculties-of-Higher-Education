@@ -49,7 +49,7 @@ modal.addEventListener('click', (e) => {
 async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
-
+  formData.append('t', '0');
   const newEntry = {
     id: entries.length + 1,
     semester: formData.get('semester'),
@@ -61,7 +61,7 @@ async function handleSubmit(event) {
 
   entries.push(newEntry);
 
-const response=  await fetch('http://localhost:5000/api/addfaculty', {
+const response=  await fetch('http://localhost:5000/api/add-details', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json', 'Authorization': token,},
   body: JSON.stringify(formData),
@@ -143,37 +143,37 @@ draftBtn.addEventListener('click', function () {
 });
 
 
-async function handleSubmit(event) {
-    event.preventDefault(); // Prevent default form submission behavior
+// async function handleSubmit(event) {
+//     event.preventDefault(); // Prevent default form submission behavior
 
-    // Create a FormData object from the form
-    const form = event.target;
-    const formData = new FormData(form);
+//     // Create a FormData object from the form
+//     const form = event.target;
+//     const formData = new FormData(form);
 
-    // Convert FormData to a JSON object
-    const data = Object.fromEntries(formData.entries());
+//     // Convert FormData to a JSON object
+//     const data = Object.fromEntries(formData.entries());
 
-    try {
-        // Send data to the server
-        const response = await fetch('/api/submitentry', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
+//     try {
+//         // Send data to the server
+//         const response = await fetch('/api/submitentry', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(data),
+//         });
 
-        if (response.ok) {
-            const result = await response.json();
-            alert('Entry added successfully!');
-            closeModal(); // Close the modal
-            form.reset(); // Reset the form
-        } else {
-            const error = await response.json();
-            alert(`Failed to add entry: ${error.message}`);
-        }
-    } catch (err) {
-        console.error('Error:', err);
-        alert('An error occurred while submitting the form.');
-    }
-}
+//         if (response.ok) {
+//             const result = await response.json();
+//             alert('Entry added successfully!');
+//             closeModal(); // Close the modal
+//             form.reset(); // Reset the form
+//         } else {
+//             const error = await response.json();
+//             alert(`Failed to add entry: ${error.message}`);
+//         }
+//     } catch (err) {
+//         console.error('Error:', err);
+//         alert('An error occurred while submitting the form.');
+//     }
+// }

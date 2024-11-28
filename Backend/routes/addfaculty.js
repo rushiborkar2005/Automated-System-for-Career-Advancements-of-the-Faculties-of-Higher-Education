@@ -1,6 +1,12 @@
 const express = require('express');
 const Institute = require('../Models/Institute');
 const Faculty = require('../Models/addfaculty');
+const jwt = require('jsonwebtoken');
+const { LocalStorage } = require('node-localstorage');
+
+
+const localStorage = new LocalStorage('./scratch');
+const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 const {
   verifyToken,
   generatePassword,
@@ -83,8 +89,7 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
 });
 
 // Add details to existing faculty
-router.post('/add-details/:facultyId', verifyToken, async (req, res) => {
-  const { facultyId } = req.params;
+router.post('/add-details', async (req, res) => {
   // const {
   //   teachingProcess,
   //   studentsFeedback,
@@ -98,14 +103,20 @@ router.post('/add-details/:facultyId', verifyToken, async (req, res) => {
 
   const data = req.body
 
+  const token = req.headers.authorization;
+  console.log(token);
+  if (!token) {
+      return res.status(401).json({ error: 'No token, authorization denied' });
+  }
+
   try {
-    const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.instituteName');
-    const institute_name = institute.basicInfo.instituteName;
-    const fdb = getdb(institute_name.replace(/[^a-zA-Z0-9]/g, '_'));
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const user = decoded.userId;
+    const fdb = getdb(decoded.db);
     const FacultyModel = Faculty(fdb);
 
     // Find the faculty by ID
-    const faculty = await FacultyModel.findOne({ facultyId });
+    const faculty = await FacultyModel.findOne({ _id: user});
 
     if (!faculty) {
       return res.status(404).json({ message: 'Faculty not found' });
