@@ -1,7 +1,7 @@
 document.querySelector('form').addEventListener('submit', async (e) => {
     e.preventDefault();
   
-    const username = e.target.querySelector('input[type="text"]').value;
+    const email = e.target.querySelector('input[type="email"]').value;
     const password = e.target.querySelector('input[type="password"]').value;
   
     try {
@@ -10,7 +10,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
   
       const result = await response.json();
