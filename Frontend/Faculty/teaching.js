@@ -5,7 +5,7 @@ const modal = document.getElementById('modal');
 const facultyForm = document.getElementById('facultyForm');
 const entriesTableBody = document.getElementById('entriesTableBody');
 const scoreObtained = document.getElementById('scoreObtained');
-
+const token = localStorage.getItem('authToken'); 
 
 // Initialize table
 function renderTable() {
@@ -46,7 +46,7 @@ modal.addEventListener('click', (e) => {
 });
 
 // Form handling
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
 
@@ -60,6 +60,16 @@ function handleSubmit(event) {
   };
 
   entries.push(newEntry);
+
+const response=  await fetch('http://localhost:5000/api/addfaculty', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json', 'Authorization': token,},
+  body: JSON.stringify(formData),
+});
+
+
+
+
   renderTable();
   closeModal();
 }

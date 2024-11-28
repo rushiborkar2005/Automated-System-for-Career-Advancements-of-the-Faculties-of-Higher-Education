@@ -27,6 +27,7 @@ router.post('/register', verifyToken, async (req, res) => {
         affiliatingBody,
         accreditationBody,
         accreditationGrade,
+        emaildomain,
       } = req.body;
 
       console.log(req.body);

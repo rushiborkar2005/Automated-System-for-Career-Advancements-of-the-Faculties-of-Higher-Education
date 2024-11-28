@@ -1,17 +1,14 @@
 const mongoose = require('mongoose');
 
-
 const SectionBSchema = new mongoose.Schema({
-  observations: { type: String, required: true, trim: true },
-  recommendations: { type: String, required: true, trim: true },
+  observations: { type: String, trim: true },
+  recommendations: { type: String, trim: true },
 });
-
 
 const SectionCSchema = new mongoose.Schema({
-  recommendation: { type: String, required: true, trim: true },
-  signature: { type: String, required: true, trim: true },
+  recommendation: { type: String, trim: true },
+  signature: { type: String, trim: true },
 });
-
 
 const FacultySchema = new mongoose.Schema({
   title: { type: String, enum: ['Dr.', 'Prof.', 'Mr.', 'Ms.', 'Mrs.'], trim: true },
@@ -34,82 +31,76 @@ const FacultySchema = new mongoose.Schema({
   areasOfSpecialization: { type: [String] },
   experiences: { type: Number, min: 0 },
   employeeType: { type: String, enum: ['Permanent', 'Contract', 'Part-Time'], trim: true },
-  password: {type:String},
-  
+  password: { type: String },
+
   teachingProcess: [{
-    semester: { type: String, required: true },
-    subjectCode: { type: String, required: true },
-    subjectName: { type: String, required: true },
-    scheduledClasses: { type: Number, required: true },
-    actuallyHeldClasses: { type: Number, required: true },
-    pointsEarned: { type: Number, required: true },
-    document: { type: String }, 
+    semester: { type: String },
+    subjectCode: { type: String },
+    subjectName: { type: String },
+    scheduledClasses: { type: Number },
+    actualClasses: { type: Number },
+    pointsEarned: { type: Number },
+    attainment: { type: String },
   }],
 
   studentsFeedback: [{
-    semester: { type: String, required: true },
-    subjectCode: { type: String, required: true },
-    subjectName: { type: String, required: true },
-    studentFeedback: { type: String, required: true },
-    pointsEarned: { type: Number, required: true },
+    semester: { type: String },
+    subjectCode: { type: String },
+    subjectName: { type: String },
+    studentFeedback: { type: String },
+    pointsEarned: { type: Number },
     document: { type: String },
   }],
 
   departmentActivities: [{
-    semester: { type: String, required: true },
-    activity: { type: String, required: true },
-    pointsEarned: { type: Number, required: true },
-    criteria: { type: String, required: true },
+    semester: { type: String },
+    activity: { type: String },
+    pointsEarned: { type: Number },
+    criteria: { type: String },
     document: { type: String },
   }],
 
   instituteActivities: [{
-    semester: { type: String, required: true },
-    activity: { type: String, required: true },
-    pointsEarned: { type: Number, required: true },
-    criteria: { type: String, required: true },
+    semester: { type: String },
+    activity: { type: String },
+    pointsEarned: { type: Number },
+    criteria: { type: String },
     document: { type: String },
   }],
 
   resultSummary: [{
-    semester: { type: String, required: true },
-    subjectCode: { type: String, required: true },
-    subjectName: { type: String, required: true },
-    studentsRegistered: { type: Number, required: true },
-    studentsPassed: { type: Number, required: true },
-    creditPoint: { type: Number, required: true },
+    semester: { type: String },
+    subjectCode: { type: String },
+    subjectName: { type: String },
+    studentsRegistered: { type: Number },
+    studentsPassed: { type: Number },
+    creditPoint: { type: Number },
     document: { type: String },
   }],
 
   research: [{
-    research: { type: String, required: true },
-    publicationName: { type: String, required: true },
-    category: { type: String, required: true },
+    research: { type: String },
+    publicationName: { type: String },
+    category: { type: String },
     document: { type: String },
-    creditPoint: { type: Number, required: true },
+    creditPoint: { type: Number },
   }],
 
   contributionSociety: [{
-    semester: { type: String, required: true },
-    activity: { type: String, required: true },
-    criteria: { type: String, required: true },
-    pointsEarned: { type: Number, required: true },
+    semester: { type: String },
+    activity: { type: String },
+    criteria: { type: String },
+    pointsEarned: { type: Number },
     document: { type: String },
   }],
 
-  
   sectionB: [SectionBSchema],
-
-  
   sectionC: [SectionCSchema],
 
 }, { timestamps: true });
 
-
-
 const Faculty = (db) => {
   return db.model('Faculty', FacultySchema);
 };
-
 
 module.exports = Faculty;

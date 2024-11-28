@@ -49,6 +49,9 @@ const instituteSchema = new mongoose.Schema({
       type: String, 
       
     },
+    emaildomain: {
+      type: String,
+    },
     website: { type: String }, 
   },
   adminDetails: {

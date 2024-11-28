@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // if (!validateForm(formData)) {
         //     return;
         // }
+        
         const token = localStorage.getItem('authToken'); 
         try {
             const response = await fetch('http://localhost:5000/api/addfaculty', {

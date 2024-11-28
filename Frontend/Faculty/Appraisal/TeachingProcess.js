@@ -134,3 +134,63 @@ function calculateFinalScore() {
 
 // Initialize the table on page load
 renderTable();
+
+
+
+async function handleSubmit(event) {
+  event.preventDefault(); // Prevent default form submission behavior
+
+  // Create a FormData object from the form
+  const form = event.target;
+  const formData = new FormData(form);
+
+  // Calculate pointsEarned based on actualClasses vs scheduledClasses
+  const scheduledClasses = parseInt(formData.get('scheduledClasses'));
+  const actualClasses = parseInt(formData.get('actualClasses'));
+  const percentage = (actualClasses / scheduledClasses) * 100;
+  let pointsEarned = 0;
+
+  if (percentage >= 96) pointsEarned = 10;
+  else if (percentage >= 90) pointsEarned = 9;
+  else if (percentage >= 80) pointsEarned = 8;
+  else if (percentage >= 70) pointsEarned = 7;
+  else if (percentage >= 55) pointsEarned = 5;
+
+  // Convert FormData to a JSON object
+  const data = {
+    id: entries.length + 1, // Generate unique ID
+    semester: formData.get('semester'),
+    subjectCode: formData.get('subjectCode'),
+    subjectName: formData.get('subjectName'),
+    scheduledClasses: scheduledClasses,
+    actualClasses: actualClasses,
+    pointsEarned: pointsEarned,
+    attainment: formData.get('attainment'), // Add attainment field
+  };
+
+  try {
+    // Send data to the server
+    const response = await fetch('http://localhost:3000/api/:facultyId', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      alert('Entry added successfully!');
+      entries.push(data); // Add to local entries array
+      renderTable(); // Re-render table
+      closeModal(); // Close the modal
+      form.reset(); // Reset the form
+    } else {
+      const error = await response.json();
+      alert(`Failed to add entry: ${error.message}`);
+    }
+  } catch (err) {
+    console.error('Error:', err);
+    alert('An error occurred while submitting the form.');
+  }
+}
