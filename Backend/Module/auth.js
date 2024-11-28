@@ -46,4 +46,4 @@ function generatePassword(length = 12) {
   }
   
 
-module.exports = {router, verifyToken,generatePassword};
+module.exports = {verifyToken,generatePassword};
