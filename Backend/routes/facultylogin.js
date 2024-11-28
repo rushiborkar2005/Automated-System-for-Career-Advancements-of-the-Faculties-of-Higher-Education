@@ -1,43 +1,54 @@
 const express = require('express');
 const router = express.Router();
-const {Faculty}=require('../Models/addfaculty')
-
+const Faculty = require('../Models/addfaculty');
+const {
+    getdb
+} = require('../Module/db')
+const Institute = require('../Models/Institute')
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 router.post('/facultylogin', async (req, res) => {
-    const { email, password } = req.body;
-    const emailDomain = email.split('@')[1];
-
-    const institute = await Institute.findOne({ emailDomain }).select('basicInfo.instituteName');
+    const {
+        email,
+        password
+    } = req.body;
+    const emaildomain = email.split('@')[1];
+    const institute = await Institute.findOne({
+        'contact.emaildomain': emaildomain
+    }).select('basicInfo.instituteName');
     const institute_name = institute.basicInfo.instituteName;
     const fdb = getdb(institute_name.replace(/[^a-zA-Z0-9]/g, '_'));
     const faculty = Faculty(fdb);
-
-
     try {
-        const user = await faculty.findOne({ email });
+        const user = await faculty.findOne({
+            'facultyEmail': email
+        });
         if (!user) {
-            return res.status(400).json({ error: 'Invalid email or password' });
+            return res.status(400).json({
+                error: 'Invalid email or password'
+            });
         }
-        const isMatch = user.password===password?1:0;
+        const isMatch = user.password === password ? 1 : 0;
         if (!isMatch) {
-            return res.status(400).json({ error: 'Invalid email or password' });
+            return res.status(400).json({
+                error: 'Invalid email or password'
+            });
         }
-
-        const token = jwt.sign({ userId: user._id ,domain: emailDomain}, JWT_SECRET, { expiresIn: '1h' });
-
-        // res.cookie('authToken', token, {
-        //     httpOnly: true,    
-        //     secure: process.env.NODE_ENV === 'production', 
-        //     maxAge: 3600000,  
-        //     sameSite: 'Strict'
-        // });
-
-        res.json({ message: 'Login successful!',token });
+        const token = jwt.sign({
+            userId: user._id,
+            domain: emaildomain
+        }, JWT_SECRET, {
+            expiresIn: '1h'
+        });
+        res.json({
+            message: 'Login successful!',
+            token,
+            ok: 1
+        });
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).json({
+            error: 'Server error'
+        });
     }
 });
-
-
-
-module.exports =router;
+module.exports = router;
