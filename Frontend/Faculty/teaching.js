@@ -50,6 +50,12 @@ async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
   formData.append('t', '0');
+  const formDataObj = {};
+  
+      formData.forEach((value, key) => {
+        formDataObj[key] = value;
+      });
+    
   const newEntry = {
     id: entries.length + 1,
     semester: formData.get('semester'),
@@ -60,13 +66,36 @@ async function handleSubmit(event) {
   };
 
   entries.push(newEntry);
+  try {
+    const response = await fetch('http://localhost:5000/api/add-details', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token,
+      },
+      body: JSON.stringify(formDataObj),
+    });
 
-const response=  await fetch('http://localhost:5000/api/add-details', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json', 'Authorization': token,},
-  body: JSON.stringify(formData),
-});
+    // Check if the response is successful
+    if (!response.ok) {
+      const errorBody = await response.json(); // Parse error details from the response
+      console.error("Error details:", errorBody);
 
+      // Create a meaningful error message
+      const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
+      throw new Error(errorMessage);
+    }
+
+    const data = await response.json();
+    console.log("Response received:", data);
+    alert('Details added successfully!');
+    return data;
+
+  } catch (error) {
+    // Log and display the error
+    console.error('Error during fetch:', error.message);
+    alert(`An error occurred: ${error.message}`);
+  }
 
 
 
