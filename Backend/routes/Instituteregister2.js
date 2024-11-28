@@ -63,8 +63,8 @@ router.post('/register', verifyToken, async (req, res) => {
         },
         additionalAdminContact: {
           name: adminContact,
-          phone: '', // Optional field, can be added later
-          email: '', // Optional field, can be added later
+          phone: '', 
+          email: '', 
         },
       };
 
