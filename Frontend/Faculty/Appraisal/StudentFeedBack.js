@@ -131,3 +131,47 @@ function calculateFinalScore() {
 
 // Initialize the table on page load
 renderTable();
+
+// //rushi
+// async function handleSubmit(event) {
+//   event.preventDefault();
+//   const formData = new FormData(event.target);
+
+//   const newEntry = {
+//     semester: formData.get('semester'),
+//     subjectCode: formData.get('subjectCode'),
+//     subjectName: formData.get('subjectName'),
+//     studentFeedback: formData.get('studentFeedback'),
+//     supportingDocument: formData.get('supportingDocument'), 
+//   };
+
+//   try {
+//     const response = await fetch('http://localhost:3000/api/saveStudentFeedback/<FACULTY_ID>', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         Authorization: `Bearer ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
+//       },
+//       body: JSON.stringify(newEntry),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error('Failed to save feedback');
+//     }
+
+//     const result = await response.json();
+//     alert('Feedback saved successfully');
+    
+//     // Add the saved entry to the table and re-render
+//     entries.push({
+//       ...newEntry,
+//       id: entries.length + 1,
+//       pointsEarned: result.pointsEarned,
+//     });
+//     renderTable();
+//     closeModal();
+//   } catch (error) {
+//     console.error('Error:', error.message);
+//     alert('Failed to save feedback. Please try again.');
+//   }
+// }

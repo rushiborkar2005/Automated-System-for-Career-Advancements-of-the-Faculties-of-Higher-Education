@@ -125,3 +125,60 @@ function calculateFinalScore() {
 
 // Initialize the table on page load
 renderTable();
+
+// // Form handling
+// async function handleSubmit(event) {
+//   event.preventDefault();
+//   const formData = new FormData(event.target);
+
+//   const newEntry = {
+//     id: entries.length + 1,
+//     semester: formData.get("semester"),
+//     subjectCode: formData.get("subjectCode"),
+//     subjectName: formData.get("subjectName"),
+//     noRegisteredStudents: parseInt(formData.get("noRegisteredStudents")) || 0,
+//     noPassedStudents: parseInt(formData.get("noPassedStudents")) || 0,
+//     supportingDocument: formData.get("supportingDocument"),
+//   };
+
+//   entries.push(newEntry);
+
+//   // Prepare payload for the backend
+//   const backendPayload = {
+//     resultSummary: entries.map((entry) => ({
+//       semester: entry.semester,
+//       subjectCode: entry.subjectCode,
+//       subjectName: entry.subjectName,
+//       noRegisteredStudents: entry.noRegisteredStudents,
+//       noPassedStudents: entry.noPassedStudents,
+//       creditPoint: calculateCreditPoints(entry.noRegisteredStudents, entry.noPassedStudents),
+//       supportingDocument: entry.supportingDocument,
+//     })),
+//   };
+
+//   try {
+//     const response = await fetch("http://localhost:5000/add-details/:facultyId", { // Replace with actual URL and facultyId
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: "Bearer your_token_here", // Replace with an actual token if required
+//       },
+//       body: JSON.stringify(backendPayload),
+//     });
+
+//     if (response.ok) {
+//       const result = await response.json();
+//       alert("Data saved successfully!");
+//       console.log(result);
+//     } else {
+//       const error = await response.json();
+//       alert(`Failed to save data: ${error.message}`);
+//     }
+//   } catch (error) {
+//     console.error("Error submitting data:", error);
+//     alert("Error submitting data. Please try again.");
+//   }
+
+//   renderTable();
+//   closeModal();
+// }
