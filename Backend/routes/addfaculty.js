@@ -38,7 +38,7 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
     const fdb=getdb(institute_name.replace(/[^a-zA-Z0-9]/g, '_'));
     const FacultyModel = Faculty(fdb);
 
-
+    const password=generatePassword();
     const newFaculty = new FacultyModel({
       title,
       firstName,
@@ -60,13 +60,16 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
       areasOfSpecialization,
       experiences,
       employeeType,
+      password
     });
     const savedFaculty = await newFaculty.save();
 
 
-const tpassword=generatePassword();
 
-sendPasswordEmail(newFaculty.facultyEmail,tpassword);
+
+sendPasswordEmail(newFaculty.facultyEmail,password);
+
+
 
     res.status(201).json({
       message: 'Faculty added successfully',

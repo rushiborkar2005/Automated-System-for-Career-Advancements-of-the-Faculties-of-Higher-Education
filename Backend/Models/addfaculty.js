@@ -34,7 +34,7 @@ const FacultySchema = new mongoose.Schema({
   areasOfSpecialization: { type: [String] },
   experiences: { type: Number, min: 0 },
   employeeType: { type: String, enum: ['Permanent', 'Contract', 'Part-Time'], trim: true },
-
+  password: {type:String},
   
   teachingProcess: [{
     semester: { type: String, required: true },
@@ -104,8 +104,8 @@ const FacultySchema = new mongoose.Schema({
   sectionC: [SectionCSchema],
 
 }, { timestamps: true });
-// const myDatabase = mongoose.connection.useDb();
-// const Faculty = mydatabase.model('Faculty', FacultySchema);
+
+
 
 const Faculty = (db) => {
   return db.model('Faculty', FacultySchema);
