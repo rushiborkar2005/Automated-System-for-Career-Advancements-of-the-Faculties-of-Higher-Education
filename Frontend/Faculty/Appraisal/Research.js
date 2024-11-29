@@ -5,7 +5,7 @@ const modal = document.getElementById("modal");
 const facultyForm = document.getElementById("facultyForm");
 const entriesTableBody = document.getElementById("entriesTableBody");
 const scoreObtained = document.getElementById("scoreObtained");
-
+const token = localStorage.getItem('authToken'); 
 // Points mapping for categories
 const categoryPoints = {
   SCI: 5,
@@ -65,10 +65,47 @@ function handleCategoryChange() {
 }
 
 // Form submission
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
+  formData.append('t', '0');
+  const formDataObj = {};
+  
+      formData.forEach((value, key) => {
+        formDataObj[key] = value;
+      });
 
+      try {
+        const response = await fetch('http://localhost:5000/api/add-details', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token,
+          },
+          body: JSON.stringify(formDataObj),
+        });
+    
+        // Check if the response is successful
+        if (!response.ok) {
+          const errorBody = await response.json(); // Parse error details from the response
+          console.error("Error details:", errorBody);
+    
+          // Create a meaningful error message
+          const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
+          throw new Error(errorMessage);
+        }
+    
+        const data = await response.json();
+        console.log("Response received:", data);
+        alert('Details added successfully!');
+        return data;
+    
+      } catch (error) {
+        // Log and display the error
+        console.error('Error during fetch:', error.message);
+        alert(`An error occurred: ${error.message}`);
+      }
+    
   let category = formData.get("category");
   const publication = formData.get("publication");
   const supportingDocument = formData.get("supportingDocument");

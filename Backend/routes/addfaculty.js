@@ -106,29 +106,30 @@ router.post('/add-details', async (req, res) => {
     if (!faculty) {
       return res.status(404).json({ message: 'Faculty not found' });
     }
-    
+    console.log(data);
     // Update the arrays
     if (data.t==='0') {
       
       faculty.teachingProcess.push(data);
     }
-    if (data.t===1) {
-      faculty.studentsFeedback.push(...studentsFeedback,data);
+    if (data.t==='1') {
+
+      faculty.studentsFeedback.push(data);
     }
-    if (data.t===2) {
-      faculty.departmentActivities.push(...departmentActivities,data);
+    if (data.t==='2') {
+      faculty.departmentActivities.push(data);
     }
-    if (data.t===3) {
-      faculty.instituteActivities.push(...instituteActivities,data);
+    if (data.t==='3') {
+      faculty.instituteActivities.push(data);
     }
-    if (data.t===4) {
-      faculty.resultSummary.push(...resultSummary,data);
+    if (data.t==='4') {
+      faculty.resultSummary.push(data);
     }
-    if (data.t===5) {
-      faculty.research.push(...research,data);
+    if (data.t==='6') {
+      faculty.research.push(data);
     }
-    if (data.t===6) {
-      faculty.contributionSociety.push(...contributionSociety,data);
+    if (data.t==='5') {
+      faculty.contributionSociety.push(data);
     }
     // Save the updated document
     await faculty.save();

@@ -5,7 +5,7 @@ const modal = document.getElementById('modal');
 const facultyForm = document.getElementById('facultyForm');
 const entriesTableBody = document.getElementById('entriesTableBody');
 const scoreObtained = document.getElementById('scoreObtained');
-
+const token = localStorage.getItem('authToken'); 
 // Helper function to calculate points
 function calculatePoints(scheduledClasses, actualClasses, attainment) {
   const percentage = scheduledClasses > 0 ? (actualClasses / scheduledClasses) * 100 : 0;
@@ -143,6 +143,7 @@ async function handleSubmit(event) {
   // Create a FormData object from the form
   const form = event.target;
   const formData = new FormData(form);
+  
 
   // Calculate pointsEarned based on actualClasses vs scheduledClasses
   const scheduledClasses = parseInt(formData.get('scheduledClasses'));
