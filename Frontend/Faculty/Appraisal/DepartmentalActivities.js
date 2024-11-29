@@ -122,3 +122,49 @@ function calculateFinalScore() {
 
 // Initialize the table on page load
 renderTable();
+
+
+
+async function fetchTeachingProcessData() {
+  try {
+    // Replace with your actual backend API endpoint
+    const response = await fetch('http://localhost:5500/api/get-details', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+      body:{'t':2}
+    });
+    if (!response.ok) throw new Error('Failed to fetch data');
+
+    const data = await response.json();
+    populateTable(data.teachingProcess); // Call function to populate table
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+function populateTable(teachingProcess) {
+  const tableBody = document.getElementById('entriesTableBody');
+  tableBody.innerHTML = ''; // Clear previous entries, if any
+
+  teachingProcess.forEach((entry, index) => {
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${entry.semester || 'N/A'}</td>
+      <td>${entry.subjectCode || 'N/A'}</td>
+      <td>${entry.subjectName || 'N/A'}</td>
+      <td>${entry.studentFeedback}%</td>
+      <td>-</td>
+      <td class="score">${entry.score || 0}</td>
+      <td>
+        <button onclick="editEntry(${index})">Edit</button>
+        <button onclick="deleteEntry(${index})">Delete</button>
+      </td>
+    `;
+
+    tableBody.appendChild(row);
+  });
+}

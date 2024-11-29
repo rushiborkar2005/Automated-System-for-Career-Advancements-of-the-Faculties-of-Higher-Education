@@ -41,6 +41,7 @@ const FacultySchema = new mongoose.Schema({
     actualClasses: { type: Number },
     pointsEarned: { type: Number },
     attainment: { type: String },
+    score: { type: Number}
   }],
 
   studentsFeedback: [{
@@ -50,6 +51,7 @@ const FacultySchema = new mongoose.Schema({
     studentFeedback: { type: String },
     pointsEarned: { type: Number },
     document: { type: String },
+    score: { type: Number}
   }],
 
   departmentActivities: [{

@@ -1,0 +1,48 @@
+const express = require('express');
+const Faculty = require('../Models/addfaculty');
+const jwt = require('jsonwebtoken');
+const router = express.Router();
+const { getdb } = require('../Module/db');
+const { LocalStorage } = require('node-localstorage');
+const localStorage = new LocalStorage('./scratch');
+const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
+router.get('/get-details', async (req, res) => {
+    const token = req.headers.authorization;
+    console.log(token);
+    if (!token) {
+        return res.status(401).json({ error: 'No token, authorization denied' });
+    }
+    // try {
+      const decoded = jwt.verify(token, JWT_SECRET);
+      const user = decoded.userId;
+      const fdb = getdb(decoded.db);
+      const FacultyModel = Faculty(fdb);
+      const faculty = await FacultyModel.findOne({ _id: user});
+      if (!faculty) {
+        return res.status(404).json({ message: 'Faculty not found' });
+      }
+      console.log(faculty);
+      console.log(data);
+      if (data.t==='0') {
+       res.json({ key: faculty.studentsFeedback });
+      }
+      if (data.t==='1') {
+       res.json({ key: faculty.studentsFeedback });
+      }
+      if (data.t==='2') {
+        res.json({ key: faculty.departmentActivities });
+      }
+      if (data.t==='3') {
+        res.json({ key: faculty.instituteActivities });
+      }
+      if (data.t==='4') {
+        res.json({ key: faculty.resultSummary });
+      }
+      if (data.t==='6') {
+        res.json({ key: faculty.research });
+      }
+      if (data.t==='5') {
+        res.json({ key: faculty.contributionSociety });
+      }
+  });
+  module.exports = router;

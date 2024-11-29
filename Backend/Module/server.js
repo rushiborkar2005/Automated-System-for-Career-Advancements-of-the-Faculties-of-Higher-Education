@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const db = require('./db'); 
+const getf=require('../routes/facultyget')
 const addfacultyRoute = require('../routes/addfaculty'); 
 // const submit=require('../routes/submit')
 const app = express();
@@ -22,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api',Instituteregister,IN,InLogin,InName,addfacultyRoute,faculty_login);
+app.use('/api',Instituteregister,IN,InLogin,InName,addfacultyRoute,faculty_login,getf);
 
 app.use((err, req, res, next) => {
   console.error(err.stack); 
@@ -30,7 +31,7 @@ app.use((err, req, res, next) => {
 });
 
 
-const PORT = 5000;
+const PORT = 5500;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
