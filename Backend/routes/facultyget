@@ -8,6 +8,9 @@ const localStorage = new LocalStorage('./scratch');
 const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 router.get('/get-details', async (req, res) => {
     const token = req.headers.authorization;
+
+
+    const t = req.headers['type'];
     console.log(token);
     if (!token) {
         return res.status(401).json({ error: 'No token, authorization denied' });
@@ -22,26 +25,25 @@ router.get('/get-details', async (req, res) => {
         return res.status(404).json({ message: 'Faculty not found' });
       }
       console.log(faculty);
-      console.log(data);
-      if (data.t==='0') {
+      if (t==='0') {
        res.json({ key: faculty.studentsFeedback });
       }
-      if (data.t==='1') {
+      if (t==='1') {
        res.json({ key: faculty.studentsFeedback });
       }
-      if (data.t==='2') {
+      if (t==='2') {
         res.json({ key: faculty.departmentActivities });
       }
-      if (data.t==='3') {
+      if (t==='3') {
         res.json({ key: faculty.instituteActivities });
       }
-      if (data.t==='4') {
+      if (t==='4') {
         res.json({ key: faculty.resultSummary });
       }
-      if (data.t==='6') {
+      if (t==='6') {
         res.json({ key: faculty.research });
       }
-      if (data.t==='5') {
+      if (t==='5') {
         res.json({ key: faculty.contributionSociety });
       }
   });

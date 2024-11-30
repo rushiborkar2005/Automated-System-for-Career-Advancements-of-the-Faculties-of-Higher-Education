@@ -162,7 +162,7 @@ function resetForm() {
 async function fetchTeachingProcessData() {
   try {
     // Replace with your actual backend API endpoint
-    const response = await fetch('http://localhost:5500/api/get-details', {
+    const response = await fetch('http://localhost:5000/api/get-details', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -178,11 +178,11 @@ async function fetchTeachingProcessData() {
     console.error('Error fetching data:', error);
   }
 }
-function populateTable(teachingProcess) {
+function populateTable(data) {
   const tableBody = document.getElementById('entriesTableBody');
   tableBody.innerHTML = ''; // Clear previous entries, if any
 
-  teachingProcess.forEach((entry, index) => {
+  data.forEach((entry, index) => {
     const row = document.createElement('tr');
 
     row.innerHTML = `

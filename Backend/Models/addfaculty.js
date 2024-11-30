@@ -39,7 +39,6 @@ const FacultySchema = new mongoose.Schema({
     subjectName: { type: String },
     scheduledClasses: { type: Number },
     actualClasses: { type: Number },
-    pointsEarned: { type: Number },
     attainment: { type: String },
     score: { type: Number}
   }],
@@ -60,6 +59,7 @@ const FacultySchema = new mongoose.Schema({
     pointsEarned: { type: Number },
     criteria: { type: String },
     document: { type: String },
+    score: { type: Number}
   }],
 
   instituteActivities: [{
@@ -68,6 +68,7 @@ const FacultySchema = new mongoose.Schema({
     pointsEarned: { type: Number },
     criteria: { type: String },
     document: { type: String },
+    score: { type: Number}
   }],
 
   resultSummary: [{
@@ -78,6 +79,7 @@ const FacultySchema = new mongoose.Schema({
     studentsPassed: { type: Number },
     creditPoint: { type: Number },
     document: { type: String },
+    score: { type: Number}
   }],
 
   research: [{
@@ -86,6 +88,7 @@ const FacultySchema = new mongoose.Schema({
     category: { type: String },
     document: { type: String },
     creditPoint: { type: Number },
+    score: { type: Number}
   }],
 
   contributionSociety: [{
@@ -94,6 +97,7 @@ const FacultySchema = new mongoose.Schema({
     criteria: { type: String },
     pointsEarned: { type: Number },
     document: { type: String },
+    score: { type: Number}
   }],
 
   sectionB: [SectionBSchema],
