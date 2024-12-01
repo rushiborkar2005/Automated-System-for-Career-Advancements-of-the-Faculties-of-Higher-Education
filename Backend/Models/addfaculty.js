@@ -39,7 +39,7 @@ const FacultySchema = new mongoose.Schema({
     subjectName: { type: String },
     scheduledClasses: { type: Number },
     actualClasses: { type: Number },
-    attainment: { type: String },
+    document: { type: String },
     score: { type: Number}
   }],
 

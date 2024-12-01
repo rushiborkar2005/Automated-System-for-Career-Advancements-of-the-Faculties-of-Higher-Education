@@ -11,6 +11,8 @@ const InLogin=require('../routes/Institutelogin')
 const InName=require('../routes/institutename')
 const faculty_login=require('../routes/facultylogin')
 const cookieParser = require('cookie-parser');
+const upload = require('../Module/multer');
+
 app.use(cookieParser());
 const corsOptions = {
   origin: 'http://127.0.0.1:5500', // specify your front-end origin
