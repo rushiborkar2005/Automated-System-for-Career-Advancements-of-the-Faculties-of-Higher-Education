@@ -81,7 +81,9 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
   }
 });
 // Add details to existing faculty
-router.post('/add-details', async (req, res) => {
+const upload = require('../Module/multer');
+  router.post('/add-details', upload.single('document'), async (req, res) => {
+
   // const {
   //   teachingProcess,
   //   studentsFeedback,
@@ -91,6 +93,9 @@ router.post('/add-details', async (req, res) => {
   //   research,
   //   contributionSociety,
   // } = req.body;
+
+  
+
   const data = req.body
   
   const token = req.headers.authorization;
