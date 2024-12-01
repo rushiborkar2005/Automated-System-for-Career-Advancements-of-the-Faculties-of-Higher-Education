@@ -27,10 +27,12 @@ router.post('/register', verifyToken, async (req, res) => {
         affiliatingBody,
         accreditationBody,
         accreditationGrade,
-        emaildomain,
       } = req.body;
 
       console.log(req.body);
+
+
+      const emaildomain = email.split('@')[1];
   
       const institute = await Institute.findById(req.user);
       if (!institute) {
@@ -53,6 +55,7 @@ router.post('/register', verifyToken, async (req, res) => {
       institute.contact = {
         contactNumber,
         email,
+        emaildomain,
         website,
       };
 

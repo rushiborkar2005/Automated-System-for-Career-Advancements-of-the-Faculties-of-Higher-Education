@@ -1,177 +1,216 @@
-let entries = [];
+// let entries = [];
+document.addEventListener('DOMContentLoaded', () => {
+  // Fetch data when the page loads
+  fetchTeachingProcessData();
+});
+const t=1;
 
-// DOM Elements
 const modal = document.getElementById('modal');
 const facultyForm = document.getElementById('facultyForm');
 const entriesTableBody = document.getElementById('entriesTableBody');
 const scoreObtained = document.getElementById('scoreObtained');
 const studentFeedback = document.getElementById('studentFeedback');
+const token = localStorage.getItem('authToken'); 
 
-// Initialize table
-function renderTable() {
-  entriesTableBody.innerHTML = entries
-    .map((entry, index) => {
-      // Calculate points for each subject based on actual and scheduled classes
-      const percentage =entry.studentFeedback;
+// function renderTable() {
+//   entriesTableBody.innerHTML = entries
+//     .map((entry, index) => {
+      
+//       const percentage =entry.studentFeedback;
+//       let points = 0;
+//       if (percentage >= 96) points = 10;
+//     else if (percentage >= 90) points = 9;
+//     else if (percentage >= 80) points = 8;
+//     else if (percentage >= 70) points = 7;
+//     else if (percentage >= 60) points = 6;
+//     else if (percentage >= 50) points = 5;
+//     else if (percentage >= 40) points = 4;
+//     else if (percentage >= 30) points = 3;
+//     else if (percentage >= 20) points = 2;
+//     else if (percentage >= 10) points = 1;
+//     else if (percentage >= 0) points = 0;
+//       return `
+//         <tr>
+//             <td>${index + 1}</td>
+//             <td>${entry.semester}</td>
+//             <td>${entry.subjectCode}</td>
+//             <td>${entry.subjectName}</td>
+//             <td>${entry.studentFeedback}</td>
+//             <td><button class="view-btn" onclick="viewDocument(${entry.id})">View</button></td>
+//             <td>${points}</td>
+//             <td><button class="remove-btn" onclick="removeEntry(${entry.id})">Remove</button></td>
+//         </tr>
+//       `;
+//     })
+//     .join('');
+  
+//   calculateFinalScore();
+// }
 
-      let points = 0;
-
-      if (percentage >= 96) points = 10;
-    else if (percentage >= 90) points = 9;
-    else if (percentage >= 80) points = 8;
-    else if (percentage >= 70) points = 7;
-    else if (percentage >= 60) points = 6;
-    else if (percentage >= 50) points = 5;
-    else if (percentage >= 40) points = 4;
-    else if (percentage >= 30) points = 3;
-    else if (percentage >= 20) points = 2;
-    else if (percentage >= 10) points = 1;
-    else if (percentage >= 0) points = 0;
-
-
-      return `
-        <tr>
-            <td>${index + 1}</td>
-            <td>${entry.semester}</td>
-            <td>${entry.subjectCode}</td>
-            <td>${entry.subjectName}</td>
-            <td>${entry.studentFeedback}</td>
-            <td><button class="view-btn" onclick="viewDocument(${entry.id})">View</button></td>
-            <td>${points}</td>
-            <td><button class="remove-btn" onclick="removeEntry(${entry.id})">Remove</button></td>
-        </tr>
-      `;
-    })
-    .join('');
-
-  // Calculate final score
-  calculateFinalScore();
-}
-
-// Modal functions
 function openModal() {
   modal.classList.remove('hidden');
 }
-
 function closeModal() {
   modal.classList.add('hidden');
   resetForm();
 }
 
-// Close modal when clicking outside
 modal.addEventListener('click', (e) => {
   if (e.target === modal) {
     closeModal();
   }
 });
 
-// Form handling
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
 
-  const newEntry = {
-    id: entries.length + 1,
-    semester: formData.get('semester'),
-    subjectCode: formData.get('subjectCode'),
-    subjectName: formData.get('subjectName'),
-    studentFeedback: parseInt(formData.get('studentFeedback')) || 0, // Default to 0 if not provided
-  };
+  const formDataObj = {};
+  formData.append('t', 1);
+      formData.forEach((value, key) => {
+        formDataObj[key] = value;
+      });
 
-  entries.push(newEntry);
-  renderTable();
+      const per=formDataObj.studentFeedback;
+      let points=0;
+      if (per >= 96) points = 10;
+      else if (per >= 90) points = 9;
+      else if (per >= 80) points = 8;
+      else if (per >= 70) points = 7;
+      else if (per >= 60) points = 6;
+      else if (per >= 50) points = 5;
+      else if (per >= 40) points = 4;
+      else if (per >= 30) points = 3;
+      else if (per >= 20) points = 2;
+      else if (per >= 10) points = 1;
+      else if (per >= 0) points = 0;
+
+      formDataObj['score']=points;
+      try {
+        const response = await fetch('http://localhost:5000/api/add-details', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token,
+          },
+          body: JSON.stringify(formDataObj),
+        });
+        
+        if (!response.ok) {
+          const errorBody = await response.json(); 
+          console.error("Error details:", errorBody);
+          
+          const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
+          throw new Error(errorMessage);
+        }
+        const data = await response.json();
+        console.log("Response received:", data);
+        alert('Details added successfully!');
+      } catch (error) {
+        
+        console.error('Error during fetch:', error.message);
+        alert(`An error occurred: ${error.message}`);
+      }
+  // const newEntry = {
+  //   id: entries.length + 1,
+  //   semester: formData.get('semester'),
+  //   subjectCode: formData.get('subjectCode'),
+  //   subjectName: formData.get('subjectName'),
+  //   studentFeedback: parseInt(formData.get('studentFeedback')) || 0, 
+  // };
+  // entries.push(newEntry);
+  // renderTable();
   closeModal();
 }
-
 function resetForm() {
   facultyForm.reset();
 }
+// function removeEntry(id) {
+//   if (confirm('Are you sure you want to remove this entry?')) {
+//     entries = entries.filter((entry) => entry.id !== id);
+//     renderTable();
+//   }
+// }
+// function viewDocument(id) {
+//   alert('Document viewer will be implemented here');
+// }
 
-function removeEntry(id) {
-  if (confirm('Are you sure you want to remove this entry?')) {
-    entries = entries.filter((entry) => entry.id !== id);
-    renderTable();
+// function calculateFinalScore() {
+//   let totalPoints = 0;
+//   entries.forEach((entry) => {
+//     const percentage =entry.studentFeedback;
+//     let points = 0;
+//     if (percentage >= 96) points = 10;
+//     else if (percentage >= 90) points = 9;
+//     else if (percentage >= 80) points = 8;
+//     else if (percentage >= 70) points = 7;
+//     else if (percentage >= 60) points = 6;
+//     else if (percentage >= 50) points = 5;
+//     else if (percentage >= 40) points = 4;
+//     else if (percentage >= 30) points = 3;
+//     else if (percentage >= 20) points = 2;
+//     else if (percentage >= 10) points = 1;
+//     else if (percentage >= 0) points = 0;
+//     totalPoints += points;
+//   });
+//   const finalScore = entries.length > 0 ? (totalPoints / (entries.length * 10)) * 20 : 0;
+//   scoreObtained.value = finalScore.toFixed(2);
+// }
+
+// renderTable();
+
+async function fetchTeachingProcessData() {
+  try {
+    // Replace with your actual backend API endpoint
+    const response = await fetch('http://localhost:5000/api/get-details', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+        'type': t,
+      },
+    });
+    if (!response.ok) throw new Error('Failed to fetch data');
+
+    const data = await response.json();
+    populateTable(data.key); // Call function to populate table
+  } catch (error) {
+    console.error('Error fetching data:', error);
   }
 }
+function populateTable(data) {
+  const tableBody = document.getElementById('entriesTableBody');
+  tableBody.innerHTML = ''; // Clear previous entries, if any
 
-function viewDocument(id) {
-  alert('Document viewer will be implemented here');
-}
+  data.forEach((entry, index) => {
+    const row = document.createElement('tr');
 
-// Calculate final score
-function calculateFinalScore() {
-  let totalPoints = 0;
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${entry.semester || 'N/A'}</td>
+      <td>${entry.subjectCode || 'N/A'}</td>
+      <td>${entry.subjectName || 'N/A'}</td>
+      <td>${entry.studentFeedback}%</td>
+      <td>-</td>
+      <td class="score">${entry.score || 0}</td>
+      <td>
+        <button onclick="editEntry(${index})">Edit</button>
+        <button onclick="deleteEntry(${index})">Delete</button>
+      </td>
+    `;
 
-  entries.forEach((entry) => {
-  
-
-
-    const percentage =entry.studentFeedback;
-
-    let points = 0;
-
-    if (percentage >= 96) points = 10;
-    else if (percentage >= 90) points = 9;
-    else if (percentage >= 80) points = 8;
-    else if (percentage >= 70) points = 7;
-    else if (percentage >= 60) points = 6;
-    else if (percentage >= 50) points = 5;
-    else if (percentage >= 40) points = 4;
-    else if (percentage >= 30) points = 3;
-    else if (percentage >= 20) points = 2;
-    else if (percentage >= 10) points = 1;
-    else if (percentage >= 0) points = 0;
-
-    totalPoints += points;
+    tableBody.appendChild(row);
   });
-
-  const finalScore = entries.length > 0 ? (totalPoints / (entries.length * 10)) * 20 : 0;
-  scoreObtained.value = finalScore.toFixed(2);
 }
 
-// Initialize the table on page load
-renderTable();
+// // Helper function to calculate feedback percentage
+// function calculateFeedbackPercentage(entry) {
+//   // Assuming attainment is a percentage, return it directly
+//   return entry.attainment || 'N/A';
+// }
 
-// //rushi
-// async function handleSubmit(event) {
-//   event.preventDefault();
-//   const formData = new FormData(event.target);
-
-//   const newEntry = {
-//     semester: formData.get('semester'),
-//     subjectCode: formData.get('subjectCode'),
-//     subjectName: formData.get('subjectName'),
-//     studentFeedback: formData.get('studentFeedback'),
-//     supportingDocument: formData.get('supportingDocument'), 
-//   };
-
-//   try {
-//     const response = await fetch('http://localhost:3000/api/saveStudentFeedback/<FACULTY_ID>', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         Authorization: `Bearer ${localStorage.getItem('token')}`, // Assuming token is stored in localStorage
-//       },
-//       body: JSON.stringify(newEntry),
-//     });
-
-//     if (!response.ok) {
-//       throw new Error('Failed to save feedback');
-//     }
-
-//     const result = await response.json();
-//     alert('Feedback saved successfully');
-    
-//     // Add the saved entry to the table and re-render
-//     entries.push({
-//       ...newEntry,
-//       id: entries.length + 1,
-//       pointsEarned: result.pointsEarned,
-//     });
-//     renderTable();
-//     closeModal();
-//   } catch (error) {
-//     console.error('Error:', error.message);
-//     alert('Failed to save feedback. Please try again.');
-//   }
+// // Helper function to handle supporting document logic
+// function getSupportingDocument(entry) {
+//   // Placeholder logic; replace with your actual implementation
+//   return `<a href="/documents/${entry.subjectCode}" target="_blank">View</a>`;
 // }

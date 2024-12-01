@@ -20,9 +20,9 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         console.log(result);
 
         localStorage.setItem('authToken', result.token);
-        window.location.href='../Homepage/AdminHomepage.html'
+        window.location.href='./Appraisal/TeachingProcess.html'
       } else {
-        alert(result.message || 'Login failed');
+        alert(result.error || 'Login failed');
       }
     } catch (error) {
       console.error(error);
