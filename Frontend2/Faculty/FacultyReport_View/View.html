@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>
+   Government of National Capital Territory of Delhi
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="View.css">
+ </head>
+ <body>
+  <div class="header">
+   <img alt="Government Logo" height="50" src="SatyamevJayate.jpg" width="50"/>
+   <div class="title">
+    <h1>
+     Government of National Capital Territory of Delhi
+    </h1>
+    <p>
+     राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार
+    </p>
+   </div>
+   <div class="language">
+    <select>
+     <option>
+      English
+     </option>
+     <!-- Add other languages as needed -->
+    </select>
+   </div>
+  </div>
+  <div class="navbar">
+   <ul>
+    <li>
+     <a href="#">
+      Home
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      Edit Profile
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      Fill Appraisal Form
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      Important Links
+     </a>
+    </li>
+    <li>
+        <a href="#">
+         <div class="app">Report</div>
+        </a>
+       </li>
+   </ul>
+   <div class="search">
+    <input placeholder="Search" type="text"/>
+    <button>
+     <i class="fa fa-search">
+     </i>
+    </button>
+   </div>
+  </div>
+
+    <main>
+        <h2>Reports</h2>
+        <div class="controls">
+            <select id="timeframe">
+                <option value="2023-24">2023-24</option>
+            </select>
+            <ul></ul>
+<br>
+        <form>
+            <div class="form-group">
+                <input type="text" id="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input type="text" id="department" placeholder="Department">
+            </div>
+            <div class="form-group">
+                <input type="text" id="designation" placeholder="Designation">
+            </div>
+            <div class="form-group">
+                <input type="text" id="facultyId" placeholder="Faculty ID">
+            </div>
+ 
+        </form>
+    </div>
+    <div class="tabs">
+            <button class="tab-button active" data-tab="teaching">Teaching</button>
+            <button class="tab-button" data-tab="student">Student</button>
+            <button class="tab-button" data-tab="department">Department</button>
+            <button class="tab-button" data-tab="institute">Institute</button>
+            <button class="tab-button" data-tab="acr">ACR</button>
+            <button class="tab-button" data-tab="contribution">Contribution</button>
+        </div>
+    
+        <div id="teaching" class="tab-content active">
+            <h1>Teaching Process</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr. No</th>
+                    <th>Semester</th>
+                    <th>Subject code</th>
+                    <th>Subject Name</th>
+                    <th>No. of Scheduled Classes</th>
+                    <th>No. of actually held Classes</th>
+                    <th>Supporting Document</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="view-button">View</button></td>
+                </tr>
+            </tbody>
+        </div>
+
+        </table>
+        <div class="observations">
+            <h3>Observations, Recommendation and Suggestions of Head of Department</h3>
+            <div class="observation-tabs">
+                <button class="active">Observations</button>
+                <button>Recommendation</button>
+                <button>File Upload (sign)</button>
+            </div>
+            <textarea id="observationText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, numquam. Sapiente fugiat odio est corrupti quaerat! Provident corrupti perferendis amet, non delectus laborum a molestiae, maiores nesciunt, commodi enim voluptatem!</textarea>
+        </div>
+        <div class="recommendations">
+            <h3>Recommendations / Approval of Director</h3>
+            <div class="recommendation-tabs">
+                <button class="active">Recommendation</button>
+                <button>File Upload(sign)</button>
+            </div>
+            <textarea id="recommendationText">[He/She/They] consistently goes above and beyond expectations, consistently exceeding targets and delivering exceptional outcomes. Throughout team towards success.</textarea>
+        </div>
+
+        <div id="student" class="tab-content">
+            <h1>Student's Feedback</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Semester</th>
+                        <th>Subject code</th>
+                        <th>Subject Name</th>
+                        <th>Average Student Feedback Percentage			</th>
+                        <th>Supporting Document</th>
+                        <th>Actions</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="view-button">View</button></td>
+                    </tr>
+                </tbody>
+            </div>
+        </table>
+        <div class="observations">
+            <h3>Observations, Recommendation and Suggestions of Head of Department</h3>
+            <div class="observation-tabs">
+                <button class="active">Observations</button>
+                <button>Recommendation</button>
+                <button>File Upload (sign)</button>
+            </div>
+            <textarea id="observationText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, numquam. Sapiente fugiat odio est corrupti quaerat! Provident corrupti perferendis amet, non delectus laborum a molestiae, maiores nesciunt, commodi enim voluptatem!</textarea>
+        </div>
+        <div class="recommendations">
+            <h3>Recommendations / Approval of Director</h3>
+            <div class="recommendation-tabs">
+                <button class="active">Recommendation</button>
+                <button>File Upload(sign)</button>
+            </div>
+            <textarea id="recommendationText">[He/She/They] consistently goes above and beyond expectations, consistently exceeding targets and delivering exceptional outcomes. Throughout team towards success.</textarea>
+        </div>
+
+        <div id="department" class="tab-content">
+            <h1>Department Activity</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No</th>
+                            <th>Semester</th>
+                            <th>Activity</th>
+                            <th>Supporting Document</th>
+                            <th>Actions</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="view-button">View</button></td>
+                        </tr>
+                    </tbody>
+                </div>
+
+            </table>
+            <div class="observations">
+                <h3>Observations, Recommendation and Suggestions of Head of Department</h3>
+                <div class="observation-tabs">
+                    <button class="active">Observations</button>
+                    <button>Recommendation</button>
+                    <button>File Upload (sign)</button>
+                </div>
+                <textarea id="observationText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, numquam. Sapiente fugiat odio est corrupti quaerat! Provident corrupti perferendis amet, non delectus laborum a molestiae, maiores nesciunt, commodi enim voluptatem!</textarea>
+            </div>
+            <div class="recommendations">
+                <h3>Recommendations / Approval of Director</h3>
+                <div class="recommendation-tabs">
+                    <button class="active">Recommendation</button>
+                    <button>File Upload(sign)</button>
+                </div>
+                <textarea id="recommendationText">[He/She/They] consistently goes above and beyond expectations, consistently exceeding targets and delivering exceptional outcomes. Throughout team towards success.</textarea>
+            </div>
+
+            <div id="institute" class="tab-content">
+                <h1>Institute Activities</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No</th>
+                            <th>Semester</th>
+                            <th>Activity</th>
+                            <th>Supporting Document</th>
+                            <th>Actions</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="view-button">View</button></td>
+                        </tr>
+                    </tbody>
+                </div>
+
+            </table>
+            <div class="observations">
+                <h3>Observations, Recommendation and Suggestions of Head of Department</h3>
+                <div class="observation-tabs">
+                    <button class="active">Observations</button>
+                    <button>Recommendation</button>
+                    <button>File Upload (sign)</button>
+                </div>
+                <textarea id="observationText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, numquam. Sapiente fugiat odio est corrupti quaerat! Provident corrupti perferendis amet, non delectus laborum a molestiae, maiores nesciunt, commodi enim voluptatem!</textarea>
+            </div>
+            <div class="recommendations">
+                <h3>Recommendations / Approval of Director</h3>
+                <div class="recommendation-tabs">
+                    <button class="active">Recommendation</button>
+                    <button>File Upload(sign)</button>
+                </div>
+                <textarea id="recommendationText">[He/She/They] consistently goes above and beyond expectations, consistently exceeding targets and delivering exceptional outcomes. Throughout team towards success.</textarea>
+            </div>
+
+            <div id="acr" class="tab-content">
+                <h1>ACR</h1>
+                <h3>a. Result</h3>
+                    <thead>
+                        <tr>
+                            <th>Sr. No</th>
+                            <th>Semester</th>
+                            <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>No. of Student Registered</th>
+                            <th>No. of Student Passed</th>
+                            <th>Result</th>
+                            <th>Supporting Document</th>
+                            <th>Actions</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="view-button">View</button></td>
+                        </tr>
+                    </tbody>
+
+                    
+                <table>
+                    <h3>b. Research Publication</h3>
+                    <thead>
+                        <tr>
+                            <th>Sr. No</th>
+                            <th>Name of Publication</th>
+                            <th>Category</th>
+                            <th>Supporting Document</th>
+                            <th>Actions</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="view-button">View</button></td>
+                        </tr>
+                    </tbody>
+                </div>
+
+            </table>
+            <div class="observations">
+                <h3>Observations, Recommendation and Suggestions of Head of Department</h3>
+                <div class="observation-tabs">
+                    <button class="active">Observations</button>
+                    <button>Recommendation</button>
+                    <button>File Upload (sign)</button>
+                </div>
+                <textarea id="observationText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, numquam. Sapiente fugiat odio est corrupti quaerat! Provident corrupti perferendis amet, non delectus laborum a molestiae, maiores nesciunt, commodi enim voluptatem!</textarea>
+            </div>
+            <div class="recommendations">
+                <h3>Recommendations / Approval of Director</h3>
+                <div class="recommendation-tabs">
+                    <button class="active">Recommendation</button>
+                    <button>File Upload(sign)</button>
+                </div>
+                <textarea id="recommendationText">[He/She/They] consistently goes above and beyond expectations, consistently exceeding targets and delivering exceptional outcomes. Throughout team towards success.</textarea>
+            </div>
+
+            <div id="contribution" class="tab-content">
+                <h1>Contribution</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No</th>
+                            <th>Semester</th>
+                            <th>Activity</th>
+                            <th>Supporting Document</th>
+                            <th>Actions</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="view-button">View</button></td>
+                        </tr>
+                    </tbody>
+                </div>
+
+            </table>
+            <div class="observations">
+                <h3>Observations, Recommendation and Suggestions of Head of Department</h3>
+                <div class="observation-tabs">
+                    <button class="active">Observations</button>
+                    <button>Recommendation</button>
+                    <button>File Upload (sign)</button>
+                </div>
+                <textarea id="observationText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, numquam. Sapiente fugiat odio est corrupti quaerat! Provident corrupti perferendis amet, non delectus laborum a molestiae, maiores nesciunt, commodi enim voluptatem!</textarea>
+            </div>
+            <div class="recommendations">
+                <h3>Recommendations / Approval of Director</h3>
+                <div class="recommendation-tabs">
+                    <button class="active">Recommendation</button>
+                    <button>File Upload(sign)</button>
+                </div>
+                <textarea id="recommendationText">[He/She/They] consistently goes above and beyond expectations, consistently exceeding targets and delivering exceptional outcomes. Throughout team towards success.</textarea>
+            </div>
+    
+            <div class="actions">
+                <button class="secondary-button">Previous</button>
+                <button class="primary-button">Save As Draft</button>
+                <button class="primary-button">Submit</button>
+                <button class="secondary-button">Next</button>
+            </div>
+
+    <script src="View.js"></script>
+</body>
+</html>
