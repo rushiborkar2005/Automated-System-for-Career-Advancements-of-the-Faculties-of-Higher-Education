@@ -1,1 +1,547 @@
-wait code will come soon...~renuka
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="AdminHomePage.css">
+  <link rel="stylesheet" href="View.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Appraisal Form</a></li>
+        <li><a href="#">Important Links</a></li>
+        <li><a href="#">Reports</a></li>
+      </ul>
+      <div class="search-container">
+        <input type="search" id="search" placeholder="Search" />
+        <button id="searchBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="breadcrumb">
+    <h2 class="report">Reports</h2>  
+    <a href="/">Home</a>
+    <span class="separator">/</span>
+    <span class="current">Reports</span>
+</div>
+
+ 
+  <main>
+    
+    <div class="controls">
+        <select id="timeframe">
+            <option value="2023-24">2023-24</option>
+        </select>
+        <ul></ul>
+<br>
+    <form>
+        <div class="form-group">
+            <input type="text" id="title" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <input type="text" id="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <input type="text" id="department" placeholder="Department">
+        </div>
+        <div class="form-group">
+            <input type="text" id="designation" placeholder="Designation">
+        </div>
+        <div class="form-group">
+            <input type="text" id="facultyId" placeholder="Faculty ID">
+        </div>
+
+    </form>
+</div>
+<div class=".tabscontainer">
+<div class="tabs">
+        <button class="tab-button active" data-tab="teachingSection">Teaching</button>
+        <button class="tab-button" data-tab="studentSection">Student</button>
+        <button class="tab-button active" data-tab="departmentSection">Department</button>
+        <button class="tab-button" data-tab="instituteSection">Institute</button>
+        <button class="tab-button" data-tab="acrSection">ACR</button>
+        <button class="tab-button" data-tab="contributionSection">Contribution</button>
+        <button class="tab-button" data-tab="summarySection">Summary</button>
+    </div>
+</div>
+
+    <div id="teachingSection" class="tab-content active">
+        <h1 class="teaching-content"> A. Teaching Process (Max Point 20) Note: 10 Credit point for each semester </h1>
+    <table>
+        <thead>
+            <tr>
+                <th class="table-row">Sr. No</th>
+                <th class="table-row">Semester</th>
+                <th class="table-row">Subject code</th>
+                <th class="table-row">Subject Name</th>
+                <th class="table-row">No. of Scheduled Classes</th>
+                <th class="table-row">No. of actually held Classes</th>
+                <th class="table-row">Supporting Document</th>
+                <th class="table-row">Score</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button class="view-button">View</button></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </div>
+
+    </table>
+    <div class="observations">
+        <h3 class="observation-title" >Observations, Recommendation and Suggestions of Head of Department</h3>
+        <!-- <div class="observation-tabs">
+            <button id="observation-btn" class="active">Observations</button>
+            <button id="recommendation-btn">Recommendation</button>
+            <button id="file-upload-btn">File Upload (sign)</button>
+        </div> -->
+        
+        <div id="textarea-observation">
+            <h1 class="Observation" >Observations</h1>
+            <label for="observationText">Provide your observations:</label>
+            <textarea id="observationText" rows="5" cols="50" placeholder="Type your observations here..."></textarea>
+        </div>
+        
+        <div id="textarea-recommendation">
+            <h1 class="Recommendation" >Recommendation</h1>
+            <label for="recommendationText">Provide your recommendations:</label>
+            <textarea id="recommendationText" rows="5" cols="50" placeholder="Type your recommendations here..."></textarea>
+        </div>
+        
+        <!-- <div id="file-upload-container">
+            <h1 class="upload" >Upload a file</h1>
+            <label for="fileUpload">Upload a file:</label>
+            <input type="file" id="fileUpload">
+        </div> -->
+    <hr>
+
+    <div id="studentSection" class="tab-content">
+        <h1 class="student-feedback">B. Student's Feedback (Max Point 20) Note: 10 Credit point for each semester</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr. No</th>
+                    <th>Semester</th>
+                    <th>Subject code</th>
+                    <th>Subject Name</th>
+                    <th>Average Student Feedback Percentage</th>
+                    <th>Supporting Document</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="view-button">View</button></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </div>
+    </table>
+    <div class="observations">
+        <h3 class="observation-recomendation">Observations, Recommendation and Suggestions of Head of Department</h3>
+        <!-- <div class="observation-tabs">
+            <button id="observation-btn" class="active">Observations</button>
+            <button id="recommendation-btn">Recommendation</button>
+            <button id="file-upload-btn">File Upload (sign)</button>
+        </div> -->
+        
+        <div id="textarea-observation">
+            <h1 class="Observation" >Observations</h1>
+            <label for="observationText">Provide your observations:</label>
+            <textarea id="observationText" rows="5" cols="50" placeholder="Type your observations here..."></textarea>
+        </div>
+        
+        <div id="textarea-recommendation">
+            <h1 class="Recommendation">Recommendation</h1>
+            <label for="recommendationText">Provide your recommendations:</label>
+            <textarea id="recommendationText" rows="5" cols="50" placeholder="Type your recommendations here..."></textarea>
+        </div>
+        
+        <!-- <div id="file-upload-container">
+            <h1 class="upload" >Upload a file</h1>
+            <label for="fileUpload">Upload a file:</label>
+            <input type="file" id="fileUpload">
+        </div> -->
+    <hr>
+    <div id="departmentSection" class="tab-content">
+        <h1 class="Department-Activity">C. Department Activity (Max credit 20) Note: 10 Credit point for each semester</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Semester</th>
+                        <th>Activity</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </div>
+
+        </table>
+        <div class="observations">
+            <h3 class="observation-department">Observations, Recommendation and Suggestions of Head of Department</h3>
+            <!-- <div class="observation-tabs">
+                <button id="observation-btn" class="active">Observations</button>
+                <button id="recommendation-btn">Recommendation</button>
+                <button id="file-upload-btn">File Upload (sign)</button>
+            </div> -->
+            
+            <div id="textarea-observation">
+                <h1 class="Observation" >Observations</h1>
+                <label for="observationText">Provide your observations:</label>
+                <textarea id="observationText" rows="5" cols="50" placeholder="Type your observations here..."></textarea>
+            </div>
+            
+            <div id="textarea-recommendation">
+                <h1 class="Recommendation">Recommendation</h1>
+                <label for="recommendationText">Provide your recommendations:</label>
+                <textarea id="recommendationText" rows="5" cols="50" placeholder="Type your recommendations here..."></textarea>
+            </div>
+            
+            <!-- <div id="file-upload-container">
+                <h1 class="upload" >Upload a file</h1>
+                <label for="fileUpload">Upload a file:</label>
+                <input type="file" id="fileUpload">
+            </div>
+         -->
+<hr>
+        <div id="instituteSection" class="tab-content">
+            <h1 class="Institute-Activities">D. Institute Activities (Max Credit 10) Note: 5 Credit point for each semester </h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Semester</th>
+                        <th>Activity</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </div>
+
+        </table>
+        <div class="observations">
+            <h3 class="observation-suggestions">Observations, Recommendation and Suggestions of Head of Department</h3>
+            <!-- <div class="observation-tabs">
+                <button id="observation-btn" class="active">Observations</button>
+                <button id="recommendation-btn">Recommendation</button>
+                <button id="file-upload-btn">File Upload (sign)</button>
+            </div> -->
+            
+            <div id="textarea-observation">
+                <h1 class="Observation" >Observations</h1>
+                <label for="observationText">Provide your observations:</label>
+                <textarea id="observationText" rows="5" cols="50" placeholder="Type your observations here..."></textarea>
+            </div>
+            
+            <div id="textarea-recommendation">
+                <h1 class="Recommendation" >Recommendation</h1>
+                <label for="recommendationText">Provide your recommendations:</label>
+                <textarea id="recommendationText" rows="5" cols="50" placeholder="Type your recommendations here..."></textarea>
+            </div>
+            
+            <!-- <div id="file-upload-container">
+                <h1 class="upload" >Upload a file</h1>
+                <label for="fileUpload">Upload a file:</label>
+                <input type="file" id="fileUpload">
+            </div> -->
+        <hr>
+
+        <div id="acrSection" class="tab-content">
+            <h1 class="ACR">E. ACR maintained at institute level (Max Credit 20)</h1>
+            <table>
+            <h3 class="Result">a. Result  (Max 10 Credit Point)</h3>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Semester</th>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        <th>No. of Student Registered</th>
+                        <th>No. of Student Passed</th>
+                        <th>Result</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+
+                
+            <table>
+                <h3 class="Research">b. Research Publication (Weightage period: 1 July to 30 June of every academic year)  (Max 10 Credit Point)</h3>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Name of Publication</th>
+                        <th>Category</th>
+                        <th>Result</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </div>
+
+        </table>
+        <div class="observations">
+            <h3 class="recommendation">Observations, Recommendation and Suggestions of Head of Department</h3>
+            <!-- <div class="observation-tabs">
+            <button id="observation-btn" class="active">Observations</button>
+            <button id="recommendation-btn">Recommendation</button>
+            <button id="file-upload-btn">File Upload (sign)</button>
+        </div> -->
+        
+        <div id="textarea-observation">
+            <h1 class="Observation" >Observations</h1>
+            <label for="observationText">Provide your observations:</label>
+            <textarea id="observationText" rows="5" cols="50" placeholder="Type your observations here..."></textarea>
+        </div>
+        
+        <div id="textarea-recommendation">
+            <h1 class="Recommendation">Recommendation</h1>
+            <label for="recommendationText">Provide your recommendations:</label>
+            <textarea id="recommendationText" rows="5" cols="50" placeholder="Type your recommendations here..."></textarea>
+        </div>
+        
+        <!-- <div id="file-upload-container">
+            <h1 class="upload" >Upload a file</h1>
+            <label for="fileUpload">Upload a file:</label>
+            <input type="file" id="fileUpload">
+        </div> -->
+        <hr>
+
+        <div id="contributionSection" class="tab-content">
+            <h1 class="contribution">F.  Contribution to Society (Max Credit 10) </h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Semester</th>
+                        <th>Activity</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                        
+                    </tr>
+                </tbody>
+            </div>
+
+        </table>
+        <div class="observations">
+            <h3 class="head">Observations, Recommendation and Suggestions of Head of Department</h3>
+            <div id="textarea-observation">
+                <h1 class="Observation" >Observations</h1>
+                <label for="observationText">Provide your observations:</label>
+                <textarea id="observationText" rows="5" cols="50" placeholder="Type your observations here..."></textarea>
+            </div>
+              
+              <div id="recommendation-section" class="tab-content active">
+                <h1 class="Observation" >Recommendation</h1>
+                <label for="recommendationText">Provide your recommendation:</label><br>
+                <textarea id="recommendationText" rows="5" cols="50" placeholder="Type your recommendation here..."></textarea>
+              </div>
+              
+     <hr>
+            <div id="summarySection" class="tab-content active"></div>
+            <h1 class="Performance-Summary">I. Performance Summary</h1>
+                  <table>
+                  <thead>
+                    <tr>
+                      <th>Sr. No</th>
+                      <th>Parameters</th>
+                      <th>Total Score</th>
+                      <th>Obtained Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>A</td>
+                      <td>Teaching Process</td>
+                      <td>20</td>
+                      <td>18</td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>Students' Feedback</td>
+                      <td>20</td>
+                      <td>12</td>
+                    </tr>
+                    <tr>
+                      <td>C</td>
+                      <td>Departmental Activities</td>
+                      <td>20</td>
+                      <td>14</td>
+                    </tr>
+                    <tr>
+                      <td>D</td>
+                      <td>Institute Activities</td>
+                      <td>10</td>
+                      <td>10</td>
+                    </tr>
+                    <tr>
+                      <td>E</td>
+                      <td>ACR</td>
+                      <td>20</td>
+                      <td>18</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>Contribution to Society</td>
+                      <td>10</td>
+                      <td>5</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="2">Total</td>
+                      <td>100</td>
+                      <td>77</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+<div class="observations">
+            <h3 class="observation-head">Observations, Recommendation and Suggestions of Head of Department</h3>
+            <div id="textarea-observation">
+                <h1 class="Observation" >Observations</h1>
+                <label for="observationText">Provide your observations:</label>
+                <textarea id="observationText" rows="5" cols="50" placeholder="Type your observations here..."></textarea>
+            </div>
+              
+              <div id="recommendation-section" class="tab-content active">
+                <h1 class="Observation" >Recommendation</h1>
+                <label for="recommendationText">Provide your recommendation:</label><br>
+                <textarea id="recommendationText" rows="5" cols="50" placeholder="Type your recommendation here..."></textarea>
+              </div>
+              
+              <!-- <div id="file-upload-section" class="tab-content">
+                <h1 class="upload">File Upload (sign)</h1>
+                <label for="fileUpload">Upload a file:</label><br>
+                <input type="file" id="fileUpload">
+              </div> -->
+            <!-- <div class="observation-tabs">
+                <button class="active">Observations</button>
+                <button>Recommendation</button>
+                <button>File Upload (sign)</button>
+            </div> -->
+            <!-- <textarea id="observationText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, numquam. Sapiente fugiat odio est corrupti quaerat! Provident corrupti perferendis amet, non delectus laborum a molestiae, maiores nesciunt, commodi enim voluptatem!</textarea> -->
+        </div>
+        <div class="recommendations">
+            <h3 class="Approval-Director">Observations Recommendations / Approval of Director</h3>
+
+            <!-- <div class="recommendation-tabs">
+                <button class="tab-btn active" data-target="recommendation-section">Recommendation</button>
+                <button class="tab-btn" data-target="file-upload-section">File Upload (sign)</button>
+              </div> -->
+              <div id="textarea-observation">
+                <h1 class="Observation" >Observations</h1>
+                <label for="observationText">Provide your observations:</label>
+                <textarea id="observationText" rows="5" cols="50" placeholder="Type your observations here..."></textarea>
+            </div>
+              
+              <div id="recommendation-section" class="tab-content active">
+                <h1 class="Observation" >Recommendation</h1>
+                <label for="recommendationText">Provide your recommendation:</label><br>
+                <textarea id="recommendationText" rows="5" cols="50" placeholder="Type your recommendation here..."></textarea>
+              </div>
+              
+              <div id="file-upload-section" class="tab-content">
+                <h1 class="upload">File Uploaded HOD (sign)</h1>
+                <button class="view-button">View</button>
+              </div>
+              <div id="file-upload-section" class="tab-content">
+                <h1 class="upload">File Uploaded by Director (sign)</h1>
+                <button class="view-button">View</button><br>
+              </div>
+              
+        </table>
+        
+
+    <script src="View.js"></script>
+</body>
+</html>
