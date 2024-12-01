@@ -49,8 +49,10 @@ const FacultySchema = new mongoose.Schema({
     subjectName: { type: String },
     studentFeedback: { type: String },
     pointsEarned: { type: Number },
+
     document: { type: String },
     score: { type: Number}
+
   }],
 
   departmentActivities: [{
@@ -75,11 +77,13 @@ const FacultySchema = new mongoose.Schema({
     semester: { type: String },
     subjectCode: { type: String },
     subjectName: { type: String },
-    studentsRegistered: { type: Number },
-    studentsPassed: { type: Number },
+    noRegisteredStudents: { type: Number },
+    noPassedStudents: { type: Number },
     creditPoint: { type: Number },
+
     document: { type: String },
     score: { type: Number}
+
   }],
 
   research: [{
