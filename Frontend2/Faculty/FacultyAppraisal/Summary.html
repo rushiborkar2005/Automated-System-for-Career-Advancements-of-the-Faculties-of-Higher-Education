@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="Summary.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Appraisal Form</a></li>
+        <li><a href="#">Important Links</a></li>
+        <li><a href="#">Reports</a></li>
+      </ul>
+      <div class="search-container">
+        <input type="search" id="search" placeholder="Search" />
+        <button id="searchBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="breadcrumb">
+    <h2 class="report">Appraisal Form</h2>  
+    <a href="/">Home</a>
+    <span class="separator">/</span>
+    <span class="current">Appraisal Form</span>
+</div>
+
+        <nav class="section-nav">
+          <button>Teaching Process</button>
+          <button>Student's Feedback </button>
+          <button>Departmental Activities</button>
+          <button >Institute Activities</button>
+          <button>ACR</button>
+          <button>Contribution to Society</button>
+          <button class="active">Score</button>
+        </nav>
+       <div class="content">
+  <h2 class="PER">Performance Summary</h2>
+  <div class="performance-summary">
+    <div class="score-box">
+      Score Obtained Total on 10 Point Scale: <input type="number">
+    </div>
+    <select>
+      <option value="2023-24">Timeframe: 2023-24</option>
+    </select>
+  </div>
+</div>
+
+
+        <table>
+        <thead>
+          <tr>
+            <th>Sr. No</th>
+            <th>Parameters</th>
+            <th>Total Score</th>
+            <th>Obtained Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>Teaching Process</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>Students' Feedback</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>Departmental Activities</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>Institute Activities</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+          </tr>
+          <tr>
+            <td>E</td>
+            <td>ACR</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>Contribution to Society</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+          </tr>
+        </tbody>
+        <tfoot id>
+          <tr>
+            <td colspan="2">Total</td>
+            <td><input type="text"></td>
+            <td><input type="number"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+        <div class="navigation-buttons">
+          <button class="next-btn" onclick="location.href='ContributionToSociety.html'">Back</button>
+          <div class="right-buttons">
+            <button class="draft-btn">Save As Draft</button>
+            <button class="submit-btn">Submit</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="Summary.js"></script>
+</body>
+</html>
