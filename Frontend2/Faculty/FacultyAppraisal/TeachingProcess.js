@@ -256,12 +256,11 @@ async function handleSubmit(event) {
   const actualClasses = parseInt(formData.get('actualClasses'));
   const percentage = (actualClasses / scheduledClasses) * 100;
   let score = 0;
-
-  if (percentage >= 96) score = 10;
-  else if (percentage >= 90) score = 9;
-  else if (percentage >= 80) score = 8;
-  else if (percentage >= 70) score = 7;
-  else if (percentage >= 55) score = 5;
+if (percentage >= 96) points1 = 5;
+  else if (percentage >= 90) points1 = 4;
+  else if (percentage >= 80) points1 = 3;
+  else if (percentage >= 70) points1 = 2;
+  else if (percentage >= 55) points1 = 1;
 
   const formDataObj = {};
   formData.append('t', 0);
