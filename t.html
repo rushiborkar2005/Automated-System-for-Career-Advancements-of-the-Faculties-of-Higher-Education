@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Upload</title>
+</head>
+<body>
+    <h1>Upload a PDF File</h1>
+    <form id="uploadForm">
+        <label for="fileInput">Select PDF:</label>
+        <input type="file" id="fileInput" name="file" accept="application/pdf" required />
+        <button type="submit">Upload</button>
+    </form>
+
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent the form from reloading the page
+            
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert("Please select a PDF file to upload.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('http://localhost:3000/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    document.getElementById('response').innerText = 
+                        `File uploaded successfully! File ID: ${result.fileId}`;
+                } else {
+                    document.getElementById('response').innerText = 
+                        `Failed to upload file: ${result.message || 'Unknown error'}`;
+                }
+            } catch (error) {
+                console.error('Error uploading file:', error);
+                document.getElementById('response').innerText = 
+                    'An error occurred while uploading the file.';
+            }
+        });
+    </script>
+</body>
+</html>
