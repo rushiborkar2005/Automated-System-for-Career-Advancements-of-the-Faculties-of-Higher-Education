@@ -36,6 +36,7 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
       areasOfSpecialization,
       experiences,
       employeeType,
+
     } = req.body;
     const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.instituteName');
     const institute_name = institute.basicInfo.instituteName;
@@ -140,6 +141,9 @@ const upload = require('../Module/multer');
     }
     if (data.t==='5') {
       faculty.contributionSociety.push(data);
+    }
+    if(data.t=='7'){
+      faculty.updateOne(data);
     }
     // Save the updated document
     await faculty.save();
