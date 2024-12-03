@@ -26,7 +26,7 @@ router.get('/get-details', async (req, res) => {
       }
       console.log(faculty);
       if (t==='0') {
-       res.json({ key: faculty.studentsFeedback });
+       res.json({ key: faculty.teachingProcess });
       }
       if (t==='1') {
        res.json({ key: faculty.studentsFeedback });
@@ -45,6 +45,10 @@ router.get('/get-details', async (req, res) => {
       }
       if (t==='5') {
         res.json({ key: faculty.contributionSociety });
+      }
+      if(t==='7')
+      {
+        res.json({ key: faculty });
       }
   });
   module.exports = router;

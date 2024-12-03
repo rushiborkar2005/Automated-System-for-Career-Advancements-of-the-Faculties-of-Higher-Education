@@ -38,8 +38,8 @@ function populateTable(data) {
       <td>${entry.semester || 'N/A'}</td>
       <td>${entry.subjectCode || 'N/A'}</td>
       <td>${entry.subjectName || 'N/A'}</td>
-      <td>${entry.studentsRegistered || 'N/A'}</td>
-      <td>${entry.studentsPassed || 'N/A'}</td>
+      <td>${entry.noRegisteredStudents || 'N/A'}</td>
+      <td>${entry.noPassedStudents || 'N/A'}</td>
       <td>${entry.creditPoint || 'N/A'}</td>
       <td>${entry.document || 'N/A'}</td>
       <td class="score">${entry.score || 0}</td>

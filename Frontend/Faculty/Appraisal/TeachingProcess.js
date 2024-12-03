@@ -1,13 +1,18 @@
 const t=0;
-
+const modal = document.getElementById('modal');
+const facultyForm = document.getElementById('facultyForm');
+const entriesTableBody = document.getElementById('entriesTableBody');
+const scoreObtained = document.getElementById('scoreObtained');
+const token = localStorage.getItem('authToken'); 
 document.addEventListener('DOMContentLoaded', () => {
   // Fetch data when the page loads
+  console.log('doing');
   fetchData();
 });
 
 
 
-async function fetchData() {
+async function fetchData(t) {
   try {
     // Replace with your actual backend API endpoint
     const response = await fetch('http://localhost:5000/api/get-details', {
@@ -53,11 +58,7 @@ function populateTable(data) {
 }
 
 // DOM Elements
-const modal = document.getElementById('modal');
-const facultyForm = document.getElementById('facultyForm');
-const entriesTableBody = document.getElementById('entriesTableBody');
-const scoreObtained = document.getElementById('scoreObtained');
-const token = localStorage.getItem('authToken'); 
+
 // Helper function to calculate points
 // function calculatePoints(scheduledClasses, actualClasses, attainment) {
 //   const percentage = scheduledClasses > 0 ? (actualClasses / scheduledClasses) * 100 : 0;
