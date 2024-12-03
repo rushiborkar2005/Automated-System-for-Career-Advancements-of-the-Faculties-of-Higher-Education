@@ -16,26 +16,36 @@ const router = express.Router();
 router.post('/addFaculty', verifyToken, async (req, res) => {
   try {
     const {
+      // title,
+      // firstName,
+      // middleName,
+      // lastName,
+      // gender,
+      // dateOfBirth,
+      // address,
+      // city,
+      // zipcode,
+      // state,
+      // country,
+      // departmentName,
+      // facultyId,
+      // dateOfJoining,
+      // designation,
+      // facultyEmail,
+      // educationQualification,
+      // areasOfSpecialization,
+      // experiences,
+      // employeeType,
+
       title,
       firstName,
       middleName,
       lastName,
-      gender,
-      dateOfBirth,
-      address,
-      city,
-      zipcode,
-      state,
-      country,
       departmentName,
       facultyId,
       dateOfJoining,
       designation,
       facultyEmail,
-      educationQualification,
-      areasOfSpecialization,
-      experiences,
-      employeeType,
 
     } = req.body;
     const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.instituteName');
@@ -45,26 +55,36 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
     const password = generatePassword();
 
     const newFaculty = new FacultyModel({
+      // title,
+      // firstName,
+      // middleName,
+      // lastName,
+      // gender,
+      // dateOfBirth,
+      // address,
+      // city,
+      // zipcode,
+      // state,
+      // country,
+      // departmentName,
+      // facultyId,
+      // dateOfJoining,
+      // designation,
+      // facultyEmail,
+      // educationQualification,
+      // areasOfSpecialization,
+      // experiences,
+      // employeeType,
+
       title,
       firstName,
       middleName,
       lastName,
-      gender,
-      dateOfBirth,
-      address,
-      city,
-      zipcode,
-      state,
-      country,
       departmentName,
       facultyId,
       dateOfJoining,
       designation,
       facultyEmail,
-      educationQualification,
-      areasOfSpecialization,
-      experiences,
-      employeeType,
       password
     });
     const savedFaculty = await newFaculty.save();
@@ -85,7 +105,7 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
 
 
 // Add details to existing faculty
-const upload = require('../Module/multer');
+const upload = require('../Multer');
   router.post('/add-details', upload.single('document'), async (req, res) => {
 
   // const {
@@ -160,6 +180,7 @@ const upload = require('../Module/multer');
   }
 });
 module.exports = router;
+
 // const express = require('express');
 // const Institute=require('../Models/Institute')
 // const Faculty = require('../Models/addfaculty');
