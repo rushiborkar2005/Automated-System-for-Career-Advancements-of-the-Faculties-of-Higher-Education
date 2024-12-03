@@ -16,26 +16,37 @@ const router = express.Router();
 router.post('/addFaculty', verifyToken, async (req, res) => {
   try {
     const {
+      // title,
+      // firstName,
+      // middleName,
+      // lastName,
+      // gender,
+      // dateOfBirth,
+      // address,
+      // city,
+      // zipcode,
+      // state,
+      // country,
+      // departmentName,
+      // facultyId,
+      // dateOfJoining,
+      // designation,
+      // facultyEmail,
+      // educationQualification,
+      // areasOfSpecialization,
+      // experiences,
+      // employeeType,
+
       title,
       firstName,
       middleName,
       lastName,
-      gender,
-      dateOfBirth,
-      address,
-      city,
-      zipcode,
-      state,
-      country,
       departmentName,
       facultyId,
       dateOfJoining,
       designation,
       facultyEmail,
-      educationQualification,
-      areasOfSpecialization,
-      experiences,
-      employeeType,
+
     } = req.body;
     const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.instituteName');
     const institute_name = institute.basicInfo.instituteName;
@@ -44,26 +55,36 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
     const password = generatePassword();
 
     const newFaculty = new FacultyModel({
+      // title,
+      // firstName,
+      // middleName,
+      // lastName,
+      // gender,
+      // dateOfBirth,
+      // address,
+      // city,
+      // zipcode,
+      // state,
+      // country,
+      // departmentName,
+      // facultyId,
+      // dateOfJoining,
+      // designation,
+      // facultyEmail,
+      // educationQualification,
+      // areasOfSpecialization,
+      // experiences,
+      // employeeType,
+
       title,
       firstName,
       middleName,
       lastName,
-      gender,
-      dateOfBirth,
-      address,
-      city,
-      zipcode,
-      state,
-      country,
       departmentName,
       facultyId,
       dateOfJoining,
       designation,
       facultyEmail,
-      educationQualification,
-      areasOfSpecialization,
-      experiences,
-      employeeType,
       password
     });
     const savedFaculty = await newFaculty.save();
@@ -80,7 +101,10 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
     });
   }
 });
+
+
   router.post('/add-details'  , async (req, res) => {
+
 
   // const {
   //   teachingProcess,
@@ -136,6 +160,9 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
     if (data.t==='5') {
       faculty.contributionSociety.push(data);
     }
+    if(data.t=='7'){
+      faculty.updateOne(data);
+    }
     // Save the updated document
     await faculty.save();
     res.status(200).json({
@@ -151,6 +178,7 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
   }
 });
 module.exports = router;
+
 // const express = require('express');
 // const Institute=require('../Models/Institute')
 // const Faculty = require('../Models/addfaculty');

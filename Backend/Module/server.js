@@ -11,7 +11,7 @@ const InLogin=require('../routes/Institutelogin')
 const InName=require('../routes/institutename')
 const faculty_login=require('../routes/facultylogin')
 const cookieParser = require('cookie-parser');
-const upload = require('../Module/multer');
+//const upload = require('../Module/multer');
 
 app.use(cookieParser());
 const corsOptions = {
@@ -19,6 +19,9 @@ const corsOptions = {
   credentials: true, // allow credentials (cookies, HTTP authentication)
 }
 
+//get all the faculty details
+const getallfaculty= require ('../routes/getAllFaculty');
+app.use('/api', getallfaculty );
 
 app.use(cors(corsOptions));
 app.use(express.json()); 
