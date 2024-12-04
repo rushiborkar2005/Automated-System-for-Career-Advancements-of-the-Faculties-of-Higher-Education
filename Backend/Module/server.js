@@ -21,7 +21,7 @@ const corsOptions = {
 
 //get all the faculty details
 const getallfaculty= require ('../routes/getAllFaculty');
-app.use('/api', getallfaculty );
+
 
 app.use(cors(corsOptions));
 app.use(express.json()); 
@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api',Instituteregister,IN,InLogin,InName,addfacultyRoute,faculty_login,getf);
-
+app.use('/api', getallfaculty );
 app.use((err, req, res, next) => {
   console.error(err.stack); 
   res.status(500).send({ error: 'Something went wrong!' });

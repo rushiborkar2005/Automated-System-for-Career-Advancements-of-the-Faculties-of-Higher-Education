@@ -1,53 +1,10 @@
-const t=5;
+// let entries = [];
+const t=3;
 
 document.addEventListener('DOMContentLoaded', () => {
   // Fetch data when the page loads
   fetchData();
 });
-
-
-
-async function fetchData() {
-  try {
-    // Replace with your actual backend API endpoint
-    const response = await fetch('http://localhost:5000/api/get-details', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: token,
-        'type': t,
-      },
-    });
-    if (!response.ok) throw new Error('Failed to fetch data');
-
-    const data = await response.json();
-    populateTable(data.key); 
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-}
-function populateTable(data) {
-  const tableBody = document.getElementById('entriesTableBody');
-  tableBody.innerHTML = '';
-
-  data.forEach((entry, index) => {
-    const row = document.createElement('tr');
-
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${entry.semester || 'N/A'}</td>
-      <td>${entry.activity || 'N/A'}</td>
-      <td>${entry.document || 'N/A'}</td>
-      <td class="score">${entry.score || 0}</td>
-      <td>
-        <button onclick="editEntry(${index})">Edit</button>
-        <button onclick="deleteEntry(${index})">Delete</button>
-      </td>
-    `;
-    tableBody.appendChild(row);
-  });
-}
-
 // DOM Elements
 const modal = document.getElementById('modal');
 const facultyForm = document.getElementById('facultyForm');
@@ -95,13 +52,14 @@ modal.addEventListener('click', (e) => {
 // Form handling
 async function handleSubmit(event) {
   event.preventDefault();
-  const formData = new FormData(event.target); 
-  formData.append('t', '5');
+  const formData = new FormData(event.target);
+  formData.append('t', '3');
   const formDataObj = {};
   
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
+
       try {
         const response = await fetch('http://localhost:5000/api/add-details', {
           method: 'POST',
@@ -133,7 +91,6 @@ async function handleSubmit(event) {
         alert(`An error occurred: ${error.message}`);
       }
     
-
   // const newEntry = {
   //   id: entries.length + 1,
   //   semester: formData.get('semester'),
@@ -167,5 +124,53 @@ function resetForm() {
 //   scoreObtained.value = totalMarks.toFixed(2); // Display the calculated score
 // }
 
-// Initialize the table on page load
+// // Initialize the table on page load
 // renderTable();
+
+
+
+
+
+
+
+
+async function fetchData() {
+  try {
+    // Replace with your actual backend API endpoint
+    const response = await fetch('http://localhost:5000/api/get-details', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+        'type': t,
+      },
+    });
+    if (!response.ok) throw new Error('Failed to fetch data');
+
+    const data = await response.json();
+    populateTable(data.key); 
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+function populateTable(data) {
+  const tableBody = document.getElementById('entriesTableBody');
+  tableBody.innerHTML = '';
+
+  data.forEach((entry, index) => {
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${entry.semester || 'N/A'}</td>
+      <td>${entry.activity || 'N/A'}</td>
+      <td>-</td>
+      <td class="score">${entry.score || 0}</td>
+      <td>
+        <button onclick="editEntry(${index})">Edit</button>
+        <button onclick="deleteEntry(${index})">Delete</button>
+      </td>
+    `;
+    tableBody.appendChild(row);
+  });
+}

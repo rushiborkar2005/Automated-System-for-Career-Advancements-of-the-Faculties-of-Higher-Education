@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!token) {
         window.location.href = "../../Homepage/homepage.html";
     }
-    const instituteNameElement = document.querySelector('.institute-name');
+    const instituteNameElement = document.querySelector('.profile-name');
   
     if (token) {
       fetch('http://localhost:5000/api/institute-name', {
@@ -34,11 +34,49 @@ document.addEventListener('DOMContentLoaded', () => {
       instituteNameElement.textContent = 'No Token Found'; // Handle missing token
     }
 
-    const logoutButton = document.getElementById('logoutbutton');
-    logoutButton.addEventListener('click', () => {
-        console.log('hello')
-        localStorage.removeItem('authToken');
-        window.location.href = '../../Homepage/homepage.html';
+   
+
+
+
+
+    const profileInfo = document.querySelector('.profile-info');
+    const profileDropdown = document.querySelector('.profile-dropdown');
+
+    profileInfo.addEventListener('click', () => {
+      profileDropdown.classList.toggle('hidden');
     });
 
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!profileInfo.contains(event.target)) {
+        profileDropdown.classList.add('hidden');
+      }
+
+      const profileInfo = document.querySelector('.profile-info');
+      const profileDropdown = document.querySelector('.profile-dropdown');
+
+      profileInfo.addEventListener('click', () => {
+        profileDropdown.classList.toggle('hidden');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (event) => {
+        if (!profileInfo.contains(event.target)) {
+          profileDropdown.classList.add('hidden');
+        }
+
+
+      })
+
+       
+    }) 
+   const logoutButton = document.getElementById('logoutbutton');
+  logoutButton.addEventListener('click', () => {
+      console.log('hello')
+      localStorage.removeItem('authToken');
+      window.location.href = '../Homepage/HomePage.html';
   });
+
+  });
+
+

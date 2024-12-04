@@ -20,7 +20,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         console.log(result);
 
         localStorage.setItem('authToken', result.token);
-        window.location.href='../Homepage/AdminHomepage.html'
+        window.location.href='AdminHomepage.html'
       } else {
         alert(result.message || 'Login failed');
       }
