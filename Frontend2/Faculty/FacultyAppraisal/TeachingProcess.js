@@ -26,6 +26,7 @@ async function fetchData() {
     console.error('Error fetching data:', error);
   }
 }
+
 function populateTable(data) {
   const tableBody = document.getElementById('entriesTableBody');
   tableBody.innerHTML = '';
