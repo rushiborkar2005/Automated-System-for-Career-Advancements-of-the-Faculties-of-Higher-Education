@@ -1,10 +1,13 @@
 const express = require('express');
 const Institute = require('../Models/Institute');
 const Faculty = require('../Models/addfaculty');
+const multer = require("multer");
 const jwt = require('jsonwebtoken');
+const  { uploadFileToDrive }=require('../Module/multer')
 const { LocalStorage } = require('node-localstorage');
 const localStorage = new LocalStorage('./scratch');
 const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
+const upload = multer({ dest: 'uploads/' });
 const {
   verifyToken,
   generatePassword,
@@ -80,7 +83,7 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
     });
   }
 });
-  router.post('/add-details'  , async (req, res) => {
+  router.post('/add-details', async (req, res) => {
 
   // const {
   //   teachingProcess,
@@ -112,7 +115,6 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
       return res.status(404).json({ message: 'Faculty not found' });
     }
     console.log(data);
-    // Update the arrays
     if (data.t==='0') {
       
       faculty.teachingProcess.push(data);
@@ -150,6 +152,38 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
     });
   }
 });
+
+
+
+
+router.get('/faculty-list', async (req, res) => {
+
+  const token = req.headers.authorization;
+  console.log(token)
+  
+  if (!token) {
+      return res.status(401).json({ error: 'No token, authorization denied' });
+  }
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const user = decoded.userId;
+    const institute_name = user.basicInfo.instituteName;
+    const fdb = getdb(institute_name.replace(/[^a-zA-Z0-9]/g, '_'));
+    const FacultyModel = Faculty(fdb);
+    // Find the faculty by ID
+    const faculty = await FacultyModel.find();
+    console.log(faculty);
+    if (!faculty) {
+      return res.status(404).json({ message: 'Faculty not found' });
+    }
+res.status(200).json(faculty);
+}catch(error)
+{
+
+}
+}
+);
+
 module.exports = router;
 // const express = require('express');
 // const Institute=require('../Models/Institute')
@@ -227,3 +261,9 @@ module.exports = router;
 //   }
 // });
 // module.exports = router;
+
+
+
+
+
+

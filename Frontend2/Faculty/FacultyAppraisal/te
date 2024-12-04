@@ -1,0 +1,522 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="TeachingProcess.css">
+</head>
+<body>
+  
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  
+  <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Appraisal Form</a></li>
+        <li><a href="#">Important Links</a></li>
+        <li><a href="#">Reports</a></li>
+      </ul>
+      <div class="search-container">
+        <input type="search" id="search" placeholder="Search" />
+        <button id="searchBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="breadcrumb">
+    <h2 class="report">Appraisal Form</h2>  
+</div>
+<main><nav class="section-nav">
+  <a href="TeachingProcess.html"><button class="active">Teaching Process</button></a>
+    <a href="StudentFeedBack.html"><button  >Student's Feedback </button></a>
+    <a href="DepartmentalActivities.html"><button>Departmental Activities</button></a>
+    <a href="InstitutionalActivities.html"><button >Institute Activities</button></a>
+    <a href="Result.html"><button>ACR</button></a>
+    <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
+    <a href="view.html"><button>Score</button></a>
+  </nav>
+
+        <div class="score-section">
+          <h3>
+            A. Teaching Process (Max Point 20) 
+          </h3>
+          <div class="score-input">
+            <span>Score Obtained:</span>
+            <input type="text" id="scoreObtained" value="0" readonly />
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Sr. No</th>
+                <th>Semester</th>
+                <th>Subject code</th>
+                <th>Subject Name</th>
+                <th>No. of Scheduled Classes</th>
+                <th>No. of Actually Held Classes</th>
+                <th class="attainment">Attainment</th>
+                <th>Supporting Document</th>
+                <th class="score">Score</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="entriesTableBody">
+              
+            </tbody>
+          </table>
+        </div>
+
+        <div class="add-button">
+          <button onclick="openModal()">+ Add</button>
+        </div>
+
+        <div class="navigation-buttons">
+          <button class="prev-btn">Back</button>
+          <div class="right-buttons">
+            <button class="draft-btn">Save As Draft</button>
+            <button class="submit-btn">Submit</button>
+            <button class="next-btn" onclick="location.href='StudentFeedBack.html'">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Faculty Entry</h3>
+          <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <form id="facultyForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Subject Name</label>
+            <input type="text" name="subjectName" required />
+          </div>
+          <div class="form-group">
+            <label>Subject Code</label>
+            <input type="text" name="subjectCode" required />
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <select name="semester" required>
+              <option value="">Select Semester</option>
+              <option value="1st">1st</option>
+              <option value="2nd">2nd</option>
+              <option value="3rd">3rd</option>
+              <option value="4th">4th</option>
+              <option value="5th">5th</option>
+              <option value="6th">6th</option>
+              <option value="7th">7th</option>
+              <option value="8th">8th</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>No. of Scheduled Classes</label>
+            <input type="number" name="scheduledClasses" required />
+          </div>
+          <div class="form-group">
+            <label>No. of Actually Held Classes</label>
+            <input type="number" name="actualClasses" required />
+          </div>
+          <div class="form-group">
+            <label>Attainment</label>
+            <input type="number" name="attainment" step="0.01" required />
+          </div>
+          <div class="form-group">
+            <label>Supporting Document</label>
+            <input type="file" name="supportingDocument" required />
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" class="reset-btn" onclick="resetForm()">
+              Reset
+            </button>
+            <button type="submit" class="submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="TeachingProcess.js"></script>
+
+</body>
+</html> -->
+
+
+
+/* :root {
+  
+  --primary-color: #2C3E50;
+  --secondary-color: #3498DB;
+  --accent-color: #27AE60;
+  --background-light: #F4F6F7;
+  --text-dark: #2C3E50;
+  --white: #FFFFFF;
+  --border-color: #E0E0E0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+
+.header {
+  background-color: var(--white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.emblem {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.header-text h1 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header-text h2 {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+.navigation {
+  background-color: var(--primary-color);
+  padding: 0.75rem 2rem;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  width: 250px;
+}
+
+.search-container button {
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0 4px 4px 0;
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: var(--accent-color);
+}
+
+
+.breadcrumb {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.breadcrumb .separator {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0.5rem;
+}
+
+
+.section-nav {
+  display: flex;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.section-nav button {
+  background-color: transparent;
+  border: none;
+  color: var(--text-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.section-nav button.active {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.section-nav button:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+
+.score-section {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.score-section h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.score-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.score-input input {
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: 100px;
+}
+
+
+.table-container {
+  background-color: var(--white);
+  border-radius: 8px;
+  margin: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+
+.add-button {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 2rem;
+}
+
+.add-button button {
+  background-color: var(--accent-color);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button button:hover {
+  background-color: #2ECC71;
+}
+
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 2rem;
+}
+
+.navigation-buttons button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prev-btn, .next-btn {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.draft-btn {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+
+.submit-btn {
+  background-color: var(--accent-color);
+  color: var(--white);
+}
+
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--white);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+  color: var(--primary-color);
+}
+
+.close {
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--background-light);
+}
+
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navigation {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-nav {
+    flex-direction: column;
+  }
+
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.modal.hidden {
+  display: none;
+} */

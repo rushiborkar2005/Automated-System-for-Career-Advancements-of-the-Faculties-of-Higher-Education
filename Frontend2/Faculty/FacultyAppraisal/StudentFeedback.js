@@ -64,12 +64,34 @@ modal.addEventListener('click', (e) => {
 async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
+  const fileInput = document.getElementById('fileInput');
+  console.log(fileInput.files[0])
 
   const formDataObj = {};
-  formData.append('t', 1);
+
+   formData.append('t', 1);
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
+
+      console.log(formDataObj)
+
+
+      const file=fileInput.files[0];
+
+      const FL = new FormData();
+      FL.append('file', file);
+
+      
+
+
+
+
+
+
+
+
+
 
       const per=formDataObj.studentFeedback;
       let points=0;
@@ -106,7 +128,11 @@ async function handleSubmit(event) {
         const data = await response.json();
         console.log("Response received:", data);
         alert('Details added successfully!');
-      } catch (error) {
+      const R = await fetch('http://localhost:3000/upload', {
+        method: 'POST',
+        body: FL,
+    });
+} catch (error) {
         
         console.error('Error during fetch:', error.message);
         alert(`An error occurred: ${error.message}`);

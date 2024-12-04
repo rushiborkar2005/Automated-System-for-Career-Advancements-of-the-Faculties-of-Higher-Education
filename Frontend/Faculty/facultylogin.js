@@ -20,7 +20,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         console.log(result);
 
         localStorage.setItem('authToken', result.token);
-        window.location.href='./Appraisal/TeachingProcess.html'
+        window.location.href='../../Frontend2/Faculty/FacultyHomepage/facultyhome.html'
       } else {
         alert(result.error || 'Login failed');
       }

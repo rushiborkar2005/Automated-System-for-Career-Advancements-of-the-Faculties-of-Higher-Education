@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Faculty Reports</title>
   <link rel="stylesheet" href="StudentFeedback.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <!-- Header -->
@@ -19,7 +20,7 @@
   </header>
 
   <!-- Navbar -->
-  <nav class="navigation">
+   <nav class="navigation">
     <div class="nav-content">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -28,22 +29,34 @@
         <li><a href="#">Important Links</a></li>
         <li><a href="#">Reports</a></li>
       </ul>
-      <div class="search-container">
-        <input type="search" id="search" placeholder="Search" />
-        <button id="searchBtn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
+      
+      <div class="user-section">
+        <div class="profile-container">
+          <div class="profile-info">
+            <img src="profile.png" alt="Profile" class="profile-icon">
+            <span class="profile-name">John Doe</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </div>
+          
+          <div class="profile-dropdown hidden">
+            <ul>
+              <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+              <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+              <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="notification-bell">
+          <i class="fas fa-bell"></i>
+          <span class="notification-badge">3</span>
+        </div>
       </div>
     </div>
   </nav>
+
   <div class="breadcrumb">
     <h2 class="report">Appraisal Form</h2>  
-    <a href="/">Home</a>
-    <span class="separator">/</span>
-    <span class="current">Appraisal Form</span>
 </div>
 
 <nav class="section-nav">
@@ -89,14 +102,14 @@
           <button onclick="openModal()">+ Add</button>
         </div>
 
-        <div class="navigation-buttons">
+        <!-- <div class="navigation-buttons">
           <button class="prev-btn" onclick="window.location.href = 'TeachingProcess.html';">Back</button>
           <div class="right-buttons">
             <button class="draft-btn">Save As Draft</button>
             <button class="submit-btn">Submit</button>
            <button class="next-btn" onclick="window.location.href = 'DepartmentalActivities.html';">Next</button>
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
 
@@ -137,7 +150,7 @@
           </div>
           <div class="form-group">
             <label>Supporting Document</label>
-            <input type="file" name="supportingDocument" required />
+            <input id="fileInput" type="file" name="supportingDocument" required />
           </div>
 
           <div class="form-buttons">
@@ -151,5 +164,25 @@
     </div>
 
     <script src="StudentFeedBack.js"></script>
+    <script>
+      // JavaScript for dropdown functionality
+      document.addEventListener('DOMContentLoaded', () => {
+        const profileInfo = document.querySelector('.profile-info');
+        const profileDropdown = document.querySelector('.profile-dropdown');
+  
+        profileInfo.addEventListener('click', () => {
+          profileDropdown.classList.toggle('hidden');
+        });
+  
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+          if (!profileInfo.contains(event.target)) {
+            profileDropdown.classList.add('hidden');
+          }
+        });
+      });
+    </script>
 </body>
 </html>
+
+ 
