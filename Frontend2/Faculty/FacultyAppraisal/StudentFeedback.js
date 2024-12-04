@@ -127,11 +127,15 @@ async function handleSubmit(event) {
         }
         const data = await response.json();
         console.log("Response received:", data);
-        alert('Details added successfully!');
-      const R = await fetch('http://localhost:3000/upload', {
+      const R = await fetch('http://localhost:5000/api/upload', {
         method: 'POST',
         body: FL,
+        headers: {
+          'Authorization': token,
+        },
+
     });
+    alert('Details added successfully!');
 } catch (error) {
         
         console.error('Error during fetch:', error.message);

@@ -8,14 +8,11 @@ const localStorage = new LocalStorage('./scratch');
 const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 router.get('/get-details', async (req, res) => {
     const token = req.headers.authorization;
-
-
     const t = req.headers['type'];
-    console.log(token);
+    
     if (!token) {
         return res.status(401).json({ error: 'No token, authorization denied' });
     }
-    // try {
       const decoded = jwt.verify(token, JWT_SECRET);
       const user = decoded.userId;
       const fdb = getdb(decoded.db);
@@ -24,7 +21,7 @@ router.get('/get-details', async (req, res) => {
       if (!faculty) {
         return res.status(404).json({ message: 'Faculty not found' });
       }
-      console.log(faculty);
+      
       if (t==='0') {
        res.json({ key: faculty.teachingProcess });
       }

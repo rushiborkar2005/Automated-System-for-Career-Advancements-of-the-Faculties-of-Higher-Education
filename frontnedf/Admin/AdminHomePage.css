@@ -1,0 +1,222 @@
+:root {
+    /* Color Palette */
+    --primary-color: #2C3E50;
+    --secondary-color: #3498DB;
+    --accent-color: #27AE60;
+    --background-light: #F4F6F7;
+    --text-dark: #2C3E50;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  
+  /* Header Styles */
+  .header {
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .emblem {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .header-text h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .header-text h2 {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Navigation Styles */
+  .navigation {
+    background-color: var(--primary-color);
+    padding: 0.75rem 2rem;
+  }
+  
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Profile Dropdown */
+  .profile-dropdown {
+    position: relative;
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .institute-name {
+    color: var(--white);
+    margin-top: 0.5rem;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    margin-top: 0.5rem;
+  }
+  
+  .profile-dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .dropdown-menu ul li {
+    padding: 0.5rem 1rem;
+  }
+  
+  .dropdown-menu ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-menu ul li a:hover {
+    background-color: var(--background-light);
+  }
+  
+  /* Main Section */
+  main {
+    padding: 2rem;
+  }
+  
+  .welcome {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  
+  .welcome h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+  
+  .welcome p {
+    color: var(--text-dark);
+    margin-top: 1rem;
+  }
+  
+  .news {
+    margin-top: 2rem;
+  }
+  
+  .news h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .news-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .news-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .news-icon svg {
+    color: var(--secondary-color);
+  }
+  
+  .chevron {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .nav-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+    }
+  
+    .news-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  

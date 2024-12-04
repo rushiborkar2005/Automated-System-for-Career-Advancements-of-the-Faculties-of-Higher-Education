@@ -8,6 +8,7 @@ const { LocalStorage } = require('node-localstorage');
 const localStorage = new LocalStorage('./scratch');
 const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 const upload = multer({ dest: 'uploads/' });
+const fs = require('fs');
 const {
   verifyToken,
   generatePassword,
@@ -180,33 +181,77 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
 
 
 
-router.get('/faculty-list', async (req, res) => {
+// router.get('/faculty-list', async (req, res) => {
 
+//   const token = req.headers.authorization;
+//   console.log(token)
+  
+//   if (!token) {
+//       return res.status(401).json({ error: 'No token, authorization denied' });
+//   }
+//   try {
+//     const decoded = jwt.verify(token, JWT_SECRET);
+//     const user = decoded.userId;
+//     const institute_name = user.basicInfo.instituteName;
+//     const fdb = getdb(institute_name.replace(/[^a-zA-Z0-9]/g, '_'));
+//     const FacultyModel = Faculty(fdb);
+//     // Find the faculty by ID
+//     const faculty = await FacultyModel.find();
+//     console.log(faculty);
+//     if (!faculty) {
+//       return res.status(404).json({ message: 'Faculty not found' });
+//     }
+// res.status(200).json(faculty);
+// }catch(error)
+// {
+
+// }
+// }
+// );
+
+
+router.post('/upload',upload.single('file'), async (req, res) => {
+
+  console.log('doing');
   const token = req.headers.authorization;
   console.log(token)
-  
   if (!token) {
       return res.status(401).json({ error: 'No token, authorization denied' });
   }
-  try {
+   
+
+    try { 
+      
+      
+      
     const decoded = jwt.verify(token, JWT_SECRET);
     const user = decoded.userId;
-    const institute_name = user.basicInfo.instituteName;
-    const fdb = getdb(institute_name.replace(/[^a-zA-Z0-9]/g, '_'));
+    const fdb = getdb(decoded.db);
     const FacultyModel = Faculty(fdb);
     // Find the faculty by ID
-    const faculty = await FacultyModel.find();
-    console.log(faculty);
-    if (!faculty) {
-      return res.status(404).json({ message: 'Faculty not found' });
-    }
-res.status(200).json(faculty);
-}catch(error)
-{
+    const faculty = await FacultyModel.findOne({ _id: user});
+      const uploadedFile = req.file;
+      if (!uploadedFile) {
+          return res.status(400).send('No file uploaded.');
+      }
 
-}
+      const fileId = await uploadFileToDrive(uploadedFile.path, uploadedFile.originalname);
+      
+      console.log(fileId);
+
+
+      fs.unlinkSync(uploadedFile.path);
+      res.status(200).send({ fileId });
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Error uploading file.');
+  }
 }
 );
+
+
+
+
 
 module.exports = router;
 

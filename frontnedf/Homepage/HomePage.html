@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="Homepage.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+      /* Additional CSS to fix the height of the typing effect */
+      #wel {
+          height: 50px; /* Adjust this height as needed */
+          overflow: hidden;
+          display: flex;
+          align-items: center; 
+          justify-content: center;/* Center the text vertically */
+          cursor: default;
+      }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+   <nav class="navigation">
+    <div class="nav-content">
+        <ul class="nav-links"><br>
+            <li><a href="#" class="home-link">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Important Links</a></li>
+            <li><a href="#">Contact Us</a></li><br>
+          </ul>          
+    </div>
+  </nav>
+  <div id="news">
+    <marquee behavior="scroll" direction="left" scrollamount="10">
+        <span class="sp">📢 Latest News:</span> 🚀 New Appraisal Guidelines Released!
+    </marquee>
+</div>
+
+
+  <!-- Main Content -->
+  <main>
+    <section class="welcome">
+      <h1 id="wel">Welcome to the Appraisal System</h1>
+      <p>
+        Access the appraisal form, view reports, and manage your profile for a seamless evaluation experience.
+      </p>
+      <a href="role.html"><button class="get-started">Get Started</button></a>
+    </section>
+
+    <section class="news">
+      <h2>News and Updates</h2>
+      <div class="news-container">
+        <div class="news-item">
+          <div class="news-icon">
+            <i class="far fa-newspaper"></i>
+          </div>
+          <h3>New Appraisal Guidelines Released</h3>
+          <div class="chevron">›</div>
+        </div>
+        <div class="news-item">
+          <div class="news-icon">
+            <i class="far fa-calendar-alt"></i>
+          </div>
+          <h3>Faculty Development Program 2024</h3>
+          <div class="chevron">›</div>
+        </div>
+        <div class="news-item">
+          <div class="news-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Assessment Committee Meeting Schedule</h3>
+          <div class="chevron">›</div>
+        </div>
+        <div class="news-item">
+          <div class="news-icon">
+            <i class="fas fa-exclamation-circle"></i>
+          </div>
+          <h3>Upcoming Deadlines</h3>
+          <div class="chevron">›</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+      var typed = new Typed('#wel', {
+        strings: ['Welcome to the Appraisal System'],
+        typeSpeed: 100, 
+        backSpeed: 50,
+        loop: true, 
+        loopCount: Infinity,
+      });
+  </script>
+  <script src="HomePage.js"></script>
+</body>
+</html>
