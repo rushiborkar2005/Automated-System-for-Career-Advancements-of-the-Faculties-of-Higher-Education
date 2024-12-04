@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="TeachingProcess.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+   <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Appraisal Form</a></li>
+        <li><a href="#">Important Links</a></li>
+        <li><a href="#">Reports</a></li>
+      </ul>
+      
+      <div class="user-section">
+        <div class="profile-container">
+          <div class="profile-info">
+            <img src="profile.png" alt="Profile" class="profile-icon">
+            <span class="profile-name">John Doe</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </div>
+          
+          <div class="profile-dropdown hidden">
+            <ul>
+              <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+              <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+              <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="notification-bell">
+          <i class="fas fa-bell"></i>
+          <span class="notification-badge">3</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <h2 class="report">Appraisal Form</h2>  
+</div>
+
+<nav class="section-nav">
+  <a href="TeachingProcess.html"><button class="active">Teaching Process</button></a>
+    <a href="StudentFeedback.html"><button>Student's Feedback </button></a>
+    <a href="DepartmentalActivities.html"><button>Departmental Activities</button></a>
+    <a href="InstitutionalActivities.html"><button >Institute Activities</button></a>
+    <a href="Result.html"><button>ACR</button></a>
+    <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
+    <a href="view.html"><button>Score</button></a>
+  </nav>
+
+        <div class="score-section">
+          <h3>
+            A. Teaching Process (Max Point 20) 
+          </h3>
+          <div class="score-input">
+            <span>Score Obtained:</span>
+            <input type="text" id="scoreObtained" value="0" readonly />
+          </div>
+        </div>
+ <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Sr. No</th>
+                <th>Semester</th>
+                <th>Subject code</th>
+                <th>Subject Name</th>
+                <th>No. of Scheduled Classes</th>
+                <th>No. of Actually Held Classes</th>
+                <th class="attainment">Attainment</th>
+                <th>Supporting Document</th>
+                <th class="score">Score</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="entriesTableBody">
+              <!-- Table content will be dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="add-button">
+          <button onclick="openModal()">+ Add</button>
+        </div>
+
+        <div class="navigation-buttons">
+          <button class="prev-btn" onclick="window.location.href = 'TeachingProcess.html';">Back</button>
+          <div class="right-buttons">
+            <!-- <button class="draft-btn">Save As Draft</button>
+            <button class="submit-btn">Submit</button> -->
+           <button class="next-btn" onclick="window.location.href = 'StudentFeedBack.html';">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Faculty Entry</h3>
+          <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <form id="facultyForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Subject Name</label>
+            <input type="text" name="subjectName" required />
+          </div>
+          <div class="form-group">
+            <label>Subject Code</label>
+            <input type="text" name="subjectCode" required />
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <select name="semester" required>
+              <option value="">Select Semester</option>
+              <option value="1st">1st</option>
+              <option value="2nd">2nd</option>
+              <option value="3rd">3rd</option>
+              <option value="4th">4th</option>
+              <option value="5th">5th</option>
+              <option value="6th">6th</option>
+              <option value="7th">7th</option>
+              <option value="8th">8th</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>No. of Scheduled Classes</label>
+            <input type="number" name="scheduledClasses" required />
+          </div>
+          <div class="form-group">
+            <label>No. of Actually Held Classes</label>
+            <input type="number" name="actualClasses" required />
+          </div>
+          <div class="form-group">
+            <label>Attainment</label>
+            <input type="number" name="attainment" step="0.01" required />
+          </div>
+
+          <div class="form-group">
+            <label>Supporting Document for Classes</label>
+            <input type="file" name="supportingDocument" required />
+          </div>
+          <div class="form-group">
+            <label>Supporting Document for Attainment</label>
+            <input type="file" name="supportingDocument" required />
+          </div>
+          <div class="form-buttons">
+            <button type="button" class="reset-btn" onclick="resetForm()">
+              Reset
+            </button>
+            <button type="submit" class="submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="TeachingProcess.js"></script>
+</body>
+</html>
+
+ 
