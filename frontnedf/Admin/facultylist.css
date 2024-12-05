@@ -8,7 +8,9 @@
   --white: #FFFFFF;
   --border-color: #508C9B;
 }
-
+a{
+  text-decoration: none;
+}
 * {
   margin: 0;
   padding: 0;

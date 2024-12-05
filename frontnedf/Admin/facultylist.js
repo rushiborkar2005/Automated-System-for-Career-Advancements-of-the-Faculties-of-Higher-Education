@@ -33,18 +33,28 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${index + 1}</td>
         <td>${faculty.firstName}</td>
         <td>${faculty.facultyId}</td>
-        <td>${faculty.appraisalForms}</td>
+        <td> <button class="view-btn" data-id="${faculty.facultyId}">View</button></td>
         <td>${faculty.score}</td>
-        <td>${new Date(faculty.submittedAt).toLocaleDateString()}</td>
+        <td>${new Date(faculty.createdAt).toLocaleDateString()}</td>
         <td>${faculty.status ? 'Endorsed' : 'Not Endorsed'}</td>
         <td>
-          <a href="${faculty.downloadUrl}" target="_blank" class="download-link">Download</a>
+          <a href="${faculty.downloadUrl}" target="_blank" class="download-link">⬇️</a>
         </td>
       `;
 
       facultyTableBody.appendChild(row);
     });
   }
+
+
+  document.querySelectorAll('.view-btn').forEach(button => {
+    button.addEventListener('click', event => {
+      event.stopPropagation(); // Prevent any other event interference
+      const facultyId = button.getAttribute('data-id');
+      // Redirect to the faculty view page
+      window.location.href = `/faculty/view/${facultyId}`;
+    });
+  });
 
   // Fetch data when the page loads
   fetchFacultyData();

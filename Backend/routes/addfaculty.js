@@ -92,6 +92,10 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
       password
     });
     const savedFaculty = await newFaculty.save();
+
+
+
+    
     sendPasswordEmail(newFaculty.facultyEmail, password);
     res.status(201).json({
       message: 'Faculty added successfully',
