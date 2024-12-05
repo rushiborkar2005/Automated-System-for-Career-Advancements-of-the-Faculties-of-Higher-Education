@@ -597,3 +597,16 @@ th {
 .prev-btn{
     float: right;
 }
+.submit-btn {
+  background-color:#2ECC71 ;
+  color: var(--white);
+  padding: 15px 19px;
+  border-radius: 6px;
+}
+.reset-btn{
+  background-color:#6d6d61 ;
+  color: var(--white);
+  padding: 15px 19px;
+  border-radius: 6px;
+  margin-right: 5px;
+}
