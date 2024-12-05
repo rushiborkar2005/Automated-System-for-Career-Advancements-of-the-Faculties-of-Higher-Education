@@ -59,7 +59,7 @@ async function handleSubmit(event) {
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
-
+      formDataObj['score']=5;
       try {
         const response = await fetch('http://localhost:5000/api/add-details', {
           method: 'POST',

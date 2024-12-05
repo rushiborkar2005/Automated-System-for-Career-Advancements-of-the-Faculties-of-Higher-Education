@@ -81,7 +81,7 @@ const FacultySchema = new mongoose.Schema({
     subjectName: { type: String },
     noRegisteredStudents: { type: Number },
     noPassedStudents: { type: Number },
-    creditPoint: { type: Number },
+    result: { type: Number },
 
     document: { type: String },
     score: { type: Number}
