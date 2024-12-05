@@ -43,6 +43,7 @@ function populateTable(data) {
       <td>${entry.document || 'N/A'}</td>
       <td class="score">${entry.score || 0}</td>
       <td>
+        
         <button onclick="deleteEntry(${index})">Delete</button>
       </td>
     `;

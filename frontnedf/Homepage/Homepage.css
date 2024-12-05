@@ -1,10 +1,10 @@
 :root {
   /* Color Palette */
-  --primary-color: #2C3E50;
+  --primary-color: #263A6D;
   --secondary-color: #3498DB;
   --accent-color: #27AE60;
   --background-light: #F4F6F7;
-  --text-dark: #2C3E50;
+  --text-dark: #263A6D;
   --white: #FFFFFF;
   --border-color: #E0E0E0;
 }
@@ -66,6 +66,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .nav-links {
@@ -430,7 +431,7 @@ body {
 }
 :root {
     /* Color Palette */
-    --primary-color: #2C3E50;
+    --primary-color: #263A6D;
     --secondary-color: #3498DB;
     --accent-color: #27AE60;
     --background-light: #F4F6F7;
@@ -699,7 +700,7 @@ body {
   }
 
   #news {
-    background-color: #263a6d;
+    background-color: #2C3E50;
     border: 2px solid #0e2741;
     padding: 2px;
     font-family: 'Arial', sans-serif;
