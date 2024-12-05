@@ -9,15 +9,17 @@ const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 router.get('/get-details', async (req, res) => {
     const token = req.headers.authorization;
     const t = req.headers['type'];
-    
+  
     if (!token) {
         return res.status(401).json({ error: 'No token, authorization denied' });
     }
       const decoded = jwt.verify(token, JWT_SECRET);
       const user = decoded.userId;
+      console.log(user);
       const fdb = getdb(decoded.db);
       const FacultyModel = Faculty(fdb);
       const faculty = await FacultyModel.findOne({ _id: user});
+      console.log(faculty);
       if (!faculty) {
         return res.status(404).json({ message: 'Faculty not found' });
       }
@@ -88,3 +90,50 @@ router.get('/get-details', async (req, res) => {
     }
   });
   
+  router.get('/get-details1', async (req, res) => {
+    const token = req.headers.authorization;
+    const t = req.headers['type'];
+  
+    if (!token) {
+        return res.status(401).json({ error: 'No token, authorization denied' });
+    }
+      const decoded = jwt.verify(token, JWT_SECRET);
+      const user = decoded.userId;
+      const fdb = getdb(decoded.db);
+      const FacultyModel = Faculty(fdb);
+      const faculty = await FacultyModel.findOne({ _id: '674ead4dba24a943057140a0'});
+      console.log(faculty);
+      if (!faculty) {
+        return res.status(404).json({ message: 'Faculty not found' });
+      }
+      
+      if (t==='0') {
+       res.json({ key: faculty.teachingProcess });
+      }
+      if (t==='1') {
+       res.json({ key: faculty.studentsFeedback });
+      }
+      if (t==='2') {
+        res.json({ key: faculty.departmentActivities });
+      }
+      if (t==='3') {
+        res.json({ key: faculty.instituteActivities });
+      }
+      if (t==='4') {
+        res.json({ key: faculty.resultSummary });
+      }
+      if (t==='6') {
+        res.json({ key: faculty.research });
+      }
+      if (t==='5') {
+        res.json({ key: faculty.contributionSociety });
+      }
+      if(t==='7')
+      {
+        res.json({ key: faculty });
+      }
+  });
+  module.exports = router;
+
+
+

@@ -1,0 +1,633 @@
+@media (max-width: 768px) {
+  .header-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .logo-section {
+      flex-direction: column;
+  }
+
+  nav ul {
+      flex-direction: column;
+  }
+
+  .search-container {
+      width: 200%;
+      margin-top: 1rem;
+  }
+
+  .search-container input {
+      width: 100%;
+  }
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  background-color: #ffffff;
+  padding: 15px 0;
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.header img {
+  height: 80px;
+  width: 80px;
+  left: 0;
+
+}
+.header .title {
+  flex-grow: 1;
+  text-align: left;
+ 
+}
+.header .title h1 {
+  margin: 0;
+  font-size: 38px;
+}
+.header .title p {
+  margin: 0;
+  font-size: 30px;
+}
+
+.navbar {
+  background-color: #0056b3;
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+.navbar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+.navbar .search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.navbar .search input {
+  padding: 5px;
+  border-radius: 3px;
+  border: none;
+}
+.navbar .search button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: none;
+  border: none;
+  color: #0056b3;
+  padding: 5px;
+  cursor: pointer;
+}
+
+
+.roles {
+  display: flex;
+  justify-content: center;
+  background-color: #95c8f5;
+  padding: 50px 0px;
+  margin-top: 20px;
+  gap: 30px;
+  height: 300px;
+}
+.role {
+  text-align: center;
+  margin: 0 20px;
+}
+.role img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.role p {
+  margin: 10px 0 0;
+  font-size: 18px;
+}
+/** @format */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Header Styles */
+.header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.breadcrumb {
+  background-image:url("WhatsApp\ Image\ 2024-11-29\ at\ 15.08.53_05e7678c.jpg");;
+  background:rgb(0, 0, 0);
+  padding: 0.5rem 2rem;
+  padding: 2%;
+  color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) 0% 0% / cover;
+  padding: 2rem;
+
+}
+
+.breadcrumb a {
+  color: rgb(255, 254, 254); ;
+  text-decoration: none;
+}
+
+.breadcrumb .separator {
+  margin: 0 0.5rem;
+  color: rgb(255, 254, 254); ;
+}
+
+.breadcrumb .current {
+  opacity: 0.8;
+  color: rgb(255, 254, 254); ;
+}
+.emblem {
+  width: 64px;
+  height: 64px;
+  margin-right: 1rem;
+}
+
+.header-text h1 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    float: left;
+    inset-block-start:initial;
+  }
+  
+  .header-text h2 {
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+  }
+
+/* Navigation Styles */
+.navigation {
+  background-color: #1e88e5;
+  padding: 0.2rem;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  font-weight: 500;
+  font-size: 140%;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #1e88e5;
+  background-color: white;
+  backdrop-filter: blur(5px);
+}
+
+.search-container {
+  display: flex;
+}
+
+#search {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+#searchBtn {
+  background-color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  color: #1e88e5;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+#searchBtn:hover {
+  background-color: #f5f5f5;
+}
+
+main {
+  padding: 2rem;
+  background-color: #f5f5f5;
+  flex-grow: 1;
+}
+
+.controls {
+  margin-bottom: 1rem;
+}
+
+.tabs {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+margin-bottom: 1rem;
+}
+
+.tabs button {
+flex: 1 1 auto;
+padding: 1rem;
+border: none;
+background-color: #e0e0e0;
+cursor: pointer;
+text-align: center;
+font-weight: 500;
+font-size: 140%;
+}
+
+.tabs button.active {
+background-color: #1e88e5;
+color: white;
+padding: 20px 0px;
+}
+
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+table th {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+  background-color: #1e88e5;
+  color: white;
+  
+}
+table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+  
+
+}
+.view-button {
+  padding: 0.25rem 0.5rem;
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.observations,
+.recommendations {
+  margin-bottom: 2rem;
+}
+
+.observation-tabs,
+.recommendation-tabs {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.observation-tabs button,
+.recommendation-tabs button {
+  padding: 1rem 1.5rem;
+  border: none;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.observation-tabs button.active {
+  background-color: #1e88e5;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}
+.recommendation-tabs button.active {
+  background-color: #1e88e5;
+  color: white;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primary-button {
+  background-color: #1e88e5;
+  color: white;
+}
+
+.secondary-button {
+  background-color: #e0e0e0;
+  color: black;
+}
+
+footer {
+  background-color: #1e88e5;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+  }
+
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  nav li {
+      margin: 0.5rem 0;
+  }
+
+  input[type="search"] {
+      margin-top: 1rem;
+      width: 100%;
+  }
+
+  .hidden {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+nav li {
+    margin-right: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1e88e5;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #1e88e5;
+    color: white;
+}
+
+  .tabs,
+  .observation-tabs,
+  .recommendation-tabs,
+  .actions {
+      flex-direction: column;
+  }
+
+  .tabs button,
+  .observation-tabs button,
+  .recommendation-tabs button,
+  .actions button {
+      margin-bottom: 0.5rem;
+  }
+}
+#timeframe{
+float: right;
+
+}
+#table-row {
+
+  background-color: #3282c8;
+
+}
+.teaching-content{
+   color: #1e88e5;
+   margin: 20px 0px;
+   font-size:160%;
+}
+.observation-title{
+  margin: 30px;;
+  font-size: 150%;
+  color: #1e88e5;
+  margin-left: 0px;
+}
+.report{
+  font-size:220%;
+}
+.student-feedback{
+  margin-bottom: 20px;
+  color: #1e88e5;
+  font-size: 160%;
+}
+.observation-recomendation{
+   
+  margin-bottom: 25px;
+  font-size: 160%;
+  color:#1e88e5;
+}
+.Department-Activity{
+  margin-bottom: 20px;
+  font-size: 160%;
+  color:#1e88e5;
+}
+.observation-department{
+  margin-bottom: 25px;
+  font-size: 160%;
+  color:#1e88e5;
+}
+.Institute-Activities{
+  margin-bottom: 20px;
+  font-size: 160%;
+  color:#1e88e5;
+}
+.observation-suggestions{
+  margin-bottom: 25px;
+  font-size: 160%;
+  color:#1e88e5;
+}
+.ACR{
+  margin-bottom: 20px;
+  font-size: 160%;
+  color:#1e88e5;
+}
+.contribution{
+  margin-bottom: 25px;
+  font-size: 170%;
+  color:#1e88e5;
+}
+.recommendation{
+  margin-bottom: 25px;
+  font-size: 170%;
+  color:#1e88e5;
+}
+.Performance-Summary{
+  margin-bottom:14px;
+  font-size: 170%;
+  color:#1e88e5;
+}
+.actions{
+  margin-bottom: 14px;
+  font-size: 170%;
+  margin-top: 55px;
+}
+.observation-head{
+  margin-bottom: 14px;
+  font-size: 170%;
+  color:#1e88e5;
+}
+.Approval-Director{
+  margin-bottom: 14px;
+  font-size: 170%;
+  color:#1e88e5;
+}
+.Result{
+  color: #1e88e5;;
+}
+
+.Research{
+  color: #1e88e5;
+}
+hr{
+  margin: 50px 0px 20px 0px;
+}
+.head{
+  font-size: 170%;
+  color:#1e88e5;
+  margin-bottom: 14px;
+
+}
+
+.recommendation-tabs button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #ccc;
+}
+
+.recommendation-tabs button.active {
+  background-color: #007BFF;
+  color: white;
+}
+.Recommendation{
+ margin: 4px;
+ color:#007BFF;
+ font-size: 140%
+}
+.Observation{
+  margin: 4px;
+ color:#007BFF;
+ font-size: 140%
+}
+.upload{
+  margin: 55px 0px 10px 0px;
+  color:#007BFF;
+  font-size: 140%
+}
+/* .tabscontainer{
+  position: relative;
+
+}
+.tabs{
+  position:fixed;
+   
+  z-index: 1000;
+} */
+ .back{
+  background-color: white;
+ }
+ .view-btn{
+  background-color: #1e88e5;
+  padding: 3px 5px;
+  border-radius: 2px;
+  color: white;
+
+ }
