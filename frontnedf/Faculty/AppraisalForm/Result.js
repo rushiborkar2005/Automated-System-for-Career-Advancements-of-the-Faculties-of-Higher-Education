@@ -38,9 +38,9 @@ function populateTable(data) {
       <td>${entry.semester || 'N/A'}</td>
       <td>${entry.subjectCode || 'N/A'}</td>
       <td>${entry.subjectName || 'N/A'}</td>
-      <td>${entry.studentsRegistered || 'N/A'}</td>
-      <td>${entry.studentsPassed || 'N/A'}</td>
-      <td>${entry.creditPoint || 'N/A'}</td>
+      <td>${entry.noRegisteredStudents || 'N/A'}</td>
+      <td>${entry.noPassedStudents || 'N/A'}</td>
+      <td>${entry.result || 'N/A'}</td>
       <td>${entry.document || 'N/A'}</td>
       <td class="score">${entry.score || 0}</td>
       <td>
@@ -119,10 +119,18 @@ async function handleSubmit(event) {
   const formData = new FormData(event.target);
   formData.append('t', '4');
   const formDataObj = {};
-  
+
+  const noRegisteredStudents = parseInt(formData.get('noRegisteredStudents'));
+  const noPassedStudents = parseInt(formData.get('noPassedStudents'));
+
+  const result =calculateResult(noRegisteredStudents,noPassedStudents).toFixed(2);
+  const score=calculatescore(result);
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
+      console.log(result);
+      formDataObj['score']=score;
+      formDataObj['result']=result;
       try {
         const response = await fetch('http://localhost:5000/api/add-details', {
           method: 'POST',
@@ -183,27 +191,30 @@ function removeEntry(id) {
 // }
 
 // // Calculate final score
-// function calculateFinalScore() {
-//   let totalPoints = 0;
+function calculateResult(noRegisteredStudents,noPassedStudents) {
+  let totalPoints = 0;
 
-//   entries.forEach((entry) => {
-//     const result =
-//       entry.noRegisteredStudents > 0
-//         ? (entry.noPassedStudents / entry.noRegisteredStudents) * 100
-//         : 0;
+    const result =
+      noRegisteredStudents > 0? (noPassedStudents / noRegisteredStudents) * 100: 0;
 
-//     let points = 0;
-//     if (result >= 96) points = 10;
-//     else if (result >= 90) points = 9;
-//     else if (result >= 80) points = 8;
-//     else if (result >= 70) points = 7;
-//     else if (result >= 60) points = 6;
-//     else if (result >= 50) points = 5;
-//     else if (result >= 40) points = 4;
+    
+    
+  return result;
 
-//     totalPoints += points;
-//   });
 
+}
+function calculatescore(result)
+{
+let points = 0;
+    if (result >= 96) points = 10;
+    else if (result >= 90) points = 9;
+    else if (result >= 80) points = 8;
+    else if (result >= 70) points = 7;
+    else if (result >= 60) points = 6;
+    else if (result >= 50) points = 5;
+    else if (result >= 40) points = 4;
+return points;
+}
 //   const finalScore =
 //     entries.length > 0 ? (totalPoints / (entries.length * 10)) * 10 : 0;
 //   scoreObtained.value = finalScore.toFixed(2);

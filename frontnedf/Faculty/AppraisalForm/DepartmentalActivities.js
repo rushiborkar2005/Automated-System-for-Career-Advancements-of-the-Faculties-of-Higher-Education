@@ -62,6 +62,7 @@ async function handleSubmit(event) {
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
+      formDataObj['score']=3;
       try {
         const response = await fetch('http://localhost:5000/api/add-details', {
           method: 'POST',
@@ -121,11 +122,7 @@ function resetForm() {
 //   alert('Document viewer will be implemented here');
 // }
 
-// Calculate final score with a maximum of 20 points
-// function calculateFinalScore() {
-//   const totalMarks = Math.min(entries.length * 3, 20); // Cap total score at 20
-//   scoreObtained.value = totalMarks.toFixed(2); // Display the calculated score
-// }
+
 
 // Initialize the table on page load
 // renderTable();
