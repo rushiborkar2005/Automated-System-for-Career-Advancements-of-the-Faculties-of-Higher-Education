@@ -72,19 +72,13 @@ async function handleSubmit(event) {
   const formData = new FormData(event.target);
   const scheduledClasses = parseInt(formData.get('scheduledClasses'));
   const actualClasses = parseInt(formData.get('actualClasses'));
-  const percentage = (actualClasses / scheduledClasses) * 100;
-  let score = 0;
-if (percentage >= 96) points1 = 5;
-  else if (percentage >= 90) points1 = 4;
-  else if (percentage >= 80) points1 = 3;
-  else if (percentage >= 70) points1 = 2;
-  else if (percentage >= 55) points1 = 1;
+  const attainment = parseInt(formData.get('attainment'));
+  const score = calculatePoints(scheduledClasses,actualClasses,attainment)
   const formDataObj = {};
   formData.append('t', 0);
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
-      const per=formDataObj.studentFeedback;
       formDataObj['score']=score;
       try {
         const response = await fetch('http://localhost:5000/api/add-details', {
@@ -164,4 +158,30 @@ if (percentage >= 96) points1 = 5;
   
   
 
+  function calculatePoints(scheduledClasses, actualClasses, attainment) {
+    const percentage = scheduledClasses > 0 ? (actualClasses / scheduledClasses) * 100 : 0;
   
+    let points1 = 0;
+  
+    // Attendance-based points
+    if (percentage >= 96) points1 = 5;
+    else if (percentage >= 90) points1 = 4;
+    else if (percentage >= 80) points1 = 3;
+    else if (percentage >= 70) points1 = 2;
+    else if (percentage >= 55) points1 = 1;
+  
+    let points2;
+    // Attainment-based points
+    if (attainment > 2) points2= 5;
+    else if (attainment >= 1.5) points2= 4;
+    else if (attainment >= 1) points2= 3;
+    else if (attainment >= 0.5) points2= 2;
+  
+    let points=points1+points2;
+    // Penalty for exceeding 105% of scheduled classes
+    if (actualClasses > 1.05 * scheduledClasses) {
+      points = Math.max(points - 1, 0); // Ensure points don't go below 0
+    }
+  
+    return points;
+  }

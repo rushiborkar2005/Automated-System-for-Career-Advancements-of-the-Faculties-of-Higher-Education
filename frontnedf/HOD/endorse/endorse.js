@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
         row.innerHTML = `
           <td>${index + 1}</td>
-          <td>${faculty.firstName}</td>
+          <td>${faculty.firstName +" "+ faculty.lastName}</td>
           <td>${faculty.facultyId}</td>
           <td>${faculty.appraisalForms}</td>
           <td>${faculty.score}</td>
@@ -49,4 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch data when the page loads
     fetchFacultyData();
   });
+  
+
   
