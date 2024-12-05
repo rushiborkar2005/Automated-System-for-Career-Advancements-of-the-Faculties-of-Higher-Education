@@ -375,3 +375,57 @@ body {
   align-items: center;
   justify-content: center;
 }
+.appraisal {
+  padding: 2rem;
+  background-color: #f4f6f7; /* Light background for the section */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.current-year {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.current-year h3 {
+  font-size: 2rem;
+  color: #2C3E50; /* Dark text color */
+}
+
+.box-container {
+  justify-content: center;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr); /* Responsive grid */
+  gap: 1rem; /* Space between boxes */
+margin-left: 10%;
+  flex-wrap: wrap;
+  
+}
+
+.box {
+  background-color:  #163762; /* White background for boxes */
+  border: 1px solid #e0e0e0;
+  color: white; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 1.5rem; /* Padding inside the box */
+  text-align: center; /* Center text */
+  transition: transform 0.3s, box-shadow 0.3s; /* Animation for hover effect */
+  width: 250px; /* Set a fixed width */
+    height: 100px; /* Set a fixed height */
+    padding: 10px; /* Add padding */
+    margin: 10px; /* Add margin */
+    font-weight: 500;
+
+}
+
+.box:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+}
+
+.box h4 {
+  margin: 0; /* Remove default margin */
+  font-size: 1.5rem; /* Font size for box title */
+  color: #2C3E50; /* Dark text color */
+}
