@@ -153,3 +153,15 @@ if (percentage >= 96) points1 = 5;
       }
     }
     
+    function toggleNotifications() {
+      const notificationSection = document.getElementById("notification-section");
+      if (notificationSection.style.display === "none" || notificationSection.style.display === "") {
+          notificationSection.style.display = "block";
+      } else {
+          notificationSection.style.display = "none";
+      }
+  }
+  
+  
+
+  
