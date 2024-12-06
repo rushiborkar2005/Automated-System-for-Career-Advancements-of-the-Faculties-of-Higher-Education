@@ -120,9 +120,22 @@
         </div>
         <form id="facultyForm" onsubmit="handleSubmit(event)">
          <div class="form-group">
-            <label>Activity</label>
-            <input type="text" name="activity" required />
-          </div>
+  <label>Activity</label>
+  <select type="text" name="activity" id="activity-select" required onchange="toggleOtherCategoryInput()">
+    <option value="">Select Activity</option>
+    <option value="Guest Lecture">Guest Lecture</option>
+    <option value="Industry Visit / Field Visit">Industry Visit / Field Visit</option>
+    <option value="Industry Project">Industry Project</option>
+    <option value="Community Project">Community Project</option>
+    <option value="Seminar Organized">Seminar Organized</option>
+    <option value="Workshop Organized">Workshop Organized</option>
+    <option value="Conference Organized">Conference Organized</option>
+    <option value="VAP Conducted">VAP Conducted</option>
+    <option value="Add-on Conducted">Add-on Conducted</option>
+    <option value="Other">Other</option>
+  </select>
+  <input type="text" id="activity-other" class="other-input hidden" name="activity" placeholder="Enter Activity" />
+</div>
           <div class="form-group">
             <label>Semester</label>
             <select name="semester" required>
