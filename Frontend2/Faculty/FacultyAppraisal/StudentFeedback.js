@@ -224,7 +224,6 @@ function populateTable(data) {
       <td>-</td>
       <td class="score">${entry.score || 0}</td>
       <td>
-        <button onclick="editEntry(${index})">Edit</button>
         <button onclick="deleteEntry(${index})">Delete</button>
       </td>
     `;
