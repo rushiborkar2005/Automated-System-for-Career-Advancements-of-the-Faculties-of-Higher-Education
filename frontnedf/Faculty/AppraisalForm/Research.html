@@ -123,18 +123,24 @@
             <input type="text" name="publication" required />
           </div>
           <div class="form-group">
-            <label>Category</label>
-            <select type="text" name="category" required>
-              <option value="">Select Category</option>
-              <option value="SCI">SCI</option>
-              <option value="SCI-Extended">SCI-Extended</option>
-              <option value="Scopus">Scopus</option>
-              <option value="Scopus Indexed">Scopus Indexed</option>
-              <option value="WOS">WOS</option>
-              <option value="UGC Recognized">UGC Recognized</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
+  <label>Category</label>
+  <select type="text" name="category" id="category-select" required onchange="toggleOtherCategoryInput()">
+    <option value="">Select Category</option>
+    <option value="SCI">SCI</option>
+    <option value="SCI-Extended">SCI-Extended</option>
+    <option value="Scopus">Scopus</option>
+    <option value="Scopus Indexed">Scopus Indexed</option>
+    <option value="WOS">WOS</option>
+    <option value="UGC Recognized">UGC Recognized</option>
+    <option value="Other">Other</option>
+  </select>
+  <input type="text" id="category-other" class="other-input hidden" placeholder="Enter category" />
+</div>
+
+<div class="form-group" id="other-category-div" style="display: none;">
+  <label>Please Specify Category</label>
+  <input type="text" name="other_category" id="other-category-input" placeholder="Enter category" />
+</div>
           <div class="form-group">
             <label>Supporting Document</label>
             <input type="file" name="supportingDocument"  />
