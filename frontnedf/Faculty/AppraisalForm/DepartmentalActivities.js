@@ -39,6 +39,20 @@ function openModal() {
   modal.classList.remove('hidden');
 }
 
+
+function toggleOtherCategoryInput() {
+  const categorySelect = document.getElementById('activity-select');
+  const otherInput = document.getElementById('activity-other');
+
+  if (categorySelect.value === 'Other') {
+    otherInput.classList.remove('hidden');
+    otherInput.setAttribute('required', 'true'); // Make the input required when visible
+  } else {
+    otherInput.classList.add('hidden');
+    otherInput.removeAttribute('required'); // Remove required when hidden
+    otherInput.value = ''; // Clear the input value when hidden
+  }
+}
 function closeModal() {
   modal.classList.add('hidden');
   resetForm();
