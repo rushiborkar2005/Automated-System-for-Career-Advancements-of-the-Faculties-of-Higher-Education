@@ -244,3 +244,12 @@ function populateTable(data) {
 //   // Placeholder logic; replace with your actual implementation
 //   return `<a href="/documents/${entry.subjectCode}" target="_blank">View</a>`;
 // }
+
+function toggleNotifications() {
+  const notificationSection = document.getElementById("notification-section");
+  if (notificationSection.style.display === "none" || notificationSection.style.display === "") {
+      notificationSection.style.display = "block";
+  } else {
+      notificationSection.style.display = "none";
+  }
+}

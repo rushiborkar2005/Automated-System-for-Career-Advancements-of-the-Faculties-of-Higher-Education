@@ -170,3 +170,12 @@ function resetForm() {
 
 // Initialize the table on page load
 // renderTable();
+
+function toggleNotifications() {
+  const notificationSection = document.getElementById("notification-section");
+  if (notificationSection.style.display === "none" || notificationSection.style.display === "") {
+      notificationSection.style.display = "block";
+  } else {
+      notificationSection.style.display = "none";
+  }
+}
