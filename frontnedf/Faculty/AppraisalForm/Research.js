@@ -162,3 +162,12 @@ function calculateFinalScore() {
   const finalScore = Math.min(totalPoints, 10); // Ensure total score does not exceed 10
   scoreObtained.value = finalScore.toFixed(2); // Display with two decimal points
 }
+
+function toggleNotifications() {
+  const notificationSection = document.getElementById("notification-section");
+  if (notificationSection.style.display === "none" || notificationSection.style.display === "") {
+      notificationSection.style.display = "block";
+  } else {
+      notificationSection.style.display = "none";
+  }
+}

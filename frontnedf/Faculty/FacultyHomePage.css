@@ -72,7 +72,9 @@ body {
   display: flex;
   list-style: none;
   gap: 1.5rem;
-}
+  padding: 0;
+  margin: 0;
+  }
 
 .nav-links a {
   color: var(--white);
@@ -374,4 +376,126 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+:root {
+  /* Additional color variables for the appraisal section */
+  --appraisal-primary: #263A6D;
+  --appraisal-secondary: #3498DB;
+  --appraisal-accent: #27AE60;
+  --appraisal-background: #F4F6F7;
+}
+
+.appraisal-section {
+  background-color: var(--appraisal-background);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.appraisal-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.appraisal-header h2 {
+  color: var(--appraisal-primary);
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.appraisal-header p {
+  color: var(--text-dark);
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.appraisal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.appraisal-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+.appraisal-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.appraisal-card .card-icon {
+  background-color: var(--appraisal-primary);
+  color: var(--white);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.appraisal-card .card-content {
+  flex-grow: 1;
+}
+
+.appraisal-card .card-content h3 {
+  color: var(--appraisal-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.appraisal-card .card-content span {
+  color: var(--text-dark);
+  opacity: 0.7;
+}
+
+.appraisal-card .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(38, 58, 109, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.appraisal-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.appraisal-card .btn-view {
+  background-color: var(--white);
+  color: var(--appraisal-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.appraisal-card .btn-view:hover {
+  background-color: var(--appraisal-secondary);
+  color: var(--white);
+}
+
+.current-year .card-icon {
+  background-color: var(--appraisal-accent);
 }
