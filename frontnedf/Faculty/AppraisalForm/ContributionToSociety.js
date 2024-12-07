@@ -32,6 +32,7 @@ function populateTable(data) {
 
   data.forEach((entry, index) => {
     const row = document.createElement('tr');
+    row.setAttribute('data-id', entry._id);
 
     row.innerHTML = `
       <td>${index + 1}</td>
@@ -40,8 +41,12 @@ function populateTable(data) {
       <td>${entry.document || 'N/A'}</td>
       <td class="score">${entry.score || 0}</td>
       <td>
-        <button onclick="editEntry(${index})">Edit</button>
-        <button onclick="deleteEntry(${index})">Delete</button>
+     
+        <button class="btn btn-danger btn-sm rounded-0" type="button" 
+        data-toggle="tooltip" data-placement="top" title="Delete"
+        onclick="deleteEntry(${index})">
+    <i class="fa fa-trash"></i>
+</button>
       </td>
     `;
     tableBody.appendChild(row);
@@ -177,5 +182,46 @@ function toggleNotifications() {
       notificationSection.style.display = "block";
   } else {
       notificationSection.style.display = "none";
+  }
+}
+
+async function deleteEntry(index) {
+  const tableBody = document.getElementById('entriesTableBody');
+  const row = tableBody.rows[index];
+  const entryId = row.getAttribute('data-id'); // Ensure each row has a unique 'data-id' attribute
+
+  if (!entryId) {
+    alert('Unable to identify the entry to delete.');
+    return;
+  }
+
+  const confirmation = confirm('Are you sure you want to delete this entry?');
+  if (!confirmation) return;
+
+  try {
+    const response = await fetch(`http://localhost:5000/api/delete-details/${entryId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.json();
+      console.error('Error details:', errorBody);
+      const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
+      throw new Error(errorMessage);
+    }
+
+    const data = await response.json();
+    console.log('Delete response:', data);
+    alert('Entry deleted successfully!');
+
+    // Remove the row from the table
+    row.remove();
+  } catch (error) {
+    console.error('Error deleting entry:', error.message);
+    alert(`An error occurred: ${error.message}`);
   }
 }

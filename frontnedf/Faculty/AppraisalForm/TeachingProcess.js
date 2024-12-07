@@ -44,7 +44,12 @@ function populateTable(data) {
       <td class="score">${entry.score || 0}</td>
       <td>
         
-        <button onclick="deleteEntry(${index})">Delete</button>
+       <button class="btn btn-danger btn-sm rounded-0" type="button" 
+        data-toggle="tooltip" data-placement="top" title="Delete"
+        onclick="deleteEntry(${index})">
+    <i class="fa fa-trash"></i>
+</button>
+
       </td>
     `;
     tableBody.appendChild(row);
