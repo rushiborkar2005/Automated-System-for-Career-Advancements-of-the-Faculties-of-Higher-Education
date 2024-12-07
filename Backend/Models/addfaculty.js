@@ -42,7 +42,8 @@ const FacultySchema = new mongoose.Schema({
     scheduledClasses: { type: Number },
     actualClasses: { type: Number },
     document: { type: String },
-    score: { type: Number}
+    score: { type: Number},
+    erp:{type:Boolean, default:false}
   }],
 
   studentsFeedback: [{
@@ -53,8 +54,8 @@ const FacultySchema = new mongoose.Schema({
     pointsEarned: { type: Number },
 
     document: { type: String },
-    score: { type: Number}
-
+    score: { type: Number},
+    erp:{type:Boolean, default:false}
   }],
 
   departmentActivities: [{
@@ -84,8 +85,8 @@ const FacultySchema = new mongoose.Schema({
     result: { type: Number },
 
     document: { type: String },
-    score: { type: Number}
-
+    score: { type: Number},
+    erp:{type:Boolean, default:false}
   }],
 
   research: [{
@@ -94,7 +95,8 @@ const FacultySchema = new mongoose.Schema({
     category: { type: String },
     document: { type: String },
     creditPoint: { type: Number },
-    score: { type: Number}
+    score: { type: Number},
+    scholar:{type:Boolean, default:false}
   }],
 
   contributionSociety: [{

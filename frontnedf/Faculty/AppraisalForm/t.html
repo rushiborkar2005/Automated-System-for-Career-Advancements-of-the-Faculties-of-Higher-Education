@@ -3,189 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Performance Appraisal</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="view.css">
-   
+    <title>Dynamic Form</title>
+    <style>
+        /* Add styles for table and modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            margin: 10% auto;
+            width: 60%;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
-            alt="Government Emblem"
-            class="emblem" />
-          <div class="header-text">
-            <h1>Government of National Capital Territory of Delhi</h1>
-            <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
-          </div>
-        </div>
-      </header>
-  
-      <nav class="navigation">
-        <div class="nav-content">
-          <ul class="nav-links">
-            <li><a href="AdminHomepage.html">Home</a></li>
-            <li><a href="#">Manage Departments</a></li>
-            <li><a href="ManageFaculty.html">Manage Faculty</a></li>
-            <li><a href="#">Manage Assessment committee</a></li>
-            <li><a href="#">Create Appraisal Forms</a></li>
-            <li><a href="#">Reports</a></li>
-          </ul>
-          <div class="user-section">
-            <div class="profile-container">
-              <div class="profile-info">
-                <img src="profile.png" alt="Profile" class="profile-icon">
-                <span class="profile-name">-</span>
-                <i class="fas fa-chevron-down dropdown-icon"></i>
-              </div>
-              
-              <div class="profile-dropdown hidden">
-                <ul>
-                  <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
-                  <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-                  <li class="logout" id="logoutbutton"><a ><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                </ul>
-              </div>
-            </div>
-      </nav>
-      <div class="breadcrumb">
-        <h2 class="report">Faculty Performance Appraisal</h2>  
-    </div>
-    <div class="container">
-        
+    <div id="form-container"></div>
 
-        <section class="faculty-profile">
-            <div class="profile-detail">
-                <label>Faculty Name</label>
-                <span>Dr. Jane Doe</span>
-            </div>
-            <div class="profile-detail">
-                <label>Faculty ID</label>
-                <span>FA-2024-001</span>
-            </div>
-            <div class="profile-detail">
-                <label>Designation</label>
-                <span>Associate Professor</span>
-            </div>
-        </section>
-
-        <!-- Teaching Process Section -->
-        <section class="performance-section">
-            <div class="section-header">
-                <h3>Teaching Process</h3>
-                <div class="score-badge">4.5</div>
-            </div>
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subject</th>
-                        <th>Scheduled Classes</th>
-                        <th>Actual Classes</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Odd 2023</td>
-                        <td>Advanced Algorithms (CS-301)</td>
-                        <td>45</td>
-                        <td>42</td>
-                        <td>4.5</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Feedback Section -->
-        <section class="performance-section">
-            <div class="section-header">
-                <h3>Student Feedback</h3>
-                <div class="score-badge">4.2</div>
-            </div>
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subject</th>
-                        <th>Feedback Rating</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Odd 2023</td>
-                        <td>Advanced Algorithms (CS-301)</td>
-                        <td>4.2/5</td>
-                        <td>4.2</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Research & Publications Section -->
-        <section class="performance-section">
-            <div class="section-header">
-                <h3>Research & Publications</h3>
-                <div class="score-badge">5.0</div>
-            </div>
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>Publication Title</th>
-                        <th>Journal</th>
-                        <th>Year</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Machine Learning Advances</td>
-                        <td>IEEE Transactions</td>
-                        <td>2023</td>
-                        <td>5.0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Institutional & Societal Contributions -->
-        <section class="performance-section">
-            <div class="section-header">
-                <h3>Institutional & Societal Contributions</h3>
-                <div class="score-badge">4.3</div>
-            </div>
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>Activity</th>
-                        <th>Description</th>
-                        <th>Semester</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Research Committee</td>
-                        <td>Institutional Research Committee Member</td>
-                        <td>Odd 2023</td>
-                        <td>4.5</td>
-                    </tr>
-                    <tr>
-                        <td>Community Workshop</td>
-                        <td>Tech Education for Rural Students</td>
-                        <td>Odd 2023</td>
-                        <td>4.0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <div class="action-buttons">
-            <button class="btn btn-reset">Reset</button>
-            <button class="btn btn-submit">Submit Appraisal</button>
+    <!-- Modal for adding table entries -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <form id="entry-form">
+                <h3>Add Entry</h3>
+                <div id="modal-fields"></div>
+                <button type="submit">Save Entry</button>
+                <button type="button" onclick="closeModal()">Close</button>
+            </form>
         </div>
     </div>
+
+    <script>
+        // Fetch form data from backend
+        fetch('http://localhost:5000/api/formbuilde')
+            .then(response => response.json())
+            .then(data => renderForm(data));
+
+        function renderForm(data) {
+            const formContainer = document.getElementById('form-container');
+            
+            data.sections.forEach(section => {
+                const sectionElement = document.createElement('div');
+                sectionElement.classList.add('section');
+                
+                // Section title
+                const sectionTitle = document.createElement('h2');
+                sectionTitle.innerText = section.title;
+                sectionElement.appendChild(sectionTitle);
+                
+                // Table for each section
+                const table = document.createElement('table');
+                const tableHeader = document.createElement('tr');
+                section.fields.forEach(field => {
+                    const th = document.createElement('th');
+                    th.innerText = field.label;
+                    tableHeader.appendChild(th);
+                });
+                table.appendChild(tableHeader);
+                
+                // Add rows for table
+                section.fields.forEach(field => {
+                    const row = document.createElement('tr');
+                    section.fields.forEach(() => {
+                        const td = document.createElement('td');
+                        td.innerText = "Data";  // Replace with dynamic data if available
+                        row.appendChild(td);
+                    });
+                    table.appendChild(row);
+                });
+                
+                sectionElement.appendChild(table);
+                
+                // Add Button to open modal
+                const addButton = document.createElement('button');
+                addButton.innerText = 'Add Entry';
+                addButton.onclick = () => openModal(section.fields);
+                sectionElement.appendChild(addButton);
+                
+                formContainer.appendChild(sectionElement);
+            });
+        }
+
+        // Open modal to add data to table
+        function openModal(fields) {
+            const modal = document.getElementById('modal');
+            const modalFields = document.getElementById('modal-fields');
+            modalFields.innerHTML = ''; // Clear existing fields
+            
+            fields.forEach(field => {
+                const label = document.createElement('label');
+                label.innerText = field.label;
+                
+                let input;
+                if (field.type === 'text') {
+                    input = document.createElement('input');
+                    input.type = 'text';
+                } else if (field.type === 'dropdown') {
+                    input = document.createElement('select');
+                    field.options.forEach(option => {
+                        const optionElement = document.createElement('option');
+                        optionElement.value = option;
+                        optionElement.innerText = option;
+                        input.appendChild(optionElement);
+                    });
+                }
+                
+                const div = document.createElement('div');
+                div.appendChild(label);
+                div.appendChild(input);
+                modalFields.appendChild(div);
+            });
+            
+            modal.style.display = 'block';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Handle form submission to add entry
+        document.getElementById('entry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const entry = {};
+            formData.forEach((value, key) => {
+                entry[key] = value;
+            });
+            console.log(entry); // Handle submission to the backend
+            closeModal();
+        });
+    </script>
 </body>
 </html>
