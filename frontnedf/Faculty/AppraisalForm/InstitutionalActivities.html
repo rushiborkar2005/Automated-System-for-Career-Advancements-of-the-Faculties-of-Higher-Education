@@ -68,16 +68,103 @@
     <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
     <a href="view.html"><button>Score</button></a>
   </nav>
+<div class="score-section">
+  <div class="header-container">
+    <h3>D. Institute Activities (Max Point 10)</h3>
+    <button class="fetch-btn">
+      <i class="fas fa-sync-alt"></i>
+      Fetch from ERP
+    </button>
+  </div>
+  <div class="score-input">
+    <span>Score Obtained:</span>
+    <input type="text" id="scoreObtained" value="0" readonly />
+  </div>
+</div>
 
-        <div class="score-section">
-          <h3>
-            D. Institute Activities (Max Point 10)
-          </h3>
-          <div class="score-input">
-            <span>Score Obtained:</span>
-            <input type="text" id="scoreObtained" value="0" readonly />
-          </div>
-        </div>
+<style>
+.score-section {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header-container h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.fetch-btn {
+  background: #1a237e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fetch-btn:hover {
+  background: #283593;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.fetch-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.fetch-btn i {
+  font-size: 0.9rem;
+}
+
+.score-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-input span {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.score-input input {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80px;
+  text-align: center;
+  font-size: 0.95rem;
+  background-color: #f8f8f8;
+  color: #333;
+  font-weight: 500;
+}
+
+.score-input input:focus {
+  outline: none;
+  border-color: #1a237e;
+  box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.1);
+}
+</style>
+
  <div class="table-container">
           <table>
             <thead>
