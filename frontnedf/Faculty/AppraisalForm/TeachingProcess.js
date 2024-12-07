@@ -49,7 +49,6 @@ function populateTable(data) {
         onclick="deleteEntry(${index})">
     <i class="fa fa-trash"></i>
 </button>
-
       </td>
     `;
     tableBody.appendChild(row);
