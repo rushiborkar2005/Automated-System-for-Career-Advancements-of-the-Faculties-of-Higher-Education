@@ -68,36 +68,27 @@
         <h2 class="report">Appraisal Form</h2>  
     </div>
     
-    <nav class="section-nav">
-      <a href="TeachingProcess.html"><button class="active">Teaching Process</button></a>
-        <a href="StudentFeedback.html"><button>Student's Feedback </button></a>
-        <a href="DepartmentalActivities.html"><button>Departmental Activities</button></a>
-        <a href="InstitutionalActivities.html"><button >Institute Activities</button></a>
-        <a href="Result.html"><button>ACR</button></a>
-        <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
-        <a href="view.html"><button>Score</button></a>
+    <nav class="section-nav" id="section-nav">
+     
       </nav>
 
 
-      <div class="score-section">
-        <h3>
-          A. Teaching Process (Max Point 20) 
-        </h3>
-        <div class="score-input">
-          <span>Score Obtained:</span>
-          <input type="text" id="scoreObtained" value="0" readonly />
-        </div>
+      <div class="score-section" id="score-section">
+        
       </div>
     <div id="form-container" ></div>
 
    
-    <div id="modal" class="modal">
+    <div id="modal" class="modal hidden">
         <div class="modal-content">
-            <form id="entry-form">
-                <h3>Add Entry</h3>
-                <div id="modal-fields"></div>
-                <button type="submit">Save Entry</button>
-                <button type="button" onclick="closeModal()">Close</button>
+          <div class="modal-header">
+            <h3>Add Faculty Entry</h3>
+            <span class="close" onclick="closeModal()">&times;</span>
+          </div>
+            <form id="facultyForm" onsubmit="handleSubmit(event)">
+                <!-- <div id="modal-fields"></div> -->
+                <!-- <button type="submit">Save Entry</button> -->
+                <!-- <button type="button" onclick="closeModal()">Close</button> -->
             </form>
         </div>
     </div>
@@ -108,10 +99,50 @@
             .then(response => response.json())
             .then(data => renderForm(data));
 
-        function renderForm(data) {
+
+function renderForm(data){
+  const nav=document.getElementById('section-nav')
+     
+  data.sections.forEach(section => {
+
+const nb=document.createElement('button');
+nb.innerText=section.title;
+nb.onclick=()=>rendertable(section);
+nav.appendChild(nb);
+  });
+
+  
+}
+
+
+        function rendertable(section) {
+
+
+          const scoreSection=document.getElementById('score-section')
+          scoreSection.innerHTML='';
+          const heading = document.createElement('h3');
+  heading.textContent = `${section.title} (Max Point )`;
+  scoreSection.appendChild(heading);
+
+  // Create and append the score input container
+  const scoreInput = document.createElement('div');
+  scoreInput.classList.add('score-input');
+
+  const span = document.createElement('span');
+  span.textContent = 'Score Obtained:';
+  scoreInput.appendChild(span);
+
+  const input = document.createElement('input');
+  input.type = 'text';
+  // input.id = scoreId;
+  // input.value = initialScore;
+  input.readOnly = true;
+  scoreInput.appendChild(input);
+
+  scoreSection.appendChild(scoreInput);
+
             const formContainer = document.getElementById('form-container');
-            
-            data.sections.forEach(section => {
+              formContainer.innerHTML='';
                 const sectionElement = document.createElement('div');
                 sectionElement.classList.add('table-container');
                 
@@ -161,16 +192,18 @@
                 btn.appendChild(btn2);
                 formContainer.appendChild(btn);
 
-            });
+        
         }
 
         // Open modal to add data to table
         function openModal(fields) {
             const modal = document.getElementById('modal');
-            const modalFields = document.getElementById('modal-fields');
+            const modalFields = document.getElementById('facultyForm');
             modalFields.innerHTML = ''; // Clear existing fields
             
             fields.forEach(field => {
+              const div1=document.createElement('div');
+              div1.classList.add('form-group');
                 const label = document.createElement('label');
                 label.innerText = field.label;
                 
@@ -186,15 +219,31 @@
                         optionElement.innerText = option;
                         input.appendChild(optionElement);
                     });
+                } else if (field.type==='number')
+                {
+                  input = document.createElement('input');
+                  input.type = 'number';
+                } else {
+                  input = document.createElement('div');
+                    field.options.forEach(option => {
+                        const optionElement = document.createElement('input');
+                        optionElement.type = 'radio';
+                        optionElement.value = option;
+                        optionElement.name = option;
+                        const lab=document.createElement('label');
+                        lab.innerText=option
+                        input.appendChild(optionElement);
+                        input.appendChild(lab);
+                    });
                 }
                 
-                const div = document.createElement('div');
-                div.appendChild(label);
-                div.appendChild(input);
-                modalFields.appendChild(div);
+                
+                div1.appendChild(label);
+                div1.appendChild(input);
+                modalFields.appendChild(div1);
             });
             
-            modal.style.display = 'block';
+            modal.style.display = 'flex';
         }
 
         // Close modal
