@@ -43,8 +43,8 @@ async function generateFacultyPDF(facultyId) {
         doc.moveDown(1);
 
         // Profile Information
-        doc.fontSize(10).text(Name: ${data.name || 'N/A'} \t\t Academic Year: ${data.academicYear || 'N/A'});
-        doc.text(Designation: ${data.designation || 'N/A'} \t\t Department: ${data.department || 'N/A'});
+        // doc.fontSize(10).text(Name: ${data.name || 'N/A'} \t\t Academic Year: ${data.academicYear || 'N/A'});
+        // doc.text(Designation: ${data.designation || 'N/A'} \t\t Department: ${data.department || 'N/A'});
         doc.moveDown(1);
 
         // Table: Teaching Process
@@ -156,7 +156,7 @@ function createTable(doc, title, rows, headers) {
 
   doc.moveDown(1);
 }
-function creadteTable(doc, title, rows, headers) {
+function creanteTable(doc, title, rows, headers) {
   // Draw the table title
   doc.moveDown(1).fontSize(12).text(title, { underline: true });
 

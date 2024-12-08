@@ -3,11 +3,13 @@ const Institute = require('../Models/Institute');
 const Faculty = require('../Models/addfaculty');
 const multer = require("multer");
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const  { uploadFileToDrive }=require('../Module/multer')
 const { LocalStorage } = require('node-localstorage');
 const localStorage = new LocalStorage('./scratch');
 const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 const upload = multer({ dest: 'uploads/' });
+const ff=require('../Models/freshFaculty')
 const fs = require('fs');
 const {
   verifyToken,
@@ -18,28 +20,8 @@ const sendPasswordEmail = require('../Module/mail');
 const router = express.Router();
 // Add a new faculty
 router.post('/addFaculty', verifyToken, async (req, res) => {
-  try {
+  // try {
     const {
-      // title,
-      // firstName,
-      // middleName,
-      // lastName,
-      // gender,
-      // dateOfBirth,
-      // address,
-      // city,
-      // zipcode,
-      // state,
-      // country,
-      // departmentName,
-      // facultyId,
-      // dateOfJoining,
-      // designation,
-      // facultyEmail,
-      // educationQualification,
-      // areasOfSpecialization,
-      // experiences,
-      // employeeType,
 
       title,
       firstName,
@@ -52,33 +34,22 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
       facultyEmail,
 
     } = req.body;
-    const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.instituteName');
+    const password = generatePassword();
+    const hashedPassword = await bcrypt.hash(password, 10);
+const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.instituteName');
     const institute_name = institute.basicInfo.instituteName;
+    const newf=new ff ({
+      username : facultyEmail,
+      password : hashedPassword,
+      instituteName : institute_name
+    })
+    const nf = await newf.save()
+    console.log(nf)
     const fdb = getdb(institute_name.replace(/[^a-zA-Z0-9]/g, '_'));
     const FacultyModel = Faculty(fdb);
-    const password = generatePassword();
+   
 
     const newFaculty = new FacultyModel({
-      // title,
-      // firstName,
-      // middleName,
-      // lastName,
-      // gender,
-      // dateOfBirth,
-      // address,
-      // city,
-      // zipcode,
-      // state,
-      // country,
-      // departmentName,
-      // facultyId,
-      // dateOfJoining,
-      // designation,
-      // facultyEmail,
-      // educationQualification,
-      // areasOfSpecialization,
-      // experiences,
-      // employeeType,
 
       title,
       firstName,
@@ -101,13 +72,13 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
       message: 'Faculty added successfully',
       faculty: savedFaculty,
     });
-  } catch (error) {
+  // } catch (error) {
     
-    res.status(500).json({
-      message: 'Error adding faculty',
-      error: error.message,
-    });
-  }
+  //   res.status(500).json({
+  //     message: 'Error adding faculty',
+  //     error: error.message,
+  //   });
+  // }
 });
   router.post('/add-details', async (req, res) => {
 
@@ -252,7 +223,6 @@ router.post('/upload',upload.single('file'), async (req, res) => {
   }
 }
 );
-
 
 
 
