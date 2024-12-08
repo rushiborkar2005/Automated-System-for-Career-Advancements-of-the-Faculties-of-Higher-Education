@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Faculty Reports</title>
-  <link rel="stylesheet" href="InstitutionalActivities.css">
+  <link rel="stylesheet" href="StudentFeedback.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -20,38 +20,37 @@
   </header>
 
   <!-- Navbar -->
-   <nav class="navigation">
+  <nav class="navigation">
     <div class="nav-content">
-      <ul class="nav-links">
-        <li><a href="../Homepage/HomePage.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="#" class="active"><i class="fas fa-user"></i> Profile</a></li>
-        <li><a href="AppraisalForm/TeachingProcess.html"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
-        <li><a href="#"><i class="fas fa-chart-bar"></i> Report</a></li>
+        <ul class="nav-links">
+        <li><a href="FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="FacultyProfilePage.html" ><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="TeachingProcess.html" class="active"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+        <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li>
         <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li>
       </ul>
-      
-      <div class="user-section">
-        <div class="profile-container">
-          <div class="profile-info">
-            <img src="profile.png" alt="Profile" class="profile-icon">
-            <span class="profile-name">John Doe</span>
-            <i class="fas fa-chevron-down dropdown-icon"></i>
-          </div>
-          
-          <div class="profile-dropdown hidden">
-            <ul>
-              <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
-              <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-              <li class="logout"  id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="notification-bell">
-          <i class="fas fa-bell"></i>
-          <span class="notification-badge">3</span>
-        </div>
-      </div>
+          <div class="user-section">
+            <div class="profile-container">
+              <div class="profile-info">
+                <img src="profile.png" alt="Profile" class="profile-icon">
+                <span class="profile-name">John Doe</span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              
+              <div class="profile-dropdown hidden">
+                <ul>
+                  <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href="SETTING.HTML"><i class="fas fa-cog"></i> Settings</a></li>
+                  <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </div>
+          </div>     
     </div>
   </nav>
 
@@ -60,17 +59,18 @@
 </div>
 
 <nav class="section-nav">
-  <a href="TeachingProcess.html"><button>Teaching Process</button></a>
-    <a href="StudentFeedback.html"><button>Student's Feedback </button></a>
+  <a href="TeachingProcess.html"><button >Teaching Process</button></a>
+    <a href="StudentFeedback.html"><button  class="active">Student's Feedback </button></a>
     <a href="DepartmentalActivities.html"><button>Departmental Activities</button></a>
-    <a href="InstitutionalActivities.html"><button  class="active">Institute Activities</button></a>
+    <a href="InstitutionalActivities.html"><button >Institute Activities</button></a>
     <a href="Result.html"><button>ACR</button></a>
     <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
-    <a href="view.html"><button>Score</button></a>
+    <a href="Summary.html"><button>Score</button></a>
   </nav>
-<div class="score-section">
+
+        <div class="score-section">
   <div class="header-container">
-    <h3>D. Institute Activities (Max Point 10)</h3>
+    <h3><b>B. Student's Feedback (Max Point 20)</b></h3>
     <button class="fetch-btn">
       <i class="fas fa-sync-alt"></i>
       Fetch from ERP
@@ -165,13 +165,16 @@
 }
 </style>
 
+        
  <div class="table-container">
           <table>
             <thead>
               <tr>
                 <th>Sr. No</th>
                 <th>Semester</th>
-                <th>Activity</th>
+                <th>Subject code</th>
+                <th>Subject Name</th>
+                <th>Average Student Feedback Percentage</th>
                 <th>Supporting Document</th>
                 <th class="score">Score</th>
                 <th>Actions</th>
@@ -188,11 +191,11 @@
         </div>
 
         <div class="navigation-buttons">
-          <button class="prev-btn" onclick="window.location.href = 'DepartmentalActivities.html';">Back</button>
+          <button class="prev-btn" onclick="window.location.href = 'TeachingProcess.html';">Back</button>
           <div class="right-buttons">
             <!-- <button class="draft-btn">Save As Draft</button>
             <button class="submit-btn">Submit</button> -->
-           <button class="next-btn" onclick="window.location.href = 'Result.html';">Next</button>
+           <button class="next-btn" onclick="window.location.href = 'DepartmentalActivities.html';">Next</button>
           </div>
         </div>
       </div>
@@ -206,9 +209,13 @@
           <span class="close" onclick="closeModal()">&times;</span>
         </div>
         <form id="facultyForm" onsubmit="handleSubmit(event)">
-         <div class="form-group">
-            <label>Activity</label>
-            <input type="text" name="activity" required />
+          <div class="form-group">
+            <label>Subject Name</label>
+            <input type="text" name="subjectName" required />
+          </div>
+          <div class="form-group">
+            <label>Subject Code</label>
+            <input type="text" name="subjectCode" required />
           </div>
           <div class="form-group">
             <label>Semester</label>
@@ -224,10 +231,16 @@
               <option value="8th">8th</option>
             </select>
           </div>
+          
+          <div class="form-group">
+            <label><th>Average Student Feedback Percentage</th></label>
+            <input type="number" name="studentFeedback" required />
+          </div>
           <div class="form-group">
             <label>Supporting Document</label>
             <input type="file" name="supportingDocument"  />
           </div>
+
           <div class="form-buttons">
             <button type="button" class="reset-btn" onclick="resetForm()">
               Reset
@@ -238,7 +251,7 @@
       </div>
     </div>
     <script src="common.js"></script>
-    <script src="InstituteActivities.js"></script>
+    <script src="StudentFeedBack.js"></script>
 </body>
 </html>
 
