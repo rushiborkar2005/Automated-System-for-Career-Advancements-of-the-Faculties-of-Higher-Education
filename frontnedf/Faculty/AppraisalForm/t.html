@@ -4,29 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Form</title>
-    <style>
-        /* Add styles for table and modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .modal-content {
-            background-color: white;
-            padding: 20px;
-            margin: 10% auto;
-            width: 60%;
-        }
-    </style>
+   <link rel="stylesheet" href="form.css">
 </head>
 <body>
-    <div id="form-container"></div>
 
-    <!-- Modal for adding table entries -->
+
+    <header class="header">
+        <div class="header-content">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+          <div class="header-text">
+          <h1>Government of National Capital Territory of Delhi</h1>
+            <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+          </div>
+        </div>
+      </header>
+    
+      <!-- Navbar -->
+       <nav class="navigation">
+        <div class="nav-content">
+          <ul class="nav-links">
+            <li><a href="../Homepage/HomePage.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" class="active"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="AppraisalForm/TeachingProcess.html"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Report</a></li>
+                    <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li>
+          </ul>
+          
+          <div class="user-section">
+            <div class="profile-container">
+              <div class="profile-info">
+                <img src="profile.png" alt="Profile" class="profile-icon">
+                <span class="profile-name">John Doe</span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              
+              <div class="profile-dropdown hidden">
+                <ul>
+                  <li><a href="../FacultyProfilePage.html"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                  <li class="logout"  id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="notification-bell" onclick="toggleNotifications()">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+          </div>
+          <div id="notification-section" class="notification-section">
+              <h3>Notifications</h3>
+              <ul>
+                  <li>You have a new message.</li>
+                  <li>Your profile was updated.</li>
+                  <li>New comment on your post.</li>
+              </ul>
+          </div>
+          
+          </div>
+        </div>
+      </nav>
+    
+      <div class="breadcrumb">
+        <h2 class="report">Appraisal Form</h2>  
+    </div>
+    
+    <nav class="section-nav">
+      <a href="TeachingProcess.html"><button class="active">Teaching Process</button></a>
+        <a href="StudentFeedback.html"><button>Student's Feedback </button></a>
+        <a href="DepartmentalActivities.html"><button>Departmental Activities</button></a>
+        <a href="InstitutionalActivities.html"><button >Institute Activities</button></a>
+        <a href="Result.html"><button>ACR</button></a>
+        <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
+        <a href="view.html"><button>Score</button></a>
+      </nav>
+
+
+      <div class="score-section">
+        <h3>
+          A. Teaching Process (Max Point 20) 
+        </h3>
+        <div class="score-input">
+          <span>Score Obtained:</span>
+          <input type="text" id="scoreObtained" value="0" readonly />
+        </div>
+      </div>
+    <div id="form-container" ></div>
+
+   
     <div id="modal" class="modal">
         <div class="modal-content">
             <form id="entry-form">
@@ -49,22 +113,24 @@
             
             data.sections.forEach(section => {
                 const sectionElement = document.createElement('div');
-                sectionElement.classList.add('section');
+                sectionElement.classList.add('table-container');
                 
                 // Section title
-                const sectionTitle = document.createElement('h2');
-                sectionTitle.innerText = section.title;
-                sectionElement.appendChild(sectionTitle);
+                // const sectionTitle = document.createElement('h2');
+                // sectionTitle.innerText = section.title;
+                // sectionElement.appendChild(sectionTitle);
                 
                 // Table for each section
                 const table = document.createElement('table');
+                const tableh=document.createElement('thead')
                 const tableHeader = document.createElement('tr');
                 section.fields.forEach(field => {
                     const th = document.createElement('th');
                     th.innerText = field.label;
                     tableHeader.appendChild(th);
                 });
-                table.appendChild(tableHeader);
+                tableh.appendChild(tableHeader)
+                table.appendChild(tableh);
                 
                 // Add rows for table
                 section.fields.forEach(field => {
@@ -80,12 +146,21 @@
                 sectionElement.appendChild(table);
                 
                 // Add Button to open modal
-                const addButton = document.createElement('button');
-                addButton.innerText = 'Add Entry';
-                addButton.onclick = () => openModal(section.fields);
-                sectionElement.appendChild(addButton);
+                // const addButton = document.createElement('button');
+                // addButton.innerText = 'Add Entry';
+                // addButton.onclick = () => openModal(section.fields);
+                // sectionElement.appendChild(addButton);
                 
                 formContainer.appendChild(sectionElement);
+
+                const btn=document.createElement('div');
+                btn.classList.add('add-button');
+                const btn2=document.createElement('button');
+                btn2.innerText='+ Add';
+                btn2.onclick=()=>openModal(section.fields);
+                btn.appendChild(btn2);
+                formContainer.appendChild(btn);
+
             });
         }
 
