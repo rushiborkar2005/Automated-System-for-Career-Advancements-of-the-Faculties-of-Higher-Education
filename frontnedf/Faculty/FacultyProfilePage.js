@@ -102,39 +102,41 @@ async function fetchFacultyProfile() {
     if (!response.ok) throw new Error('Failed to fetch data');
     const data = await response.json();
       console.log(data);
+      populateProfileForm(data.faculty)
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
 // Function to populate the form with fetched data
 function populateProfileForm(data) {
+  console.log(data);
   // Personal Information
-  document.getElementById('title').value = data.title || '';
-  document.getElementById('firstName').value = data.firstName || '';
-  document.getElementById('middleName').value = data.middleName || '';
-  document.getElementById('lastName').value = data.lastName || '';
+  document.getElementById('title').innerText = data.title || '';
+  document.getElementById('firstName').innerText = data.firstName || '';
+  document.getElementById('middleName').innerText = data.middleName || '';
+  document.getElementById('lastName').innerText = data.lastName || '';
 
   // Contact Information
-  document.getElementById('phone').value = data.phone || '';
-  document.getElementById('email').value = data.facultyEmail || '';
-  document.getElementById('gender').value = data.gender || '';
-  document.getElementById('dob').value = data.dateOfBirth || '';
+  document.getElementById('phone').innerText = data.phone || '';
+  document.getElementById('email').innerText = data.facultyEmail || '';
+  document.getElementById('gender').innerText = data.gender || '';
+  document.getElementById('dob').innerText = data.dateOfBirth || '';
 
   // Address Details
-  document.getElementById('address1').value = data.address1 || '';
-  document.getElementById('address2').value = data.address2 || '';
-  document.getElementById('city').value = data.city || '';
-  document.getElementById('zipCode').value = data.zipcode || '';
-  document.getElementById('state').value = data.state || '';
-  document.getElementById('country').value = data.country || 'india';
+  document.getElementById('address1').innerText = data.address1 || '';
+  document.getElementById('address2').innerText = data.address2 || '';
+  document.getElementById('city').innerText = data.city || '';
+  document.getElementById('zipCode').innerText = data.zipcode || '';
+  document.getElementById('state').innerText = data.state || '';
+  document.getElementById('country').innerText = data.country || 'india';
 
   // Professional Information
-  document.getElementById('designation').value = data.designation || '';
-  document.getElementById('department').value = data.departmentName || '';
-  document.getElementById('education').value = data.educationalQualifications || '';
-  document.getElementById('specialization').value = data.areasOfSpecialization || '';
-  document.getElementById('experience').value = data.experiences || '';
-  document.getElementById('employeeType').value = data.employeeType || '';
+  document.getElementById('designation').innerText = data.designation || '';
+  document.getElementById('department').innerText = data.departmentName || '';
+  document.getElementById('education').innerText = data.educationalQualifications || '';
+  document.getElementById('specialization').innerText = data.areasOfSpecialization || '';
+  document.getElementById('experience').innerText = data.experiences || '';
+  document.getElementById('employeeType').innerText = data.employeeType || '';
 }
 
 // Function to handle form submission
