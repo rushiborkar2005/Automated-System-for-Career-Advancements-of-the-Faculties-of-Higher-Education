@@ -189,3 +189,22 @@ async function handleSubmit(event) {
   
     return points;
   }
+
+
+
+  const logoutButton = document.getElementById('logoutbutton');
+  logoutButton.addEventListener('click', () => {
+      console.log('hello')
+      localStorage.removeItem('authToken');
+      window.location.href = '../Homepage/HomePage.html';
+  });
+    
+  
+    function toggleNotifications() {
+      const notificationSection = document.getElementById("notification-section");
+      if (notificationSection.style.display === "none" || notificationSection.style.display === "") {
+          notificationSection.style.display = "block";
+      } else {
+          notificationSection.style.display = "none";
+      }
+  }
