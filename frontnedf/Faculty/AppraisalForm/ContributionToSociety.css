@@ -1,12 +1,11 @@
 :root {
-  /* Color Palette */
-  --primary-color: #263A6D;
-  --secondary-color: #3498DB;
-  --accent-color: #27AE60;
-  --background-light: #F4F6F7;
-  --text-dark: #2C3E50;
-  --white: #FFFFFF;
-  --border-color: #E0E0E0;
+    --primary-color: #2C3E50;
+    --secondary-color: #3498DB;
+    --accent-color: #27AE60;
+    --background-light: #F4F6F7;
+    --text-dark: #2C3E50;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
 }
 
 * {
