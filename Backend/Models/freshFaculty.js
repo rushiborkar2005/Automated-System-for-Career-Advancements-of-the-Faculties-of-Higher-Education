@@ -10,6 +10,6 @@ const userSchema = new mongoose.Schema({
     timestamps: true, // Adds createdAt and updatedAt fields
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.connection.useDb('faculty').model('facultycredentials', userSchema);
 
 module.exports = User;
