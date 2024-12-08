@@ -1,7 +1,7 @@
 const express = require('express'); // Express.js ko import karo
 const axios = require('axios'); // Axios ko import karo (API request ke liye)
 const cors = require('cors'); // CORS library ko import karo
-const {Faculty}=require('../Models/addfaculty')
+const Faculty = require('../Models/addfaculty');
 const {getdb}=require('./db')
 const app = express();
 app.use(cors()); // CORS ko enable karo
@@ -38,7 +38,7 @@ async function addResearchData(facultyId, researchData) {
         document: researchData.link, // Storing the link as document
         creditPoint: 0, // Set based on your criteria
         score: 0, // Set based on your criteria
-        scholar: !!researchData.citation_id // Set true if citation_id is present
+        scholar: true // Set true if citation_id is present
       };
   
       // Update the faculty document
