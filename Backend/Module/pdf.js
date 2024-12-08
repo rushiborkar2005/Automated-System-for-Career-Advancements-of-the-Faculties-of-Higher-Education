@@ -32,79 +32,75 @@ async function generateFacultyPDF(facultyId) {
         // Stream to File
         doc.pipe(stream);
     
-        
-            // Header Section
-            doc
-              
-              .fontSize(12)
-              .text('Government of National Capital Territory of Delhi', 100, 30, { align: 'center' })
-              .fontSize(10)
-              .text('राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार', 100, 45, { align: 'center' })
-              .fontSize(14)
-              .text(data.instituteName, { align: 'center', underline: true });
-          
-            doc.moveDown(2);
-          
-            // Profile Section
-            doc
-              .fontSize(12)
-              .text('Profile', { underline: true, align: 'left' })
-              .moveDown(0.5);
-          
-            const profileFields = [
-              { label: 'Title', value: data.title },
-              { label: 'Name', value: data.name },
-              { label: 'Department', value: data.department },
-              { label: 'Designation', value: data.designation },
-              { label: 'Faculty ID', value: data.facultyId },
-            ];
-          
-            profileFields.forEach((field, idx) => {
-              doc.text(`${field.label}: ${field.value}`, {
-                width: 250,
-                continued: idx % 2 === 0,
-              });
-              if (idx % 2 !== 0) doc.text(''); // Break for the next row
-            });
-          
-            doc.moveDown(1.5);
-          
-            // Add Tables
-            createTable(doc, 'A. Teaching Process', data.teachingProcess, [
-              'Sr No',                    // Added for row indexing
-              'Semester',                 // Maps to 'semester' in schema
-              'Subject Code',             // Maps to 'subjectCode' in schema
-              'Subject Name',             // Maps to 'subjectName' in schema
-              'No. of Scheduled Classes', // Maps to 'scheduledClasses' in schema
-              'No. of Actually Held Classes', // Maps to 'actualClasses' in schema
-              'Supporting Document',      // Maps to 'document' in schema
-              'Score',                    // Maps to 'score' in schema
-            ], {
-              'Sr No': '_id',                    // Generated manually for indexing
-              'Semester': 'semester',
-              'Subject Code': 'subjectCode',
-              'Subject Name': 'subjectName',
-              'No. of Scheduled Classes': 'scheduledClasses',
-              'No. of Actually Held Classes': 'actualClasses',
-              'Supporting Document': 'document',
-              'Score': 'score',
-            });
-          
-            // createTable(doc, "B. Student's Feedback", data.studentFeedback, [
-            //   'Sr No', 'Semester', 'Subject Code', 'Subject Name',
-            //   'Average Feedback %', 'Supporting Document', 'Score',
-            // ]);
-          
-            // createTable(doc, 'F. Contribution', data.contribution, [
-            //   'Sr No', 'Semester', 'Activity', 'Supporting Document', 'Score',
-            // ]);
-          
-            // createTable(doc, 'I. Performance Summary', data.performanceSummary, [
-            //   'Sr No', 'Parameter', 'Total Score', 'Obtained Score',
-            // ]);
-          
-            // Footer
-            doc.moveDown(2);
+        doc.pipe(stream);
+
+        // Page 1: Appraisal and Feedback Form
+        doc.fontSize(16).text('APPRAISAL AND 360° FEEDBACK FORM', { align: 'center', underline: true });
+        doc.moveDown(1);
+
+        // Section A Header
+        doc.fontSize(12).text('SECTION A', { align: 'center', underline: true });
+        doc.moveDown(1);
+
+        // Profile Information
+        doc.fontSize(10).text(Name: ${data.name || 'N/A'} \t\t Academic Year: ${data.academicYear || 'N/A'});
+        doc.text(Designation: ${data.designation || 'N/A'} \t\t Department: ${data.department || 'N/A'});
+        doc.moveDown(1);
+
+        // Table: Teaching Process
+        createTable(doc, 'A. Teaching Process (Max Point 20)', data.teachingProcess, [
+            'Sr No', 'Semester', 'Subject Code', 'Subject Name', 'No. of Scheduled Classes',
+            'No. of Actually Held Classes', 'Attainment', 'Score',
+        ]);
+
+        // Table: Students' Feedback
+        createTable(doc, 'B. Students\' Feedback (Max Point 20)', data.studentFeedback, [
+            'Sr No', 'Semester', 'Subject Code', 'Subject Name', 'Average Student Feedback Percentage', 'Score',
+        ]);
+
+        // Table: Departmental Activities
+        createTable(doc, 'C. Departmental Activities (Max Point 20)', data.departmentalActivities, [
+            'Sr No', 'Semester', 'Activity', 'Score',
+        ]);
+
+        // Table: Institute Activities
+        createTable(doc, 'D. Institute Activities (Max Point 10)', data.instituteActivities, [
+            'Sr No', 'Semester', 'Activity', 'Score',
+        ]);
+
+        // Table: ACR Maintained
+        createTable(doc, 'E. ACR Maintained at Institute Level (Max Point 20)', data.acrMaintained, [
+            'Sr No', 'Semester', 'Subject Code', 'Subject Name', 'No. of Students Registered',
+            'No. of Students Passed', 'Result', 'Score',
+        ]);
+
+        // Table: Research Publications
+        createTable(doc, 'F. Research Publications (Max Point 10)', data.researchPublications, [
+            'Sr No', 'Name of Publication', 'Category', 'Score',
+        ]);
+
+        // Table: Contribution to Society
+        createTable(doc, 'G. Contribution to Society (Max Point 10)', data.contribution, [
+            'Sr No', 'Semester', 'Activity', 'Score',
+        ]);
+
+        doc.addPage();
+
+        // Page 2: Performance Summary
+        doc.fontSize(14).text('Performance Summary', { align: 'center', underline: true });
+        doc.moveDown(1);
+
+        createTable(doc, 'Score Obtained Total on 10 Point Scale', data.performanceSummary, [
+            'Sr No', 'Parameters', 'Total Score', 'Obtained Score',
+        ]);
+
+        doc.moveDown(2);
+        doc.text('Date: ________________', 50, doc.y, { align: 'left' });
+        doc.text('Signature of Faculty Member', 400, doc.y, { align: 'right' });
+
+       
+
+
             doc.text('Generated on: ' + new Date().toLocaleDateString(), { align: 'right' });
           
             doc.end();
@@ -124,6 +120,43 @@ async function generateFacultyPDF(facultyId) {
 
 }
 function createTable(doc, title, rows, headers) {
+  // Title
+  doc.fontSize(12).text(title, { underline: true });
+  doc.moveDown(0.5);
+
+  const tableStartY = doc.y;
+  const tableWidth = 500;
+  const columnWidth = tableWidth / headers.length;
+  const cellPadding = 5;
+
+  // Header Row
+  doc.rect(doc.x, tableStartY, tableWidth, 20).fillAndStroke('#f0f0f0', 'black');
+  headers.forEach((header, idx) => {
+      doc
+          .fontSize(10)
+          .fillColor('black')
+          .text(header, doc.x + idx * columnWidth + cellPadding, tableStartY + 5, {
+              width: columnWidth - cellPadding * 2,
+              align: 'center',
+          });
+  });
+
+  // Rows
+  rows.forEach((row, rowIdx) => {
+      headers.forEach((header, colIdx) => {
+          const cellText = row[header] || '';
+          doc.text(cellText, doc.x + colIdx * columnWidth + cellPadding, tableStartY + 25 + rowIdx * 20, {
+              width: columnWidth - cellPadding * 2,
+              align: 'center',
+          });
+      });
+
+      doc.moveTo(doc.x, tableStartY + 25 + (rowIdx + 1) * 20).lineTo(doc.x + tableWidth, tableStartY + 25 + (rowIdx + 1) * 20).stroke();
+  });
+
+  doc.moveDown(1);
+}
+function creadteTable(doc, title, rows, headers) {
   // Draw the table title
   doc.moveDown(1).fontSize(12).text(title, { underline: true });
 
