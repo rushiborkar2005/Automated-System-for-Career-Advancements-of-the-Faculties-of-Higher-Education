@@ -15,7 +15,7 @@ const FacultySchema = new mongoose.Schema({
   firstName: { type: String, trim: true },
   middleName: { type: String, trim: true },
   lastName: { type: String, trim: true },
-  phone:{ type: String, unique: true, trim: true },
+  phone:{ type: String,  trim: true },
   gender: { type: String, enum: ['Male', 'Female', 'Other'], trim: true },
   dateOfBirth: { type: Date },
   address1: { type: String, trim: true },
