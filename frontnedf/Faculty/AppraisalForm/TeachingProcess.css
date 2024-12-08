@@ -1,12 +1,11 @@
 :root {
-  /* Color Palette */
-  --primary-color: #263A6D;
-  --secondary-color: #3498DB;
-  --accent-color: #27AE60;
-  --background-light: #F4F6F7;
-  --text-dark: #2C3E50;
-  --white: #FFFFFF;
-  --border-color: #E0E0E0;
+    --primary-color: #2C3E50;
+    --secondary-color: #3498DB;
+    --accent-color: #27AE60;
+    --background-light: #F4F6F7;
+    --text-dark: #2C3E50;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
 }
 
 * {
@@ -610,35 +609,3 @@ th {
   border-radius: 6px;
   margin-right: 5px;
 }
-
-.notification-section {
-  display: none;
-  position: absolute;
-  top:150px;
-  right: 50;
-  background-color: white;
-  border: 2px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 190px;
-  z-index: 1000;
-  padding: 20px 25px;
-  border-radius: 3px;
-}
-
-.notification-bell {
-  position: relative;
-  cursor: pointer;
-}
-
-/* .notification-badge {
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 3px 6px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 12px;
-} */
-
