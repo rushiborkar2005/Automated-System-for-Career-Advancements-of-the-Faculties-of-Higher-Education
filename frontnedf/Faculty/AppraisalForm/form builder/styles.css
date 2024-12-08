@@ -221,6 +221,9 @@ body {
   display: none;
 }
 
+.hidden {
+  display: none;
+}
 .add-field-btn {
   margin-top: 1rem;
   width: 100%;
