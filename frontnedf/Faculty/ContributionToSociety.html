@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Faculty Reports</title>
-  <link rel="stylesheet" href="DepartmentalActivities.css">
+  <link rel="stylesheet" href="ContributionToSociety.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+ 
+   
+
 </head>
 <body>
   <!-- Header -->
@@ -22,13 +27,13 @@
   <!-- Navbar -->
    <nav class="navigation">
     <div class="nav-content">
-      <ul class="nav-links">
-        <li><a href="../Homepage/HomePage.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="#" class="active"><i class="fas fa-user"></i> Profile</a></li>
-        <li><a href="AppraisalForm/TeachingProcess.html"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
-        <li><a href="#"><i class="fas fa-chart-bar"></i> Report</a></li>
-        <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li>
-      </ul>
+      <ul class="nav-links"><br>
+            <li><a href="FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="FacultyProfilePage.html" class="><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="TeachingProcess.html" class="active"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+            <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li><br>
+          </ul>  
       
       <div class="user-section">
         <div class="profile-container">
@@ -42,7 +47,7 @@
             <ul>
               <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
               <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-              <li class="logout"  id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+              <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
           </div>
         </div>
@@ -60,21 +65,21 @@
 </div>
 
 <nav class="section-nav">
-  <a href="TeachingProcess.html"><button>Teaching Process</button></a>
+  <a href="TeachingProcess.html"><button >Teaching Process</button></a>
     <a href="StudentFeedback.html"><button>Student's Feedback </button></a>
-    <a href="DepartmentalActivities.html"><button class="active">Departmental Activities</button></a>
+    <a href="DepartmentalActivities.html"><button>Departmental Activities</button></a>
     <a href="InstitutionalActivities.html"><button >Institute Activities</button></a>
-    <a href="Result.html"><button>ACR</button></a>
-    <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
-    <a href="view.html"><button>Score</button></a>
+    <a href="Result.html"><button >ACR</button></a>
+    <a href="ContributionToSociety.html"><button class="active">Contribution to Society</button></a>
+    <a href="Summary.html"><button>Score</button></a>
   </nav>
 
         <div class="score-section">
   <div class="header-container">
-    <h3>C. Departmental Activities (Max Point 20)</h3>
+    <h3><b>F. Contribution To Society (Max Point 10)</b></h3>
     <button class="fetch-btn">
       <i class="fas fa-sync-alt"></i>
-      Fetch from ERP
+      Fetch data from ERP
     </button>
   </div>
   <div class="score-input">
@@ -170,7 +175,7 @@
           <table>
             <thead>
               <tr>
-                <th>Sr. No</th>
+                 <th>Sr. No</th>
                 <th>Semester</th>
                 <th>Activity</th>
                 <th>Supporting Document</th>
@@ -189,11 +194,11 @@
         </div>
 
         <div class="navigation-buttons">
-          <button class="prev-btn" onclick="window.location.href = 'StudentFeedBack.html';">Back</button>
+          <button class="prev-btn" onclick="window.location.href = 'Research.html';">Back</button>
           <div class="right-buttons">
             <!-- <button class="draft-btn">Save As Draft</button>
             <button class="submit-btn">Submit</button> -->
-           <button class="next-btn" onclick="window.location.href = 'InstitutionalActivities.html';">Next</button>
+           <button class="next-btn" onclick="window.location.href = 'Summary.html';">Next</button>
           </div>
         </div>
       </div>
@@ -207,23 +212,11 @@
           <span class="close" onclick="closeModal()">&times;</span>
         </div>
         <form id="facultyForm" onsubmit="handleSubmit(event)">
-         <div class="form-group">
-  <label>Activity</label>
-  <select type="text" name="activity" id="activity-select" required onchange="toggleOtherCategoryInput()">
-    <option value="">Select Activity</option>
-    <option value="Guest Lecture">Guest Lecture</option>
-    <option value="Industry Visit / Field Visit">Industry Visit / Field Visit</option>
-    <option value="Industry Project">Industry Project</option>
-    <option value="Community Project">Community Project</option>
-    <option value="Seminar Organized">Seminar Organized</option>
-    <option value="Workshop Organized">Workshop Organized</option>
-    <option value="Conference Organized">Conference Organized</option>
-    <option value="VAP Conducted">VAP Conducted</option>
-    <option value="Add-on Conducted">Add-on Conducted</option>
-    <option value="Other">Other</option>
-  </select>
-  <input type="text" id="activity-other" class="other-input hidden" name="activity" placeholder="Enter Activity" />
-</div>
+           <div class="form-group">
+            <label>Activity</label>
+            <input type="text" name="activity" required />
+          </div>
+          
           <div class="form-group">
             <label>Semester</label>
             <select name="semester" required>
@@ -242,6 +235,7 @@
             <label>Supporting Document</label>
             <input type="file" name="supportingDocument"  />
           </div>
+
           <div class="form-buttons">
             <button type="button" class="reset-btn" onclick="resetForm()">
               Reset
@@ -251,8 +245,13 @@
         </form>
       </div>
     </div>
+
+    <script src="ContributionToSociety.js"></script>
+    <script></script>
     <script src="common.js"></script>
-    <script src="DepartmentalActivities.js"></script>
+   
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script> -->
+    
 </body>
 </html>
 
