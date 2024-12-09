@@ -34,8 +34,7 @@ const facultyData = [
       subjectName: "Introduction to Programming",
       scheduledClasses: 40,
       actualClasses: 38,
-      document: "link_to_document1.pdf",
-      score: 95
+      attainment:3,
     },
     {
       semester: "Spring 2023",
@@ -43,8 +42,7 @@ const facultyData = [
       subjectName: "Data Structures",
       scheduledClasses: 45,
       actualClasses: 43,
-      document: "link_to_document2.pdf",
-      score: 92
+      attainment:2.7
     },
     {
       semester: "Fall 2022",
@@ -52,8 +50,7 @@ const facultyData = [
       subjectName: "Algorithms",
       scheduledClasses: 42,
       actualClasses: 40,
-      document: "link_to_document3.pdf",
-      score: 88
+      attainment:2.6
     },
     {
       semester: "Spring 2022",
@@ -61,8 +58,7 @@ const facultyData = [
       subjectName: "Operating Systems",
       scheduledClasses: 48,
       actualClasses: 46,
-      document: "link_to_document4.pdf",
-      score: 90
+      attainment:2.4
     }
   ],
   studentsFeedback: [
@@ -72,8 +68,7 @@ const facultyData = [
       subjectName: "Introduction to Programming",
       studentFeedback: "Excellent teaching methods.",
       pointsEarned: 48,
-      document: "feedback1.pdf",
-      score: 96
+      
     },
     {
       semester: "Spring 2023",
@@ -81,8 +76,7 @@ const facultyData = [
       subjectName: "Data Structures",
       studentFeedback: "Good course material.",
       pointsEarned: 46,
-      document: "feedback2.pdf",
-      score: 92
+     
     },
     {
       semester: "Fall 2022",
@@ -90,8 +84,7 @@ const facultyData = [
       subjectName: "Algorithms",
       studentFeedback: "Challenging but rewarding.",
       pointsEarned: 44,
-      document: "feedback3.pdf",
-      score: 88
+     
     },
     {
       semester: "Spring 2022",
@@ -99,8 +92,7 @@ const facultyData = [
       subjectName: "Operating Systems",
       studentFeedback: "Informative and well-structured.",
       pointsEarned: 45,
-      document: "feedback4.pdf",
-      score: 90
+     
     },
     {
       semester: "Fall 2021",
@@ -108,8 +100,7 @@ const facultyData = [
       subjectName: "Artificial Intelligence",
       studentFeedback: "Very engaging and insightful.",
       pointsEarned: 47,
-      document: "feedback5.pdf",
-      score: 94
+     
     }
   ]
 },

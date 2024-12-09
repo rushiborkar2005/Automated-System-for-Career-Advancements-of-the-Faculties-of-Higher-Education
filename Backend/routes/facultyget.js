@@ -9,21 +9,17 @@ const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 router.get('/get-details', async (req, res) => {
     const token = req.headers.authorization;
     const t = req.headers['type'];
-  
     if (!token) {
         return res.status(401).json({ error: 'No token, authorization denied' });
     }
       const decoded = jwt.verify(token, JWT_SECRET);
       const user = decoded.userId;
-      console.log(user);
       const fdb = getdb(decoded.db);
       const FacultyModel = Faculty(fdb);
       const faculty = await FacultyModel.findOne({ _id: user});
-      console.log(faculty);
       if (!faculty) {
         return res.status(404).json({ message: 'Faculty not found' });
       }
-      
       if (t==='0') {
        res.json({ key: faculty.teachingProcess });
       }
@@ -51,22 +47,11 @@ router.get('/get-details', async (req, res) => {
       }
   });
   module.exports = router;
-
-
-
-
-
   router.delete('/delete-details/:entryId', async (req, res) => {
-    const { entryId } = req.params; // 
-  
+    const { entryId } = req.params; 
     try {
-      // Update the faculty document, pulling the specific entry from the "teachingProcess" array
-
-
-
       const token = req.headers.authorization;
     const t = req.headers['type'];
-    
     if (!token) {
         return res.status(401).json({ error: 'No token, authorization denied' });
     }
@@ -76,23 +61,18 @@ router.get('/get-details', async (req, res) => {
       const FacultyModel = Faculty(fdb);
       const faculty = await FacultyModel.findOne({ _id: user});
       const result = await faculty.updateOne(
-        { $pull: { teachingProcess: { _id: entryId } } } // Pull entry with the specific `id` from the array
+        { $pull: { teachingProcess: { _id: entryId } } } 
       );
-  
       if (result.modifiedCount === 0) {
         return res.status(404).send({ message: 'Entry not found' });
       }
-  
       res.send({ message: 'Entry deleted successfully' });
     } catch (error) {
-      console.error('Error deleting entry:', error);
       res.status(500).send({ message: 'Failed to delete entry' });
     }
   });
-  
   router.get('/get-details1', async (req, res) => {
     const token = req.headers.authorization;
-  
     if (!token) {
         return res.status(401).json({ error: 'No token, authorization denied' });
     }
@@ -101,13 +81,9 @@ router.get('/get-details', async (req, res) => {
       const fdb = getdb(decoded.db);
       const FacultyModel = Faculty(fdb);
       const faculty = await FacultyModel.findOne({ _id: user});
-      console.log(faculty);
       if (!faculty) {
         return res.status(404).json({ message: 'Faculty not found' });
       }
       res.json({faculty});
   });
   module.exports = router;
-
-
-

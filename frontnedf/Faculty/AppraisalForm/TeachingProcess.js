@@ -189,3 +189,28 @@ async function handleSubmit(event) {
   
     return points;
   }
+
+  async function fetcherp()
+  {
+    try {
+      const response = await fetch('http://localhost:5000/api/fetcherp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token,
+        },
+      });
+      if (!response.ok) {
+        const errorBody = await response.json(); 
+        console.error("Error details:", errorBody);
+        const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
+        throw new Error(errorMessage);
+      }
+      const data = await response.json();
+      console.log("Response received:", data);
+      alert('Details added successfully!');
+    } catch (error) {
+      console.error('Error during fetch:', error.message);
+      alert(`An error occurred: ${error.message}`);
+    } 
+  }
