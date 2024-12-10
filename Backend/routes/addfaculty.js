@@ -11,12 +11,15 @@ const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 const upload = multer({ dest: 'uploads/' });
 const ff=require('../Models/freshFaculty')
 const fs = require('fs');
+
+
 const {
   verifyToken,
   generatePassword,
 } = require('../Module/auth');
 const { getdb } = require('../Module/db');
 const sendPasswordEmail = require('../Module/mail');
+const { updatescore } = require('../Module/finalscore');
 const router = express.Router();
 router.post('/addFaculty', verifyToken, async (req, res) => {
     const {
@@ -100,7 +103,8 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
     if(data.t=='7'){
       faculty.updateOne(data);
     }
-    await faculty.save();
+    const nf=await faculty.save();
+    updatescore(nf);
     res.status(200).json({
       message: 'Details added successfully',
       faculty,

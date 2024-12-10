@@ -8,6 +8,7 @@
   --text-dark: #201E43;
   --white: #FFFFFF;
   --border-color: #C0C0C0;
+  --black-color: black;
 }
 
 
@@ -60,7 +61,7 @@ body {
 
 /* Navigation Redesign */
 .navigation {
-  background-color: var(--primary-color);
+  background-color:#201E43;
   padding: 0.10rem 2rem;
 }
 
@@ -170,10 +171,11 @@ body {
   padding: 1.5rem;
   margin: 1rem 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  color:var(--black-color)
 }
 
 .score-section h3 {
-  color: var(--secondary-color);
+  color: var(--black-color);
   margin-bottom: 1rem;
 }
 
