@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Faculty = require('../Models/addfaculty');
 const bcrypt = require('bcryptjs');
-
 const {
     getdb
 } = require('../Module/db')
@@ -15,8 +14,6 @@ router.post('/facultylogin', async (req, res) => {
         email,
         password
     } = req.body;
-
-    //  try {
         const user = await ff.findOne({
             'username': email
         });
@@ -25,9 +22,6 @@ router.post('/facultylogin', async (req, res) => {
                 error: 'Invalid email or password1'
             });
          }
-        // const hashedPassword = await bcrypt.hash(password, 10);
-        // console.log(hashedPassword)
-        // console.log(user.password)
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
             return res.status(400).json({
@@ -36,14 +30,8 @@ router.post('/facultylogin', async (req, res) => {
         }
         const fdb=user.instituteName.replace(/[^a-zA-Z0-9]/g, '_')
         const fdb1=getdb(fdb)
-        console.log(fdb)
         const user1=Faculty(fdb1)
-        console.log(user1)
         const u1=await user1.findOne({'facultyEmail':email})
-        console.log(u1);
-        console.log(u1._id);
-        console.log(u1._title);
-
         const token = jwt.sign({
             userId: u1._id,
             db: user.instituteName.replace(/[^a-zA-Z0-9]/g, '_')
@@ -55,12 +43,5 @@ router.post('/facultylogin', async (req, res) => {
             token,
             ok: 1
         });
-    // } catch (err) {
-    //     res.status(500).json({
-    //         error: 'Server error'
-    //     });
-    // }
-
-   
 });
 module.exports = router;

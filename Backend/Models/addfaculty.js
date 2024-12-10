@@ -34,13 +34,22 @@ const FacultySchema = new mongoose.Schema({
   experiences: { type: Number, min: 0 },
   employeeType: { type: String, enum: ['Permanent', 'Contract', 'Part-Time'], trim: true },
   password: { type: String },
-
+  finalscore:[{
+    t:{type:Number},
+    f:{type:Number},
+    d:{type:Number},
+    i:{type:Number},
+    r:{type:Number},
+    p:{type:Number},
+    c:{type:Number},
+  }],
   teachingProcess: [{
     semester: { type: String },
     subjectCode: { type: String },
     subjectName: { type: String },
     scheduledClasses: { type: Number },
     actualClasses: { type: Number },
+    attainment:{ type: Number},
     document: { type: String },
     score: { type: Number},
     erp:{type:Boolean, default:false}
@@ -61,7 +70,6 @@ const FacultySchema = new mongoose.Schema({
   departmentActivities: [{
     semester: { type: String },
     activity: { type: String },
-    pointsEarned: { type: Number },
     criteria: { type: String },
     document: { type: String },
     score: { type: Number}
@@ -70,7 +78,6 @@ const FacultySchema = new mongoose.Schema({
   instituteActivities: [{
     semester: { type: String },
     activity: { type: String },
-    pointsEarned: { type: Number },
     criteria: { type: String },
     document: { type: String },
     score: { type: Number}
@@ -94,7 +101,6 @@ const FacultySchema = new mongoose.Schema({
     publicationName: { type: String },
     category: { type: String },
     document: { type: String },
-    creditPoint: { type: Number },
     score: { type: Number},
     scholar:{type:Boolean, default:false}
   }],
@@ -103,8 +109,7 @@ const FacultySchema = new mongoose.Schema({
     semester: { type: String },
     activity: { type: String },
     criteria: { type: String },
-    pointsEarned: { type: Number },
-    document: { type: String },
+      document: { type: String },
     score: { type: Number}
   }],
 
