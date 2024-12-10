@@ -10,7 +10,7 @@ const updatescore = async (faculty) => {
     let s2=0;
     let es1=0;
     let es2=0;
-
+  let tscore=0;
     faculty.teachingProcess.forEach((entry, index) => {
 
 
@@ -45,31 +45,31 @@ const updatescore = async (faculty) => {
 
         if(entry.semester==='odd')
         {
-                     if(s1<score)
+                     if(s1<points)
                     {
                       s2=s1;
-                      s1=score;
+                      s1=points;
                     }
-                    else if (s2<score)
+                    else if (s2<points)
                     {
-                      s2=score;
+                      s2=points;
                     }
 
         }
         else{
-                  if(s1<score)
+                  if(s1<points)
                     {
                       es2=es1;
-                      es1=score;
+                      es1=points;
                     }
-                    else(es2<score)
+                    else(es2<points)
                     {
-                      es2=score;
+                      es2=points;
                     }
         }
 
 
-        let tscore=(s1+s2+es1+es2)/2;
+         tscore=(s1+s2+es1+es2)/2;
         
 
 
@@ -94,26 +94,26 @@ const updatescore = async (faculty) => {
 
       if(entry.semester==='odd')
         {
-                     if(s1<score)
+                     if(s1<points)
                     {
                       s2=s1;
-                      s1=score;
+                      s1=points;
                     }
-                    else if (s2<score)
+                    else if (s2<points)
                     {
-                      s2=score;
+                      s2=points;
                     }
 
         }
         else{
-                  if(s1<score)
+                  if(s1<points)
                     {
                       es2=es1;
-                      es1=score;
+                      es1=points;
                     }
-                    else(es2<score)
+                    else(es2<points)
                     {
-                      es2=score;
+                      es2=points;
                     }
         }
 
@@ -134,6 +134,9 @@ const updatescore = async (faculty) => {
       entry['score']=5;
       iscore+=5;
       });
+      let rscore=0;
+      let rscore2=0;
+      let k=0;
     faculty.resultSummary.forEach((entry, index) => {
       let points = 0;
 
@@ -146,7 +149,23 @@ const updatescore = async (faculty) => {
     else if (result >= 60) points = 6;
     else if (result >= 50) points = 5;
     else if (result >= 40) points = 4;
+
+
+
+    rscore2+=points;
+    k+=1;
+
+
       });
+      if(k>1)
+      {
+        rscore=(rscore2/k)*2;
+      }
+      else
+      {
+        rscore=rscore2;
+      }
+      let rescore=0;
     faculty.research.forEach((entry, index) => {
       const c=entry.category;
   let score=0;
@@ -181,12 +200,26 @@ const updatescore = async (faculty) => {
 }
 
 entry.score=score;
+
+rescore+=score;
       });
+      let cscore=0;
     faculty.contributionSociety.forEach((entry, index) => {
       entry.score=5;
       cscore+=5;
       });
+      
 
+
+    faculty.t=tscore;
+    faculty.f=fscore;
+    faculty.d=dscore>20?20:dscore;
+    faculty.i=iscore>20?20:iscore;
+    faculty.r=rscore;
+    faculty.p=rescore>20?20:rescore;
+    faculty.c=cscore>20?20:cscore;
+    faculty.total=tscore+fscore+dscore>20?20:dscore+iscore>20?20:iscore+rscore+rescore>20?20:rescore+cscore>20?20:cscore;
+      
       await faculty.save();
 
   };
