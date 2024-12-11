@@ -122,7 +122,9 @@ async function fetch(faculty) {
 
   console.log('3');
 
+
   const AUTHOR_ID=faculty.scholarid;
+  console.log(AUTHOR_ID)
     const response = await axios.get('https://serpapi.com/search.json', {
     params: {
         engine: 'google_scholar_author',
@@ -133,17 +135,16 @@ async function fetch(faculty) {
 const data = response.data;
 
         const publications = data.articles || [];
-        console.log(publications);
-          addResearchData(faculty,publications)
+        // console.log(publications);
+       const s= await addResearchData(faculty,publications[0])
 
           
   
 }
 async function addResearchData(faculty, researchData) {
     try {
-
         
-     
+     console.log(researchData)
       const transformedData = {
         research: researchData.title,
         publicationName: researchData.publication,
@@ -158,7 +159,7 @@ async function addResearchData(faculty, researchData) {
           pub.research === transformedData.research
       );
     
-      if (!publicationExists) {
+      // if (!publicationExists) {
         // Add the new publication to the array
         const result = await faculty.updateOne(
          {$push: { research: transformedData } }
@@ -168,7 +169,7 @@ async function addResearchData(faculty, researchData) {
         updatescore(saved);
       console.log('Updated Faculty:', result);
       return result;
-    } 
+    
   }catch (error) {
       console.error('Error adding research data:');
     }
@@ -187,14 +188,13 @@ router.post('/fetchg', async (req, res) => {
     const FacultyModel = Faculty(fdb);
     const faculty = await FacultyModel.findOne({ _id: user});
 console.log('2')
-     fetch(faculty);
+     const g = await  fetch(faculty);
 
     
 
 
-      res.status(200).send({ fileId });
+      res.status(200).send('ok');
   } catch (error) {
-    // console.log(error);
       res.status(500).send('Error uploading file.');
   }
 }
