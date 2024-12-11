@@ -59,7 +59,7 @@ body {
 /* Navigation Redesign */
 .navigation {
   background-color: var(--primary-color);
- padding:  0.50rem 2rem;
+ padding:  0.75rem 2rem;
   }
   .nav-content {
   display: flex;
