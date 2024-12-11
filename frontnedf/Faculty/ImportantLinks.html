@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="ImportantLinks.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+ 
+   
+
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+   <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links"><br>
+            <li><a href="FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="FacultyProfilePage.html" class="><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="TeachingProcess.html" class="active"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+            <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li><br>
+          </ul>  
+      
+      <div class="user-section">
+        <div class="profile-container">
+          <div class="profile-info">
+            <img src="profile.png" alt="Profile" class="profile-icon">
+            <span class="profile-name">John Doe</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </div>
+          
+          <div class="profile-dropdown hidden">
+            <ul>
+              <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+              <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+              <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="notification-bell">
+          <i class="fas fa-bell"></i>
+          <span class="notification-badge">3</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <h2 class="report">Important Links</h2>  
+</div>
+<main>
+    <section id="faculty-appraisal-links">
+    <ul>
+        <li>
+            <a href="Facu" target="_blank">ResearchGate</a>
+            <p>Faculty can share their research publications, track citations, and collaborate with peers on research projects.</p>
+        </li>
+        <li>
+            <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+            <p>A platform for faculty to track their published articles, h-index, and i10-index for academic performance evaluation.</p>
+        </li>
+        <li>
+            <a href="https://ndl.iitkgp.ac.in" target="_blank">National Digital Library of India (NDLI)</a>
+            <p>Access a wide range of academic resources, e-books, and journals for research and teaching purposes.</p>
+        </li>
+        <li>
+            <a href="https://www.aicte-india.org" target="_blank">AICTE Faculty Development Portal</a>
+            <p>Facilitates registration for faculty development programs (FDPs), workshops, and training organized by AICTE.</p>
+        </li>
+        <li>
+            <a href="https://www.scopus.com" target="_blank">Scopus</a>
+            <p>A comprehensive database to evaluate faculty's research impact, including citations and publication metrics.</p>
+        </li>
+        <li>
+            <a href="https://www.turnitin.com" target="_blank">Turnitin</a>
+            <p>Helps in checking plagiarism in academic and research papers, ensuring originality in scholarly work.</p>
+        </li>
+        <li>
+            <a href="https://moodle.org" target="_blank">Moodle or Learning Management System (LMS)</a>
+            <p>Faculty can manage their courses, upload assignments, and engage with students in a virtual learning environment.</p>
+        </li>
+        <li>
+            <a href="https://cpdportal.in" target="_blank">Faculty Professional Development Dashboard</a>
+            <p>A dedicated portal to track and manage continuous professional development (CPD) activities.</p>
+        </li>
+        <li>
+            <a href="https://www.examplecollege.edu" target="_blank">Institution's Official Website</a>
+            <p>Faculty can access official announcements, HR policies, and important updates related to their roles.</p>
+        </li>
+        <li>
+            <a href="https://www.ugc.ac.in/hrdc" target="_blank">UGC Academic Staff College (HRDC)</a>
+            <p>Supports faculty in registering for orientation and refresher courses approved by the University Grants Commission (UGC).</p>
+        </li>
+    </ul>
+</section>
+
+</main>
+
+<style>
+.score-section {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header-container h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.fetch-btn {
+  background: #1a237e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fetch-btn:hover {
+  background: #283593;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.fetch-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.fetch-btn i {
+  font-size: 0.9rem;
+}
+
+.score-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-input span {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.score-input input {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80px;
+  text-align: center;
+  font-size: 0.95rem;
+  background-color: #f8f8f8;
+  color: #333;
+  font-weight: 500;
+}
+
+.score-input input:focus {
+  outline: none;
+  border-color: #1a237e;
+  box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.1);
+}
+</style>   
+</body>
+</html>
+
+ 
