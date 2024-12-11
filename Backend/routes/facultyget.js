@@ -46,7 +46,7 @@ router.get('/get-details', async (req, res) => {
         res.json({ key: faculty });
       }
   });
-  module.exports = router;
+
   router.delete('/delete-details/:entryId', async (req, res) => {
     const { entryId } = req.params; 
     try {
