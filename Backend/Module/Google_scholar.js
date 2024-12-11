@@ -60,7 +60,6 @@ async function addResearchData(facultyId, researchData) {
     }
   }
 
-fetch('cGQcqZAAAAAJ&hl');
 // const fetchPublications = async () => {
 //     try {
 //         // Proxy server se data fetch karo

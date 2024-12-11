@@ -5,7 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchData();
 });
 
+async function fetchdata1() {
 
+  const response = await fetch('http://localhost:5000/api/get-details', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+  });
+
+}
 
 async function fetchData() {
   try {

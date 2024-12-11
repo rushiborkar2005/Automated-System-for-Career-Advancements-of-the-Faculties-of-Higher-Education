@@ -3,10 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchData();
 });
 
+async function fetchdata1() {
 
+  const response = await fetch('http://localhost:5000/api/get-details1', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+  
+  });
+ console.log('hi')
+}
 async function fetchData() {
   try {
-    const response = await fetch('http://localhost:5000/api/get-details', {
+    const response = await fetch('http://localhost:5000/api/fetchg', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
