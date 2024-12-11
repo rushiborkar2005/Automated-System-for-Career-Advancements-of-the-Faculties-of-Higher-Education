@@ -34,7 +34,6 @@ const FacultySchema = new mongoose.Schema({
   experiences: { type: Number, min: 0 },
   employeeType: { type: String, enum: ['Permanent', 'Contract', 'Part-Time'], trim: true },
   password: { type: String },
-  finalscore:[{
     t:{type:Number},
     f:{type:Number},
     d:{type:Number},
@@ -42,7 +41,7 @@ const FacultySchema = new mongoose.Schema({
     r:{type:Number},
     p:{type:Number},
     c:{type:Number},
-  }],
+    total:{type:Number},
   teachingProcess: [{
     semester: { type: String },
     subjectCode: { type: String },

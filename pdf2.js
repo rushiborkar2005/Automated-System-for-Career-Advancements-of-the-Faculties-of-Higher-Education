@@ -4,7 +4,7 @@ const mongoose=require('mongoose');
 mongoose.connect('mongodb+srv://SIH2K24:SIH2K24@cluster0.sp2zg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 const Faculty = require('./Backend/Models/addfaculty')
 async function g() {
-   const facultyId='445';
+   const facultyId='FAC123456';
     const FacultyModel = Faculty(mongoose.connection.useDb('Bajaj_Institute_of_Technology'));
 const data = await FacultyModel.findOne({facultyId});
 if (!data) {
