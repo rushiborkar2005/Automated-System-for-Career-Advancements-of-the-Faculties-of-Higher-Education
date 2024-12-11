@@ -380,93 +380,135 @@ body {
     </style>
 </head>
 <body>
-    <div class="breadcrumb">
-        <h2 class="report">Faculty Performance Appraisal</h2>  
-    </div>
-    <div class="container">
-        <section class="faculty-profile">
-            <div class="profile-detail">
-                <label>Faculty Name</label>
-                <span id="facultyName">{{title}}</span>
-            </div>
-            <div class="profile-detail">
-                <label>Faculty ID</label>
-                <span id="facultyId"></span>
-            </div>
-            <div class="profile-detail">
-                <label>Designation</label>
-                <span id="facultyDesignation"></span>
-            </div>
-        </section>
-        <section class="performance-section" id="teaching-process">
-            <div class="section-header">
-                <h3>Teaching Process</h3>
-                <div class="score-badge" id="teaching-score"></div>
-            </div>
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subject</th>
-                        <th>Scheduled Classes</th>
-                        <th>Actual Classes</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="teaching-table-body"></tbody>
-            </table>
-        </section>
-        <section class="performance-section" id="feedback-section">
-            <div class="section-header">
-                <h3>Student Feedback</h3>
-                <div class="score-badge" id="feedback-score"></div>
-            </div>
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subject</th>
-                        <th>Feedback Rating</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="feedback-table-body"></tbody>
-            </table>
-        </section>
-        <section class="performance-section" id="research-section">
-            <div class="section-header">
-                <h3>Research & Publications</h3>
-                <div class="score-badge" id="research-score"></div>
-            </div>
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>Publication Title</th>
-                        <th>Journal</th>
-                        <th>Year</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="research-table-body"></tbody>
-            </table>
-        </section>
-        <section class="performance-section" id="institutional-section">
-            <div class="section-header">
-                <h3>Institutional & Societal Contributions</h3>
-                <div class="score-badge" id="institutional-score"></div>
-            </div>
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>Activity</th>
-                        <th>Description</th>
-                        <th>Semester</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="institutional-table-body"></tbody>
-            </table>
-        </section>
-    </div>
+  <div class="breadcrumb">
+    <h2 class="report">Faculty Performance Appraisal</h2>  
+</div>
+<div class="container">
+    <section class="faculty-profile">
+        <div class="profile-detail">
+            <label>Faculty Name</label>
+            <span id="facultyName">{{title}} {{firstName}} {{middleName}} {{lastName}}</span>
+        </div>
+        <div class="profile-detail">
+            <label>Faculty ID</label>
+            <span id="facultyId">{{facultyId}}</span>
+        </div>
+        <div class="profile-detail">
+            <label>Designation</label>
+            <span id="facultyDesignation">{{designation}}</span>
+        </div>
+    </section>
+    <section class="performance-section" id="teaching-process">
+        <div class="section-header">
+            <h3>Teaching Process</h3>
+            <div class="score-badge" id="teaching-score">{{t}}</div>
+        </div>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Scheduled Classes</th>
+                    <th>Actual Classes</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="teaching-table-body">
+                {{#each teachingProcess}}
+                <tr>
+                    <td>{{semester}}</td>
+                    <td>{{subjectCode}}</td>
+                    <td>{{subjectName}}</td>
+                    <td>{{scheduledClasses}}</td>
+                    <td>{{actualClasses}}</td>
+                    <td>{{score}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+    <section class="performance-section" id="feedback-section">
+        <div class="section-header">
+            <h3>Student Feedback</h3>
+            <div class="score-badge" id="feedback-score">{{f}}</div>
+        </div>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Feedback</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="feedback-table-body">
+                {{#each studentsFeedback}}
+                <tr>
+                    <td>{{semester}}</td>
+                    <td>{{subjectCode}}</td>
+                    <td>{{subjectName}}</td>
+                    <td>{{studentFeedback}}</td>
+                    <td>{{score}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+    <section class="performance-section" id="research-section">
+        <div class="section-header">
+            <h3>Research & Publications</h3>
+            <div class="score-badge" id="research-score">{{r}}</div>
+        </div>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Publication Title</th>
+                    <th>Publication Name</th>
+                    <th>Category</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="research-table-body">
+                {{#each research}}
+                <tr>
+                    <td>{{research}}</td>
+                    <td>{{publicationName}}</td>
+                    <td>{{category}}</td>
+                    <td>{{score}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+    <section class="performance-section" id="institutional-section">
+        <div class="section-header">
+            <h3>Institutional & Societal Contributions</h3>
+            <div class="score-badge" id="institutional-score">{{c}}</div>
+        </div>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Criteria</th>
+                    <th>Semester</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="institutional-table-body">
+                {{#each contributionSociety}}
+                <tr>
+                    <td>{{activity}}</td>
+                    <td>{{criteria}}</td>
+                    <td>{{semester}}</td>
+                    <td>{{score}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+</div>
+
 </body>
 </html>

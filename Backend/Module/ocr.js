@@ -18,3 +18,7 @@ async function performOCR(pdfPath) {
 
   const extractedText = performOCR('dhatrak 002.jpg');
   console.log(extractedText,'here');
+
+
+
+
