@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Institute Registration - Step 2</title>
-  <link rel="stylesheet" href="Instituteregister.css">
+  <link rel="stylesheet" href="UniversityRegistration.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <!-- Header -->
@@ -22,12 +23,11 @@
   <nav class="navigation">
     <div class="nav-content">
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">Manage Departments</a></li>
-        <li><a href="#">Manage Faculty</a></li>
-        <li><a href="#">Manage Assessment Committee</a></li>
-        <li><a href="#">Create Appraisal Forms</a></li>
-        <li><a href="#">Reports</a></li>
+        <li><a href="../Homepage/HomePage.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#"><i class="bi bi-info-circle"></i> About Us</a></li>
+          <li><a href="#"><i class="bi bi-envelope"></i> Contact Us</a></li>
+          <li><a href="#"><i class="bi bi-question-circle"></i> FAQ</a></li>
+          <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li>
       </ul>
       <div class="search-container">
         <input type="search" id="search" placeholder="Search" />
@@ -46,24 +46,19 @@
         </svg>
         </button>
       </div>
+        </div> 
+      
     </div>
   </nav>
 
   <!-- Step 2 Registration Form -->
   <div class="registration-container">
-    <h1>Institute Registration - Step 2</h1>
+    <h1>University Registration - Step 2</h1>
     <form method="post" id="register">
       <!-- Basic Information -->
       <fieldset>
         <legend>Basic Information</legend>
         <input type="text" name="instituteName" placeholder="Institute Name" required>
-        <select name="instituteType" required>
-          <option value="">Select Institute Type</option>
-          <option value="school">School</option>
-          <option value="college">College</option>
-          <option value="university">University</option>
-        </select>
-        <input type="text" name="registrationNumber" placeholder="Registration Number" required>
         <input type="number" name="yearOfEstablishment" placeholder="Year of Establishment" min="1800" max="2099" required>
       </fieldset>
 
@@ -76,38 +71,12 @@
         <input type="text" name="postalCode" placeholder="Postal Code" required>
         <input type="tel" name="contactNumber" placeholder="Contact Number" required>
         <input type="email" name="email" placeholder="Email Address" required>
-        
         <input type="url" name="website" placeholder="Website (optional)">
       </fieldset>
-
-    
       <fieldset>
-        <legend>Administrative Details</legend>
-        <input type="text" name="principalName" placeholder="Principal/Director Name" required>
-        <input type="tel" name="principalPhone" placeholder="Principal/Director Phone Number" required>
-        <input type="email" name="principalEmail" placeholder="Principal/Director Email Address" required>
-        <input type="text" name="adminContact" placeholder="Administrative Contact (optional)">
-      </fieldset>
-
-    
-      <fieldset>
-        <legend>Affiliation and Accreditation</legend>
-        <input type="text" name="affiliatingBody" placeholder="Affiliating Body" required>
-        <input type="text" name="accreditationBody" placeholder="Accreditation Body (e.g., NAAC, NBA)">
-        <input type="text" name="accreditationGrade" placeholder="Accreditation Grade (if applicable)">
-        <textarea name="coursesOffered" placeholder="Courses/Programs Offered (optional)"></textarea>
-      </fieldset>
-
-    
         <legend>Upload Supporting Documents</legend>
-        <label for="registrationCertificate">Institute Registration Certificate:</label>
+        <label for="registrationCertificate">University Registration Certificate:</label>
         <input type="file" id="registrationCertificate" name="registrationCertificate" accept=".pdf,.jpg,.jpeg,.png">
-        
-        <label for="affiliationCertificate">Affiliation Certificate:</label>
-        <input type="file" id="affiliationCertificate" name="affiliationCertificate" accept=".pdf,.jpg,.jpeg,.png">
-        
-        <label for="principalIDProof">Principal/Director ID Proof:</label>
-        <input type="file" id="principalIDProof" name="principalIDProof" accept=".pdf,.jpg,.jpeg,.png">
       </fieldset>
 
      
@@ -123,6 +92,6 @@
       <button type="submit" class="b1">Submit Registration</button>
     </form>
   </div>
-  <script src="register2.js"></script>
+  <script src="UniversityRegistration.js"></script>
 </body>
 </html>
