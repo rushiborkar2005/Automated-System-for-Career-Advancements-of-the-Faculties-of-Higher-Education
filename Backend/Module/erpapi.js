@@ -65,7 +65,7 @@ const updateFacultyData = async (faculty) => {
 
 router.post('/fetcherp', async (req, res) => {
   const token = req.headers.authorization;
-
+console.log('working')
   if (!token) {
       return res.status(401).json({ error: 'No token, authorization denied' });
   }
@@ -80,7 +80,7 @@ router.post('/fetcherp', async (req, res) => {
     }
 
     const g1= await updateFacultyData(faculty);
-    updatescore(g1);
+    // updatescore(g1);
 
 
 

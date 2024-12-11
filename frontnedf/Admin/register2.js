@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const data = await response.json();
   
         alert(data.message || "Registration successful!");
-        window.location.href = '../Login/Institutelogin.html';
+        window.location.href = 'Institutelogin.html';
       } catch (error) {
         alert("An error occurred. Please try again.");
       }

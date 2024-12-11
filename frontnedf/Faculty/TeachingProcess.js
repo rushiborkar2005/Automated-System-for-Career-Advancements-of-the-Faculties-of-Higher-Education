@@ -2,9 +2,38 @@ const t=0;
 document.addEventListener('DOMContentLoaded', () => {
   fetchData();
 });
+async function getscore() {
+  const scorebox=document.getElementById('scoreObtained');
+  try {
+    const response = await fetch('http://localhost:5000/api/get-score', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
+    if (!response.ok) throw new Error('Failed to fetch data');
+    const data = await response.json();
+    scorebox.value=data.t;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+
+}
+
+async function fetcherp() {
 
 
+  const response = await fetch('http://localhost:5000/api/fetcherp', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+  });
 
+  
+}
 
 
 async function fetchData() {
@@ -20,7 +49,8 @@ async function fetchData() {
     if (!response.ok) throw new Error('Failed to fetch data');
     const data = await response.json();
     console.log(data.key);
-    populateTable(data.key); 
+    populateTable(data.key);
+    getscore(); 
   } catch (error) {
     console.error('Error fetching data:', error);
   }
