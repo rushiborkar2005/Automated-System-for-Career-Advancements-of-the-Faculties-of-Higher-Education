@@ -612,3 +612,83 @@ th {
   border-radius: 6px;
   margin-right: 5px;
 }
+/* Section Styling */
+#faculty-appraisal-links {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#faculty-appraisal-links h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* List Styling */
+#faculty-appraisal-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#faculty-appraisal-links ul li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#faculty-appraisal-links ul li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#faculty-appraisal-links ul li a {
+    font-size: 18px;
+    font-weight: 500;
+    color: #0073e6;
+    text-decoration: none;
+}
+
+#faculty-appraisal-links ul li a:hover {
+    text-decoration: underline;
+}
+
+#faculty-appraisal-links ul li p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #faculty-appraisal-links {
+        padding: 15px;
+    }
+
+    #faculty-appraisal-links h2 {
+        font-size: 20px;
+    }
+
+    #faculty-appraisal-links ul li {
+        padding: 10px;
+    }
+
+    #faculty-appraisal-links ul li a {
+        font-size: 16px;
+    }
+
+    #faculty-appraisal-links ul li p {
+        font-size: 13px;
+    }
+}
