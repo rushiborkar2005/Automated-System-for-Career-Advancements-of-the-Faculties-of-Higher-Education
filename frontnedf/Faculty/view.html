@@ -127,6 +127,83 @@
                 <tbody id="institutional-table-body"></tbody>
             </table>
         </section>
+
+        <div class="recommendation-form">
+            <!-- Main Selection -->
+            <div class="recommendation-header">
+                <div class="radio-option">
+                    <input type="radio" name="recommendation-type" id="recommended" value="recommended">
+                    <label for="recommended">Recommended</label>
+                </div>
+            
+                <div class="radio-option">
+                    <input type="radio" name="recommendation-type" id="non-recommended" value="non-recommended">
+                    <label for="non-recommended">Non-Recommended</label>
+                </div>
+                
+                <!-- Non-recommended Textbox -->
+                <div class="textbox-container" id="non-recommended-text-box" style="display: none;">
+                    <textarea id="reason" rows="4" placeholder="Please provide a reason for non-recommendation..."></textarea>
+                </div>
+                
+            </div>
+        
+            <!-- Recommended Section (shows only if Recommended is selected) -->
+            <div id="recommended-section" style="display: none;">
+                <div class="scale-container">
+                    <h2>Behavior Assessment</h2>
+            
+                    <div class="scale-container">
+                        <h2>Behavior Assessment</h2>
+                      
+                        <!-- Scale 1: Behavior with Student -->
+                        <div class="scale-section">
+                          <p>On a scale of 1 to 10, rate the behavior with students:</p>
+                          <div class="scale">
+                            <div class="scale-options" id="student-behavior-scale"></div>
+                          </div>
+                        </div>
+                      
+                        <!-- Scale 2: Behavior with Colleague -->
+                        <div class="scale-section">
+                          <p>On a scale of 1 to 10, rate the behavior with colleagues:</p>
+                          <div class="scale">
+                            <div class="scale-options" id="colleague-behavior-scale"></div>
+                          </div>
+                        </div>
+                      </div>
+                      
+        
+                <!-- Recommendation Options -->
+                <div class="recommendation-options">
+                    <h4>Select one recommendation:</h4>
+                    <input type="radio" name="rec-option" id="promotion" value="promotion">
+                    <label for="promotion">Recommended for Promotion</label><br>
+        
+                    <input type="radio" name="rec-option" id="increment" value="increment">
+                    <label for="increment">Recommended for Increment</label><br>
+        
+                    <input type="radio" name="rec-option" id="additional-increment" value="additional-increment">
+                    <label for="additional-increment">Recommended for Additional Increment</label>
+                </div>
+        
+                <!-- Recommendation Reason -->
+                <div class="recommendation-reason">
+                    <label for="rec-reason">Why are you recommending?</label><br>
+                    <textarea id="rec-reason" rows="4" cols="50"></textarea>
+                </div>
+            </div>
+        
+            <!-- Non-Recommended Section (shows only if Non-Recommended is selected) -->
+            <div id="non-recommended-section" style="display: none;">
+                <div class="recommendation-reason">
+                    <label for="rec-reason">Why are you recommending?</label><br>
+                    <textarea id="rec-reason" rows="4" cols="50"></textarea>
+                </div>
+            </div>
+        </div>
+        
+        
         <div class="action-buttons">
             <button class="btn btn-reset">Reset</button>
             <button class="btn btn-submit">Submit Appraisal</button>
