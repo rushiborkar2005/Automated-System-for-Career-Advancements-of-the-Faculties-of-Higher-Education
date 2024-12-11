@@ -116,28 +116,7 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
     });
   }
 });
-router.post('/fetchg',upload.single('file'), async (req, res) => {
-  const token = req.headers.authorization;
-  if (!token) {
-      return res.status(401).json({ error: 'No token, authorization denied' });
-  }
-    try { 
-    const decoded = jwt.verify(token, JWT_SECRET);
-    const user = decoded.userId;
-    const fdb = getdb(decoded.db);
-    const FacultyModel = Faculty(fdb);
-    const faculty = await FacultyModel.findOne({ _id: user});
-     fetch(faculty);
 
-    
-
-
-      res.status(200).send({ fileId });
-  } catch (error) {
-      res.status(500).send('Error uploading file.');
-  }
-}
-);
 router.post('/upload',upload.single('file'), async (req, res) => {
   const token = req.headers.authorization;
   if (!token) {
