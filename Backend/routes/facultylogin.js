@@ -21,7 +21,7 @@ router.post('/facultylogin', async (req, res) => {
             return res.status(400).json({
                 error: 'Invalid email or password1'
             });
-         }
+        }
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
             return res.status(400).json({
