@@ -150,42 +150,45 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Function to create the scale
-    const createScale = (containerId) => {
-      const scaleContainer = document.getElementById(containerId);
-  
-      // Generate the scale circles dynamically (1 to 10)
-      for (let i = 1; i <= 10; i++) {
-        const circle = document.createElement("div");
-        circle.classList.add("circle");
-        circle.textContent = i;
-        circle.dataset.value = i; // Store the value for reference
-        scaleContainer.appendChild(circle);
-  
-        // Add click event to handle selection
-        circle.addEventListener("click", function () {
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+  // Create scales for each section
+  createScale("student-behavior-scale");
+  createScale("colleague-behavior-scale");
+});
+
+function createScale(containerId) {
+  const scaleContainer = document.getElementById(containerId);
+
+  // Clear any previous scale
+  scaleContainer.innerHTML = '';
+
+  // Generate the scale circles dynamically (1 to 10)
+  for (let i = 1; i <= 10; i++) {
+      const circle = document.createElement("div");
+      circle.classList.add("circle");
+      circle.textContent = i;
+      circle.dataset.value = i; // Store the value for reference
+      scaleContainer.appendChild(circle);
+
+      // Add click event to handle selection
+      circle.addEventListener("click", function () {
           // Remove active state from all circles in this scale
           scaleContainer.querySelectorAll(".circle").forEach((c) => c.classList.remove("selected", "low", "mid", "high"));
-  
+
           // Add active class and color based on value
           const value = parseInt(this.dataset.value);
           this.classList.add("selected");
           if (value <= 4) {
-            this.classList.add("low"); // Red for low scores
+              this.classList.add("low"); // Red for low scores
           } else if (value <= 7) {
-            this.classList.add("mid"); // Orange for medium scores
+              this.classList.add("mid"); // Orange for medium scores
           } else {
-            this.classList.add("high"); // Green for high scores
+              this.classList.add("high"); // Green for high scores
           }
-        });
-      }
-    };
-  
-    // Create scales for each section
-    createScale("student-behavior-scale");
-    createScale("colleague-behavior-scale");
-  });
+      });
+  }
+}
 
   document.addEventListener("DOMContentLoaded", function () {
     // Get the radio button and the text box
@@ -201,4 +204,23 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  
+  document.addEventListener('DOMContentLoaded', function() {
+    const recommendedRadio = document.getElementById('recommended');
+    const nonRecommendedRadio = document.getElementById('non-recommended');
+    const recommendedSection = document.getElementById('recommended-section');
+    const nonRecommendedSection = document.getElementById('non-recommended-section');
+    const nonRecommendedTextBox = document.getElementById('non-rec-reason'); // New non-recommended reason textbox
+
+    // Handle main choice visibility
+    recommendedRadio.addEventListener('change', function() {
+        recommendedSection.style.display = 'block';
+        nonRecommendedSection.style.display = 'none';
+        nonRecommendedTextBox.style.display = 'none'; // Hide the non-recommended textbox when "Recommended" is selected
+    });
+
+    nonRecommendedRadio.addEventListener('change', function() {
+        recommendedSection.style.display = 'none';
+        nonRecommendedSection.style.display = 'block';
+        nonRecommendedTextBox.style.display = 'block'; // Show the non-recommended textbox when "Non-Recommended" is selected
+    });
+});
