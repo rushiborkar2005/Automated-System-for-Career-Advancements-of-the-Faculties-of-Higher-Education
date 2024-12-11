@@ -16,7 +16,7 @@ async function fetchdata1() {
 }
 async function fetchData() {
   try {
-    const response = await fetch('http://localhost:5000/api/get-details1', {
+    const response = await fetch('http://localhost:5000/api/get-details', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -43,10 +43,9 @@ function populateTable(data) {
       <td>${index + 1}</td>
       <td>${entry.research || 'N/A'}</td>
       <td>${entry.publicationName || 'N/A'}</td>
-      <td>${entry.subjectName || 'N/A'}</td>
       <td>${entry.category || 'N/A'}</td>
       <td>${entry.score || 'N/A'}</td>
-      <td>${entry.document || 'N/A'}</td>
+      <td><a href='${entry.document || 'N/A'}'>view</a></td>
       <td>
        <button class="btn btn-danger btn-sm rounded-0" type="button" 
         data-toggle="tooltip" data-placement="top" title="Delete"
