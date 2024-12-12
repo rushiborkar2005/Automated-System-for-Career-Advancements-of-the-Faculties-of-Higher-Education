@@ -306,8 +306,39 @@ function p(data,t) {
             document.getElementById('department').textContent = data.departmentName || 'N/A';
             document.getElementById('designation').textContent = data.designation || 'N/A';
             document.getElementById('facultyId').textContent = data.facultyId || 'N/A';
-  }
+  } 
+}
 
-   
+async function getSectionBData() {
+  try {
+      const response = await fetch(`http://localhost:5000/api/getfaculty/${facultyId}/sectionB`, {
+          method: 'GET',
+          headers: {
+              Authorization: token,
+              'type': 17,
+          },
+      });
+      const result = await response.json();
+      console.log(result.sectionB);
+  } catch (error) {
+      console.error('Error fetching SectionB data:', error);
   }
-
+}
+  
+async function postSectionCData(sectionBData) {
+  try {
+      const response = await fetch(`http://localhost:5000/api/postfaculty/${facultyId}/sectionB`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: token,
+              'type': 18,
+          },
+          body: JSON.stringify(sectionBData),
+      });
+      const result = await response.json();
+      console.log(result);
+  } catch (error) {
+      console.error('Error posting SectionB data:', error);
+  }
+}

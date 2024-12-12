@@ -27,6 +27,7 @@ const corsOptions = {
 const getallfaculty= require ('../routes/getAllFaculty');
 
 
+
 app.use(cors(corsOptions));
 app.use(express.json()); 
 app.use(cookieParser());
@@ -39,6 +40,8 @@ app.use((err, req, res, next) => {
   res.status(500).send({ error: 'Something went wrong!' });
 });
 
+const recomend = require ('../routes/recomendation')
+app.use('/api', recomendation);
 
 const PORT = 5000;
 app.listen(PORT, () => {

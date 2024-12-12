@@ -224,3 +224,25 @@ function createScale(containerId) {
         nonRecommendedTextBox.style.display = 'block'; // Show the non-recommended textbox when "Non-Recommended" is selected
     });
 });
+
+
+//const facultyId = 'YOUR_FACULTY_ID'; // Replace with dynamic faculty ID
+//const token = localStorage.getItem('authToken');
+
+async function postSectionBData(sectionBData) {
+    try {
+        const response = await fetch(`http://localhost:5000/api/postfaculty/${facultyId}/sectionB`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: token,
+                'type': 17,
+            },
+            body: JSON.stringify(sectionBData),
+        });
+        const result = await response.json();
+        console.log(result);
+    } catch (error) {
+        console.error('Error posting SectionB data:', error);
+    }
+}
