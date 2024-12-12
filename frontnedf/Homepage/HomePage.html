@@ -131,6 +131,221 @@
       </div>
     </section>
   </main>
+ 
+<!-- Updated Chatbot HTML -->
+<div id="chatbot-toggle" class="chatbot-toggle">
+    <i class="fas fa-headset"></i>
+</div>
+
+<div id="chatbot-container" class="chatbot-container">
+    <div class="chatbot-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="chatbot-emblem">
+        <h3>Faculty Support Assistant</h3>
+        <button id="minimize-btn" class="minimize-btn">−</button>
+    </div>
+    <div id="chatbot-messages" class="chatbot-messages">
+        <div class="bot-message welcome-message">
+            Welcome to Faculty Appraisal Support. How may I assist you today?
+        </div>
+    </div>
+    <div class="chatbot-faq">
+        <h4>Common Queries:</h4>
+        <div class="faq-grid">
+            <button class="faq-btn" data-question="Q1">
+                <i class="fas fa-file-alt"></i>
+                Access Self-Appraisal Form
+            </button>
+            <button class="faq-btn" data-question="Q2">
+                <i class="fas fa-key"></i>
+                Reset Password
+            </button>
+            <button class="faq-btn" data-question="Q4">
+                <i class="fas fa-edit"></i>
+                Edit Submitted Form
+            </button>
+            <button class="faq-btn" data-question="Q6">
+                <i class="fas fa-tasks"></i>
+                Track Form Status
+            </button>
+            <button class="faq-btn" data-question="Q10">
+                <i class="fas fa-sync"></i>
+                System Integration
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Updated Chatbot Styles */
+.chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1e4a7e;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 380px;
+    height: 550px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+    border: 1px solid #ddd;
+}
+
+.chatbot-header {
+    background: linear-gradient(135deg, #1e4a7e, #2c5aa0);
+    color: white;
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chatbot-emblem {
+    width: 30px;
+    height: auto;
+}
+
+.chatbot-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+.welcome-message {
+    background-color: #e8f4ff !important;
+    border-left: 4px solid #1e4a7e;
+}
+
+.bot-message {
+    background-color: #f0f2f5;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    max-width: 85%;
+    line-height: 1.4;
+}
+
+.chatbot-faq {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.faq-btn {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.faq-btn i {
+    font-size: 1.2rem;
+    color: #1e4a7e;
+}
+
+.faq-btn:hover {
+    background-color: #e8f4ff;
+    border-color: #1e4a7e;
+}
+
+.minimize-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.minimize-btn:hover {
+    opacity: 0.8;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const chatbotToggle = document.getElementById("chatbot-toggle");
+    const chatbotContainer = document.getElementById("chatbot-container");
+    const minimizeBtn = document.getElementById("minimize-btn");
+    const chatbotMessages = document.getElementById("chatbot-messages");
+
+    // FAQ answers
+    const faqAnswers = {
+        "Q1": "To access the self-appraisal form:\n1. Log in to your account\n2. Navigate to 'Self-Appraisal' section\n3. Select your designation form (Assistant/Associate Professor)\n4. Click 'Start New Appraisal'",
+        "Q2": "To reset your password:\n1. Click 'Forgot Password' on login page\n2. Enter registered email/mobile\n3. Follow the reset link/OTP instructions sent to you",
+        "Q4": "Form editing rules:\n• You can edit before final submission\n• After submission, edits require admin approval\n• Use 'Request Edit' option in dashboard",
+        "Q6": "To check form status:\n1. Go to 'Form Status' in dashboard\n2. View current status:\n   • Pending Review\n   • Under Review\n   • Approved",
+        "Q10": "System Integration Features:\n• API support for ERP integration\n• LMS platform compatibility\n• Automated data sync\n• Secure data transfer protocols"
+    };
+
+    // Toggle chatbot visibility
+    chatbotToggle.addEventListener("click", () => {
+        chatbotContainer.style.display = chatbotContainer.style.display === "none" ? "flex" : "none";
+    });
+
+    // Minimize chatbot
+    minimizeBtn.addEventListener("click", () => {
+        chatbotContainer.style.display = "none";
+    });
+
+    // Handle FAQ button clicks
+    document.querySelectorAll(".faq-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            const questionKey = this.getAttribute("data-question");
+            const answer = faqAnswers[questionKey];
+            
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("bot-message");
+            messageDiv.innerText = answer;
+            chatbotMessages.appendChild(messageDiv);
+            
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        });
+    });
+});
+</script>
+
+
 
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script>
@@ -236,5 +451,6 @@
     // Set initial language to English
     updateText('en');
   </script>
+  <script src="chatbot.js"></script>
 </body>
 </html>

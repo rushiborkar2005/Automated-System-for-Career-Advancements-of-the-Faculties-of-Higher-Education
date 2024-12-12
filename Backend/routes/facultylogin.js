@@ -41,6 +41,7 @@ router.post('/facultylogin', async (req, res) => {
         res.json({
             message: 'Login successful!',
             token,
+            role:u1.role,
             ok: 1
         });
 });

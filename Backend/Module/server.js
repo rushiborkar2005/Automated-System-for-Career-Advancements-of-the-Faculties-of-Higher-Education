@@ -43,8 +43,8 @@ app.use((err, req, res, next) => {
   res.status(500).send({ error: 'Something went wrong!' });
 });
 
-const recomend = require ('../routes/recomendation')
-app.use('/api', recomendation);
+
+
 
 const PORT = 5000;
 app.listen(PORT, () => {
