@@ -68,7 +68,6 @@ const updatescore = async (faculty) => {
                     }
         }
 
-
          tscore=(s1+s2+es1+es2)/2;
         
 
@@ -218,7 +217,7 @@ rescore+=score;
     faculty.r=rscore;
     faculty.p=rescore>20?20:rescore;
     faculty.c=cscore>20?20:cscore;
-    faculty.total=tscore+fscore+dscore>20?20:dscore+iscore>20?20:iscore+rscore+rescore>20?20:rescore+cscore>20?20:cscore;
+    faculty.total=tscore+fscore+(dscore>20?20:dscore)+(iscore>20?20:iscore)+rscore+(rescore>20?20:rescore)+(cscore>20?20:cscore);
       
       await faculty.save();
 

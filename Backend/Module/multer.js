@@ -1,26 +1,44 @@
-const multer = require('multer');
-const path = require('path');
+// const { google } = require('google-auth-library');
+// const { googleapis } = require('googleapis');
+// const fs = require('fs');
+// const path = require('path');
 
-// Storage configuration
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Directory to save files
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
-  },
-});
+// // Path to the service account key file
+// const serviceAccountKeyPath = path.resolve(__dirname, 'service-account-key.json');
 
-// File filter (optional: restrict file types)
-const fileFilter = (req, file, cb) => {
-  const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
-  if (allowedTypes.includes(file.mimetype)) {
-    cb(null, true);
-  } else {
-    cb(new Error('Invalid file type'), false);
-  }
-};
+// // Initialize the Google client
+// const client = new google.auth.GoogleAuth({
+//     keyFile: serviceAccountKeyPath,
+//     scopes: ['https://www.googleapis.com/auth/drive.file'],
+// });
 
-const Multer = multer({ storage, fileFilter });
+// async function uploadFile(filePath) {
+//     const drive = googleapis.drive({
+//         auth: client,
+//     });
 
-module.exports = Multer;
+//     const file = {
+//         name: 'uploaded-file.pdf',
+//         mimeType: 'application/pdf',
+//     };
+
+//     const data = fs.readFileSync(filePath);
+//     const media = {
+//         mimeType: file.mimeType,
+//         body: data,
+//     };
+
+//     try {
+//         const result = await drive.files.create({
+//             requestBody: file,
+//             media: media,
+//         });
+//         console.log('File uploaded successfully:', result.data);
+//     } catch (error) {
+//         console.error('Error uploading file:', error.message);
+//     }
+// }
+
+// // Example usage
+// const filePath = path.resolve(__dirname, 'path/to/your/file.pdf');
+// uploadFile(filePath);

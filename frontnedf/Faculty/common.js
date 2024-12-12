@@ -2,6 +2,30 @@
         // JavaScript for dropdown functionality
         document.addEventListener('DOMContentLoaded', () => {
 
+getname();
+
+
+          async function getname() {
+
+
+
+            const response = await fetch('http://localhost:5000/api/get-details1', {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: token,
+              },
+            });
+
+
+            const data= response.json();
+
+
+            const namebox=document.querySelector('#profile-name')
+          
+            namebox.innerText=data.faculty.firstName;
+          }
+
 
 
             const token = localStorage.getItem('authToken'); 
