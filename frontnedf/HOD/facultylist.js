@@ -107,8 +107,8 @@ const token = localStorage.getItem('authToken');
         <td>${index + 1}</td>
         <td>${faculty.firstName} ${faculty.lastName}</td>
         <td>${faculty.facultyId}</td>
-        <td> <button class="view-btn" data-id="${faculty.facultyId}"><a href="view.html">View</a></button></td>
-        <td>${faculty.score || "-"}</td>
+        <td> <button class="view-btn" data-id="${faculty.facultyId}   )""><a href="view.html?facultyid=${faculty._id}">View</a></button></td>
+        <td>${faculty.total || "-"}</td>
         <td>${new Date(faculty.createdAt).toLocaleDateString()}</td>
          <td><span class="status-badge status-pending">pending</span></td>
        <td>
@@ -123,6 +123,9 @@ const token = localStorage.getItem('authToken');
     
     });
   }
+
+
+  
 
 
   document.querySelectorAll('.view-btn').forEach(button => {

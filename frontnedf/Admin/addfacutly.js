@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
             dateOfJoining: document.getElementById('dateOfJoining').value,
             designation: document.getElementById('designation').value,
             facultyEmail: document.getElementById('facultyEmail').value,
+            scholarid: document.getElementById('scholarid').value,
+            role: document.getElementById('role').value
+
         };
 
         // if (!validateForm(formData)) {

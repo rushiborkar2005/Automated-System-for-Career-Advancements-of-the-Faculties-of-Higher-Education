@@ -1,18 +1,35 @@
 const token = localStorage.getItem('authToken'); 
 
+
+
+function getQueryParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+        facultyId: urlParams.get('facultyId'),
+    };
+}
+
 async function fetchFacultyData() {
     try {
-        const response = await fetch('http://localhost:5000/api/get-details1', {
+        const { facultyId } = getQueryParams();
+        if (!facultyId) {
+            throw new Error('Faculty ID is missing in the URL.');
+        }
+
+        const response = await fetch(`http://localhost:5000/api/get-details1?facultyId=${facultyId}`, {
             method: 'GET',
             headers: {
-              'Content-Type': 'application/json',
-              Authorization: token,
+                'Content-Type': 'application/json',
+                Authorization: token,
             },
-          });
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch faculty data.');
+        }
+
         const data1 = await response.json();
-        const data=data1.faculty;
-          console.log(data);
-        // Populate the faculty profile
+        const data = data1.faculty;
         document.getElementById('facultyName').textContent = data.firstName + " " + data.lastName;
         document.getElementById('facultyId').textContent = data.facultyId;
         document.getElementById('facultyDesignation').textContent = data.designation;
@@ -224,25 +241,3 @@ function createScale(containerId) {
         nonRecommendedTextBox.style.display = 'block'; // Show the non-recommended textbox when "Non-Recommended" is selected
     });
 });
-
-
-//const facultyId = 'YOUR_FACULTY_ID'; // Replace with dynamic faculty ID
-//const token = localStorage.getItem('authToken');
-
-async function postSectionBData(sectionBData) {
-    try {
-        const response = await fetch(`http://localhost:5000/api/postfaculty/${facultyId}/sectionB`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: token,
-                'type': 17,
-            },
-            body: JSON.stringify(sectionBData),
-        });
-        const result = await response.json();
-        console.log(result);
-    } catch (error) {
-        console.error('Error posting SectionB data:', error);
-    }
-}

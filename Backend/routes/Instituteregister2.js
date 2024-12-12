@@ -75,4 +75,20 @@ router.post('/register', verifyToken, async (req, res) => {
       res.status(500).json({ message: 'Server error, please try again later.', ok: 0 });
     }
   });
+
+
+
+
+  router.post('/department',verifyToken,async () => {
+
+    const institute = await Institute.findById(req.user);
+      if (!institute) {
+        return res.status(404).json({ message: 'Institute not found.', ok: 0 });
+      }
+
+      institute.department.push(req.body);
+
+
+    
+  })
 module.exports = router;

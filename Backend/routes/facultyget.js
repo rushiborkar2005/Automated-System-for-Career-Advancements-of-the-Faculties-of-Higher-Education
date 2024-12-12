@@ -80,7 +80,11 @@ router.get('/get-details', async (req, res) => {
       const user = decoded.userId;
       const fdb = getdb(decoded.db);
       const FacultyModel = Faculty(fdb);
-      const faculty = await FacultyModel.findOne({ _id: user});
+
+
+      const facultyId = req.query.facultyId;
+        const userId = facultyId || user; 
+      const faculty = await FacultyModel.findOne({ _id: userId});
       if (!faculty) {
         return res.status(404).json({ message: 'Faculty not found' });
       }

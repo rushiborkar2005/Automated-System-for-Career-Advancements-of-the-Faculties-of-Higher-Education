@@ -33,6 +33,7 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
       designation,
       facultyEmail,
       role,
+      scholarid
     } = req.body;
     const password = generatePassword();
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -57,7 +58,8 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
       designation,
       facultyEmail,
       password,
-      role
+      role,
+
     });
     const savedFaculty = await newFaculty.save();
     sendPasswordEmail(newFaculty.facultyEmail, password);

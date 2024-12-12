@@ -1,19 +1,13 @@
 const mongoose = require('mongoose');
 
 const SectionBSchema = new mongoose.Schema({
-  recommend: {type: Boolean,},
-  score1: {type: Number, enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
-  score2: {type: Number, enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
-  comments: {type: String, trim: true},
-  recommendation: { type: String, trim: true },
+  observations: { type: String, trim: true },
+  recommendations: { type: String, trim: true },
 });
 
 const SectionCSchema = new mongoose.Schema({
-  recommend: {type: Boolean,},
-  score1: {type: Number, enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
-  score2: {type: Number, enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
-  comments: {type: String, trim: true},
   recommendation: { type: String, trim: true },
+  signature: { type: String, trim: true },
 });
 
 const FacultySchema = new mongoose.Schema({
@@ -68,6 +62,7 @@ const FacultySchema = new mongoose.Schema({
     subjectName: { type: String },
     studentFeedback: { type: String },
     pointsEarned: { type: Number },
+
     document: { type: String },
     score: { type: Number},
     erp:{type:Boolean, default:false}
@@ -115,7 +110,7 @@ const FacultySchema = new mongoose.Schema({
     semester: { type: String },
     activity: { type: String },
     criteria: { type: String },
-    document: { type: String },
+      document: { type: String },
     score: { type: Number}
   }],
 
