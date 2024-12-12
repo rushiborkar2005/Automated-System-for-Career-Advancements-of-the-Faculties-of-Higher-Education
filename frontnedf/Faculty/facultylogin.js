@@ -20,7 +20,13 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         console.log(result);
 
         localStorage.setItem('authToken', result.token);
+        if(result.role==='HOD')
+        {
+           window.location.href='../HOD/HODHomePage.html'
+        }
+       else{
         window.location.href='FacultyHomepage.html'
+       }
       } else {
         alert(result.error || 'Login failed');
       }
