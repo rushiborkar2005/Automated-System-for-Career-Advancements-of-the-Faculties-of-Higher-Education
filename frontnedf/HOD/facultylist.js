@@ -1,10 +1,13 @@
 
 
-// Fetch data and populate table
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const facultyTableBody = document.getElementById('facultyTableBody');
 
-  
+
+
+
 
   async function fetchFacultyData() {
     try {
@@ -33,31 +36,33 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${index + 1}</td>
         <td>${faculty.firstName} ${faculty.lastName}</td>
         <td>${faculty.facultyId}</td>
-        <td> <button class="view-btn" data-id="${faculty.facultyId}">View</button></td>
+        <td><button class="view-btn" data-id="${faculty.facultyId}">View</button></td>
         <td>${faculty.score || "-"}</td>
         <td>${new Date(faculty.createdAt).toLocaleDateString()}</td>
-         <td><span class="status-badge status-pending">pending</span></td>
-       <td>
-                    <button class="download-btn">
-                        <i class="fas fa-download"></i>
-                    </button>
-                </td>
+        <td><span class="status-badge status-pending">pending</span></td>
+        <td>
+          <button class="download-btn">
+            <i class="fas fa-download"></i>
+          </button>
+        </td>
       `;
 
       facultyTableBody.appendChild(row);
     });
-  }
 
+    
 
-  document.querySelectorAll('.view-btn').forEach(button => {
-    button.addEventListener('click', event => {
-      event.stopPropagation(); // Prevent any other event interference
-      const facultyId = button.getAttribute('data-id');
-      // Redirect to the faculty view page
-      window.location.href = `/faculty/view/${facultyId}`;
-    });
+    document.querySelectorAll('.view-btn').forEach(button => {
+      button.addEventListener('click', event => {
+          event.stopPropagation(); // Prevent any other event interference
+          // Redirect to the view page
+          window.location.href = 'view.html';
+      });
   });
+  
+  }
 
   // Fetch data when the page loads
   fetchFacultyData();
 });
+
