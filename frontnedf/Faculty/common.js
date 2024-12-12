@@ -2,7 +2,7 @@
         // JavaScript for dropdown functionality
         document.addEventListener('DOMContentLoaded', () => {
 
-getname();
+
 
 
           async function getname() {
@@ -55,4 +55,8 @@ getname();
             localStorage.removeItem('authToken');
             window.location.href = '../../Homepage/HomePage.html';
         });
+
+
+
+        getname();
           });
