@@ -106,8 +106,16 @@ async function handleSubmit(event) {
       else if (per >= 20) points = 2;
       else if (per >= 10) points = 1;
       else if (per >= 0) points = 0;
-
+  const R = await fetch('http://localhost:5000/api/upload', {
+        method: 'POST',
+        body: FL,
+        headers: {
+          'Authorization': token,
+        }
+      });
+        
       formDataObj['score']=points;
+      formDataObj['document']=R;
       try {
         const response = await fetch('http://localhost:5000/api/add-details', {
           method: 'POST',
@@ -127,16 +135,12 @@ async function handleSubmit(event) {
         }
         const data = await response.json();
         console.log("Response received:", data);
-      const R = await fetch('http://localhost:5000/api/upload', {
-        method: 'POST',
-        body: FL,
-        headers: {
-          'Authorization': token,
-        },
-
-    });
-    alert('Details added successfully!');
-} catch (error) {
+     alert('Details added successfully!');
+      
+    
+      }
+   
+catch (error) {
         
         console.error('Error during fetch:', error.message);
         alert(`An error occurred: ${error.message}`);
