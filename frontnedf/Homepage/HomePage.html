@@ -36,6 +36,20 @@
       <option value="hi">हिंदी</option>
     </select>
   </header>
+  
+  <script>
+    const languageSelector = document.getElementById('language-selector');
+    const welElement = document.getElementById('wel');
+
+    languageSelector.addEventListener('change', function () {
+      const selectedLang = this.value;
+      if (selectedLang === 'en') {
+        welElement.textContent = welElement.getAttribute('data-en');
+      } else if (selectedLang === 'hi') {
+        welElement.textContent = welElement.getAttribute('data-hi');
+      }
+    });
+  </script>
 
   <nav class="navigation">
     <div class="nav-content">
@@ -58,7 +72,7 @@
 
   <main>
     <section class="welcome">
-      <h1 id="wel">Welcome to the Faculty Appraisal System</h1>
+      <h1 id="wel" data-en="Welcome to the Faculty Appraisal System" data-hi="फैकल्टी मूल्यांकन प्रणाली में आपका स्वागत है">Welcome to the Faculty Appraisal System</h1>
       <p id="intro-text">
         Access the appraisal form, view reports, and manage your profile for a seamless evaluation experience.
       </p>
@@ -120,12 +134,34 @@
 
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script>
-    var typed = new Typed('#wel', {
-      strings: ['Welcome to the Faculty Appraisal System'],
-      typeSpeed: 100, 
+      let options = {
+      strings: ['Welcome to the Faculty Appraisal System'], // Default: English
+      typeSpeed: 100,
       backSpeed: 50,
-      loop: true, 
+      loop: true,
       loopCount: Infinity,
+    };
+
+    let typed = new Typed('#wel', options);
+
+    // Update the Typed.js strings based on language selection
+    const language = document.getElementById('language-selector');
+
+    language.addEventListener('change', function () {
+      const selectedLang = this.value;
+
+      // Destroy current Typed instance
+      typed.destroy();
+
+      // Update strings based on the selected language
+      if (selectedLang === 'en') {
+        options.strings = ['Welcome to the Faculty Appraisal System'];
+      } else if (selectedLang === 'hi') {
+        options.strings = ['फैकल्टी मूल्यांकन प्रणाली में आपका स्वागत है'];
+      }
+
+      // Reinitialize Typed with updated options
+      typed = new Typed('#wel', options);
     });
 
     // Translations object
