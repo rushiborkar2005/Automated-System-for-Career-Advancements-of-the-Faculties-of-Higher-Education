@@ -23,38 +23,66 @@
   }
   
   /* Header Redesign */
+.header {
+  background-color: var(--white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.emblem {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.header-text h1 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header-text h2 {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .header {
-    background-color: var(--white);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
   .header-content {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
   .emblem {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+    width: 60px;
+    height: 60px;
   }
-  
+
   .header-text h1 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.2rem;
   }
-  
+
   .header-text h2 {
-    color: var(--secondary-color);
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 0.9rem;
   }
+}
+
   
   /* Navigation Redesign */
   /* .navigation {
@@ -85,25 +113,26 @@
   .nav-links a:hover {
     background-color: rgba(255, 255, 255, 0.1);
   } */
-
-
-  .navigation {
+ .navigation {
     background-color: var(--primary-color);
     padding: 0.75rem 2rem;
-    }
-    .nav-content {
+  }
+  
+  .nav-content {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    }
-    .nav-links {
+  }
+  
+  .nav-links {
     display: flex;
     list-style: none;
     gap: 1.5rem;
     padding: 0;
     margin: 0;
-    }
-    .nav-links a {
+  }
+  
+  .nav-links a {
     color: var(--white);
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -111,135 +140,323 @@
     transition: background-color 0.3s ease;
     display: flex;
     align-items: center;
-    }
-    .nav-links a:hover {
+  }
+  
+  .nav-links a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    }
-    .nav-links i {
+  }
+  
+  .nav-links i {
     margin-right: 0.5rem;
+  }
+  
+  /* Toggle Button */
+  .nav-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+  
+  .nav-toggle:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* Hide by default */
+      flex-direction: column;
+      position: absolute;
+      top: 60px; /* Adjust based on navbar height */
+      right: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      padding: 1rem 0;
+      gap: 1rem;
+      z-index: 1000;
     }
+  
+    .nav-links.active {
+      display: flex; /* Show on toggle */
+    }
+  
+    .nav-toggle {
+      display: block; /* Show toggle button */
+    }
+  }
   
   /* Roles Section */
+  /* Roles Section */
+.roles-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  background-color: var(--background-light);
+  flex-wrap: wrap; /* Ensures cards wrap on smaller screens */
+}
+
+.role-card {
+  width: 250px;
+  height: 300px;
+  background-color: var(--white);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.role-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--secondary-color);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.role-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.role-card:hover .role-icon {
+  transform: scale(1.1);
+}
+
+.role-card h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .roles-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 3rem 2rem;
-    background-color: var(--background-light);
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
   }
-  
+
   .role-card {
-    width: 250px;
-    height: 300px;
-    background-color: var(--white);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    width: 220px;
+    height: 280px;
   }
-  
-  .role-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--secondary-color);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  }
-  
-  .role-icon {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    margin-bottom: 1.5rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .role-card:hover .role-icon {
-    transform: scale(1.1);
-  }
-  
+
   .role-card h3 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 1rem;
+    font-size: 1.4rem;
   }
+}
+
+@media (max-width: 768px) {
+  .roles-section {
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .role-card {
+    width: 200px;
+    height: 260px;
+  }
+
+  .role-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .role-card h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .roles-section {
+    flex-direction: column; /* Stacks cards vertically */
+    padding: 1.5rem 1rem;
+    gap: 1.25rem;
+  }
+
+  .role-card {
+    width: 90%; /* Cards take almost full width */
+    height: auto;
+    padding: 1rem;
+  }
+
+  .role-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .role-card h3 {
+    font-size: 1.1rem;
+  }
+}
+
   
   /* News Section */
+  /* News Section */
+.news {
+  background-color: var(--white);
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.news h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.news-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-light);
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.news-item:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.news-item:hover .news-icon svg {
+  stroke: var(--white);
+}
+
+.news-item:hover .chevron {
+  color: var(--white);
+}
+
+.news-icon {
+  margin-right: 1rem;
+}
+
+.news-icon svg {
+  stroke: var(--primary-color);
+  transition: stroke 0.3s ease;
+}
+
+.news-item h3 {
+  flex-grow: 1;
+  font-size: 1rem;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+
+.news-item:hover h3 {
+  color: var(--white);
+}
+
+.chevron {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .news {
-    background-color: var(--white);
-    padding: 2rem;
-    margin: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    margin: 1.5rem;
   }
-  
+
   .news h2 {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.6rem;
   }
-  
+
   .news-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
   }
-  
+
   .news-item {
-    display: flex;
-    align-items: center;
-    background-color: var(--background-light);
-    padding: 1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    padding: 0.75rem;
   }
-  
-  .news-item:hover {
-    background-color: var(--secondary-color);
-    color: var(--white);
-  }
-  
-  .news-item:hover .news-icon svg {
-    stroke: var(--white);
-  }
-  
-  .news-item:hover .chevron {
-    color: var(--white);
-  }
-  
-  .news-icon {
-    margin-right: 1rem;
-  }
-  
-  .news-icon svg {
-    stroke: var(--primary-color);
-    transition: stroke 0.3s ease;
-  }
-  
+
   .news-item h3 {
-    flex-grow: 1;
-    font-size: 1rem;
-    color: var(--text-dark);
-    transition: color 0.3s ease;
+    font-size: 0.95rem;
   }
-  
-  .news-item:hover h3 {
-    color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .news {
+    padding: 1rem;
+    margin: 1rem;
   }
-  
+
+  .news h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .news-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .news-item {
+    padding: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .news-icon {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
   .chevron {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    transition: color 0.3s ease;
+    font-size: 1.2rem;
   }
+}
+
+@media (max-width: 480px) {
+  .news {
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
+
+  .news h2 {
+    font-size: 1.2rem;
+  }
+
+  .news-container {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .news-item {
+    padding: 0.5rem;
+  }
+
+  .news-item h3 {
+    font-size: 0.9rem;
+  }
+
+  .chevron {
+    font-size: 1rem;
+  }
+}
+
   
   /* Existing CSS for remaining sections continues... */
   .search-container {
