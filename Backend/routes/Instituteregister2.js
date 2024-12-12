@@ -27,7 +27,7 @@ router.post('/register', verifyToken, async (req, res) => {
         accreditationBody,
         accreditationGrade,
       } = req.body;
-      const emaildomain = email.split('@')[1];
+     
       const institute = await Institute.findById(req.user);
       if (!institute) {
         return res.status(404).json({ message: 'Institute not found.', ok: 0 });
