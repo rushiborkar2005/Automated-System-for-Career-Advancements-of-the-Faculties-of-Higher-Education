@@ -1,4 +1,5 @@
 :root {
+<<<<<<< HEAD
   --color-primary: #1A5F7A;
   --color-secondary: #0f5781;
   --color-accent: #579bc5;
@@ -7,6 +8,16 @@
   --color-white: #FFFFFF;
   --color-border: #E2E8F0;
   --primary-color: #2C3E50;
+=======
+    --color-primary: #1A5F7A;
+    --color-secondary: #0f5781;
+    --color-accent: #579bc5;
+    --color-background: #F8F9FA;
+    --color-text-dark: #2C3E50;
+    --color-white: #FFFFFF;
+    --color-border: #E2E8F0;
+    --primary-color: #2C3E50;
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
   --secondary-color: #3498DB;
   --accent-color: #27AE60;
   --background-light: #F4F6F7;
@@ -16,6 +27,7 @@
 }
 
 * {
+<<<<<<< HEAD
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -112,10 +124,109 @@ body {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
+=======
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.faculty-profile {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.profile-detail {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.profile-detail label {
+    display: block;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.profile-detail span {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+}
+
+.performance-section {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 1rem 1.5rem;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.section-header .score-badge {
+    background-color: var(--color-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.performance-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 }
 
 .performance-table th, 
 .performance-table td {
+<<<<<<< HEAD
   padding: 1rem;
   text-align: center;
   border-bottom: 1px solid var(--color-border);
@@ -412,6 +523,349 @@ body {
 }
 
 .recommendation-header {
+=======
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.performance-table th {
+    background-color: #F1F5F9;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+}
+
+.performance-table tr:nth-child(even) {
+    background-color: rgba(21, 158, 149, 0.05);
+}
+
+.performance-table tr:hover {
+    background-color: rgba(21, 158, 149, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-submit {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn-reset {
+    background-color: #6C757D;
+    color: var(--color-white);
+}
+.breadcrumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+  
+  .breadcrumb .separator {
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0.5rem;
+  }
+  
+@media (max-width: 768px) {
+    .faculty-profile {
+        flex-direction: column;
+    }
+
+    .profile-detail {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+.header {
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .emblem {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .header-text h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .header-text h2 {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Navigation Styles */
+  .navigation {
+    background-color: var(--primary-color);
+    padding: 0.75rem 2rem;
+  }
+  
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .user-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .profile-container {
+    position: relative;
+  }
+  
+  .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile-info:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    color: var(--white);
+    font-weight: 500;
+  }
+  
+  .dropdown-icon {
+    color: var(--white);
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+  }
+  
+  .profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+    margin-top: 0.5rem;
+  }
+  
+  .profile-dropdown.hidden {
+    display: none;
+  }
+  
+  .profile-dropdown ul {
+    list-style: none;
+    padding: 0.5rem 0;
+  }
+  
+  .profile-dropdown ul li a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile-dropdown ul li a:hover {
+    background-color: var(--background-light);
+  }
+  
+  .profile-dropdown ul li a i {
+    width: 20px;
+    text-align: center;
+  }
+  
+  .profile-dropdown .logout a {
+    color: #E74C3C;
+  }
+  
+  .notification-bell {
+    position: relative;
+    color: var(--white);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .notification-bell:hover {
+    color: var(--secondary-color);
+  }
+  
+  .notification-bell .fas {
+    font-size: 1.25rem;
+  }
+  
+  .notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #E74C3C;
+    color: var(--white);
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+:root {
+  /* Updated Color Palette */
+  --primary-color: #201E43;
+  --secondary-color: #134B70;
+  --accent-color: #508C9B;
+  --background-light: #EEEEEE;
+  --text-dark: #201E43;
+  --white: #FFFFFF;
+  --border-color: #C0C0C0;
+}
+
+.recommendation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    margin: 20px auto; /* Centered on the page with some vertical spacing */
+    width: 60%; /* Adjust the width of the box as needed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a neat effect */
+}
+
+.recommendation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure it spans the full width of the container */
+}
+
+.radio-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* Adds spacing between input and label */
+}
+
+.radio-option input[type="radio"] {
+    cursor: pointer;
+    margin-right: 8px; /* Space between radio button and label */
+}
+
+.radio-option label {
+    font-size: 16px; /* Adjust font size */
+    color: #333; /* Neutral text color */
+    cursor: pointer;
+}
+.recommendation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    margin: 20px auto; /* Centered on the page with some vertical spacing */
+    width: 60%; /* Adjust the width of the box as needed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a neat effect */
+}
+
+.recommendation-header {
+    display: flex;
+    justify-content: space-evenly; /* Ensures equal spacing */
+    align-items: center;
+    width: 100%; /* Full width of the container */
+}
+
+.radio-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* Adds spacing between input and label */
+}
+
+.radio-option input[type="radio"] {
+    cursor: pointer;
+    margin-right: 8px; /* Space between radio button and label */
+}
+
+.radio-option label {
+    font-size: 16px; /* Adjust font size */
+    color: #333; /* Neutral text color */
+    cursor: pointer;
+}
+.recommendation-header {
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
   display: flex;
   justify-content: center;
   align-items: center;
@@ -420,6 +874,7 @@ body {
   border-radius: 12px;
   margin: 1rem auto;
   max-width: 1400px;
+<<<<<<< HEAD
   gap: 10rem;
 }
 
@@ -431,10 +886,67 @@ body {
   margin: 0 auto;
 }
 
+=======
+}
+
+/* Container for radio buttons */
+.radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;  /* Space between radio buttons */
+  width: 50%;  /* Take half of the container width */
+  margin: 0 auto;  /* Center the group */
+}
+
+.recommendation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* White background */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding inside the box */
+  margin: 20px auto; /* Centered on the page with some vertical spacing */
+  width: 60%; /* Adjust the width of the box as needed */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a neat effect */
+}
+
+.recommendation-header {
+  display: flex;
+  justify-content: space-evenly; /* Ensures equal spacing */
+  align-items: center;
+  width: 100%; /* Full width of the container */
+}
+
+.radio-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px; /* Adds spacing between input and label */
+}
+
+.radio-option input[type="radio"] {
+  cursor: pointer;
+  margin-right: 8px; /* Space between radio button and label */
+}
+
+.radio-option label {
+  font-size: 16px; /* Adjust font size */
+  color: #333; /* Neutral text color */
+  cursor: pointer;
+}
+
+
+/* Hide default radio buttons */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .recommendation-header input[type="radio"] {
   display: none;
 }
 
+<<<<<<< HEAD
+=======
+/* Style the labels */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .recommendation-header label {
   display: inline-flex;
   align-items: center;
@@ -450,9 +962,16 @@ body {
   transition: all 0.3s ease;
   position: relative;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
   min-width: 200px;
 }
 
+=======
+  min-width: 200px;  /* Ensure consistent width */
+}
+
+/* Custom radio button appearance */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .recommendation-header label::before {
   content: '';
   width: 18px;
@@ -464,6 +983,10 @@ body {
   background-color: var(--white);
 }
 
+<<<<<<< HEAD
+=======
+/* When radio is checked */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .recommendation-header input[type="radio"]:checked + label {
   background: rgba(255, 255, 255, 0.95);
   border-color: var(--accent-color);
@@ -471,6 +994,10 @@ body {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+<<<<<<< HEAD
+=======
+/* Custom radio button when checked */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .recommendation-header input[type="radio"]:checked + label::before {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
@@ -479,11 +1006,18 @@ body {
 
 /* Specific styles for Recommended */
 #recommended + label {
+<<<<<<< HEAD
 color: #27AE60; /* Updated text color */
+=======
+  border-left: 3px solid #27AE60;
+  background-color: #27AE60;
+  color: var(--white);
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 }
 
 /* Specific styles for Non-Recommended */
 #non-recommended + label {
+<<<<<<< HEAD
 color: #E74C3C; /* Updated text color */
 }
 
@@ -500,6 +1034,26 @@ color: #E74C3C; /* Updated text color */
   }
 }
 
+=======
+  border-left: 3px solid #E74C3C;
+  background-color: #E74C3C;
+  color: var(--white);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .radio-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .recommendation-header label {
+    width: 100%;
+    min-width: unset;
+  }
+}
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .main-choice {
   margin: 2.5rem auto; 
   padding: 1.5rem;
@@ -521,9 +1075,16 @@ color: #E74C3C; /* Updated text color */
   transition: all 0.3s ease;
   background: var(--color-white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+<<<<<<< HEAD
   margin: 0 1rem;
 }
 
+=======
+  margin: 0 1rem; /* Add horizontal margin between labels */
+}
+
+/* Add container for radio options if needed */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .radio-options {
   display: flex;
   justify-content: center;
@@ -531,11 +1092,16 @@ color: #E74C3C; /* Updated text color */
   flex-wrap: wrap;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .main-choice label:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+<<<<<<< HEAD
 .scale-container {
   margin: 20px auto;
   padding: 20px;
@@ -546,6 +1112,20 @@ color: #E74C3C; /* Updated text color */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+=======
+/* Container for the behavior assessment */
+.scale-container {
+  margin: 20px auto; /* Center and add spacing */
+  padding: 20px;
+  width: 70%; /* Set a width for the entire container */
+  background-color: #f9f9f9; /* Light gray background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Header styling */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .scale-container h2 {
   font-size: 24px;
   color: #333;
@@ -554,10 +1134,18 @@ color: #E74C3C; /* Updated text color */
   font-weight: 600;
 }
 
+<<<<<<< HEAD
+=======
+/* Each scale section styling */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .scale-section {
   margin-bottom: 30px;
 }
 
+<<<<<<< HEAD
+=======
+/* Description text for the scales */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .scale-section p {
   font-size: 16px;
   color: #444;
@@ -565,18 +1153,27 @@ color: #E74C3C; /* Updated text color */
   font-weight: 500;
 }
 
+<<<<<<< HEAD
+=======
+/* Scale container */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .scale {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+<<<<<<< HEAD
+=======
+/* Labels for the scale */
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 .scale-label {
   font-size: 14px;
   color: #666;
   font-weight: 500;
 }
 
+<<<<<<< HEAD
 .scale-options {
   display: flex;
   gap: 10px;
@@ -585,6 +1182,18 @@ color: #E74C3C; /* Updated text color */
 }
 
 .scale-options .circle {
+=======
+/* The scale options (1 to 10) */
+.scale-options {
+  display: flex;
+  gap: 10px; /* Spacing between options */
+  flex: 1; /* Take remaining space between labels */
+  justify-content: space-between;
+}
+
+/* Style for individual scale buttons */
+.scale-options span {
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -594,6 +1203,7 @@ color: #E74C3C; /* Updated text color */
   border: 1px solid #ddd;
   border-radius: 50%;
   background-color: #fff;
+<<<<<<< HEAD
   color: #333;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -638,6 +1248,27 @@ color: #E74C3C; /* Updated text color */
   background-color: #4caf50;
   color: white;
 }
+=======
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for scale buttons */
+.scale-options span:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Selected scale option */
+.scale-options span.selected {
+  background-color: #28a745; /* Green color for selection */
+  color: #fff;
+  border-color: #28a745;
+}
+
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 
 .recommendation-options {
   margin: 2rem 0;
@@ -645,17 +1276,21 @@ color: #E74C3C; /* Updated text color */
   background: linear-gradient(145deg, #ffffff, #f3f4f6);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+<<<<<<< HEAD
   transition: all 0.3s ease;
 }
 
 .recommendation-options:hover {
   background: linear-gradient(145deg, #e0e0e0, #f0f0f0); /* Highlight effect */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+=======
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 }
 
 .recommendation-options h4 {
   color: var(--color-primary);
   margin-bottom: 1.5rem;
+<<<<<<< HEAD
   font-size: 2rem; /* Increased font size */
   font-weight: 600;
   text-transform: uppercase; /* Makes the text more prominent */
@@ -667,6 +1302,16 @@ color: #E74C3C; /* Updated text color */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+=======
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
   margin-bottom: 2rem;
 }
 
@@ -699,7 +1344,19 @@ textarea {
 
 .btn-submit {
   background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+<<<<<<< HEAD
   color: white;
+=======
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 }
 
 .btn-reset {
@@ -717,6 +1374,7 @@ textarea {
 
 @media (max-width: 768px) {
   .recommendation-form {
+<<<<<<< HEAD
       margin: 15px;
       padding: 1.5rem;
   }
@@ -732,10 +1390,28 @@ textarea {
 
   .action-buttons {
       flex-direction: column;
+=======
+    margin: 15px;
+    padding: 1.5rem;
+  }
+
+  .recommendation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-choice {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
   }
 
   .btn-submit,
   .btn-reset {
+<<<<<<< HEAD
       width: 100%;
   }
 }
@@ -779,3 +1455,8 @@ textarea {
   }
 }
 
+=======
+    width: 100%;
+  }
+}
+>>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
