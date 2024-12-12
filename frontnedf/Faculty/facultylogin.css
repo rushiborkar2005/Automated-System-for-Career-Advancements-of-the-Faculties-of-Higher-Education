@@ -25,6 +25,7 @@ body {
 }
 
 /* Enhanced Header */
+/* Header styling */
 .header {
   background-color: var(--white);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -48,20 +49,35 @@ body {
 
 .header-text h1 {
   color: var(--primary-color);
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Default size */
   font-weight: 700;
 }
 
 .header-text h2 {
   color: var(--secondary-color);
-  font-size: 1rem;
+  font-size: 1rem; /* Default size */
   font-weight: 500;
 }
+
+/* Responsive Design */
+
+
+@media (max-width: 480px) {
+  .header-text h1 {
+    font-size: 1.1rem; /* Even smaller font size for very small screens */
+  }
+
+  .header-text h2 {
+    font-size: 0.75rem; /* Even smaller font size for very small screens */
+  }
+}
+
 
 /* Navigation Redesign */
 .navigation {
   background-color: var(--primary-color);
   padding: 0.75rem 2rem;
+  display: flex;
 }
 
 .nav-content {

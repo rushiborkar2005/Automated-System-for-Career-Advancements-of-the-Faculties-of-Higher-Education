@@ -1,13 +1,13 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-async function generateText() {
+async function generateText(text,p) {
     // Replace with your actual API key
     const apiKey = 'AIzaSyDRizynqIPgiZfgrMdqcosDOWxsTGNtwEM'; 
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = "Explain how AI works";
+    const prompt = "from the extracted extract following information in proper format  "  ; 
 
     try {
         const result = await model.generateContent(prompt);
@@ -18,4 +18,4 @@ async function generateText() {
 }
 
 // Call the function
-generateText();
+module.exports=generateText;

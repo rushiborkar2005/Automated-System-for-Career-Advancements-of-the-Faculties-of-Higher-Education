@@ -4,7 +4,7 @@ const Faculty = require('../Models/addfaculty');
 const multer = require("multer");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const  { uploadFileToDrive }=require('../Module/multer')
+// const  { uploadFileToDrive }=require('../Module/multer')
 const { LocalStorage } = require('node-localstorage');
 const localStorage = new LocalStorage('./scratch');
 const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
@@ -133,10 +133,14 @@ router.post('/upload',upload.single('file'), async (req, res) => {
           return res.status(400).send('No file uploaded.');
       }
       const fileId = await uploadFileToDrive(uploadedFile.path, uploadedFile.originalname);
+      console.log(fileId)
       fs.unlinkSync(uploadedFile.path);
-      res.status(200).send({ fileId });
+
+
+
+      res.status(200).send(fileId);
   } catch (error) {
-      res.status(500).send('Error uploading file.');
+    res.status(500).json({ error: 'Error uploading file.' });
   }
 }
 );

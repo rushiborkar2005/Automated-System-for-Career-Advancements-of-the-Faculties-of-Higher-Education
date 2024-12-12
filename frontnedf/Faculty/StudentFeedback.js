@@ -133,8 +133,10 @@ async function handleSubmit(event) {
         headers: {
           'Authorization': token,
         },
+       
 
     });
+     console.log(f);
     alert('Details added successfully!');
 } catch (error) {
         

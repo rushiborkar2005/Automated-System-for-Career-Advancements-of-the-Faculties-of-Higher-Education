@@ -29,77 +29,78 @@ const facultyData = [
   employeeType: "Permanent",
   teachingProcess: [
     {
-      semester: "Fall 2023",
+      semester: "odd",
       subjectCode: "CS101",
       subjectName: "Introduction to Programming",
       scheduledClasses: 40,
       actualClasses: 38,
-      attainment:3,
+      attainment:2.6,
+      score:9,
     },
     {
-      semester: "Spring 2023",
+      semester: "even",
       subjectCode: "CS201",
       subjectName: "Data Structures",
       scheduledClasses: 45,
       actualClasses: 43,
-      attainment:2.7
+      attainment:1.8
     },
     {
-      semester: "Fall 2022",
+      semester: "even",
       subjectCode: "CS301",
       subjectName: "Algorithms",
-      scheduledClasses: 42,
+      scheduledClasses: 50,
       actualClasses: 40,
       attainment:2.6
     },
     {
-      semester: "Spring 2022",
+      semester: "odd",
       subjectCode: "CS401",
       subjectName: "Operating Systems",
-      scheduledClasses: 48,
-      actualClasses: 46,
-      attainment:2.4
+      scheduledClasses: 60,
+      actualClasses: 54,
+      attainment:2.3
     }
   ],
   studentsFeedback: [
     {
-      semester: "Fall 2023",
+      semester: "odd",
       subjectCode: "CS101",
       subjectName: "Introduction to Programming",
-      studentFeedback: "Excellent teaching methods.",
-      pointsEarned: 48,
+      studentFeedback: "98",
+      pointsEarned: 9,
       
     },
     {
       semester: "Spring 2023",
       subjectCode: "CS201",
       subjectName: "Data Structures",
-      studentFeedback: "Good course material.",
-      pointsEarned: 46,
+      studentFeedback: "78",
+      pointsEarned: 7,
      
     },
     {
       semester: "Fall 2022",
       subjectCode: "CS301",
       subjectName: "Algorithms",
-      studentFeedback: "Challenging but rewarding.",
-      pointsEarned: 44,
+      studentFeedback: "88",
+      pointsEarned: 8,
      
     },
     {
       semester: "Spring 2022",
       subjectCode: "CS401",
       subjectName: "Operating Systems",
-      studentFeedback: "Informative and well-structured.",
-      pointsEarned: 45,
+      studentFeedback: "65",
+      pointsEarned: 6,
      
     },
     {
       semester: "Fall 2021",
       subjectCode: "CS501",
       subjectName: "Artificial Intelligence",
-      studentFeedback: "Very engaging and insightful.",
-      pointsEarned: 47,
+      studentFeedback: "72",
+      pointsEarned: 7,
      
     }
   ]
@@ -132,13 +133,13 @@ const facultyData = [
     password: "another_hashed_password",
     teachingProcess: [
       {
-        semester: "Fall 2023",
+        semester: "odd",
         subjectCode: "EE101",
         subjectName: "Circuit Analysis",
         scheduledClasses: 40,
         actualClasses: 38,
         document: "link_to_document1.pdf",
-        score: 94
+        score: 9
       },
       {
         semester: "Spring 2023",
@@ -147,16 +148,16 @@ const facultyData = [
         scheduledClasses: 44,
         actualClasses: 43,
         document: "link_to_document2.pdf",
-        score: 93
+        score: 9
       },
       {
         semester: "Fall 2022",
         subjectCode: "EE303",
         subjectName: "Power Systems",
         scheduledClasses: 48,
-        actualClasses: 47,
+        actualClasses: 45,
         document: "link_to_document3.pdf",
-        score: 89
+        score: 8
       }
     ],
     studentsFeedback: [
@@ -164,28 +165,28 @@ const facultyData = [
         semester: "Fall 2023",
         subjectCode: "EE101",
         subjectName: "Circuit Analysis",
-        studentFeedback: "Clear explanations and interactive sessions.",
-        pointsEarned: 49,
+        studentFeedback: "78",
+        pointsEarned: 7,
         document: "feedback1.pdf",
-        score: 97
+        score: 7
       },
       {
         semester: "Spring 2023",
         subjectCode: "EE202",
         subjectName: "Electromagnetics",
-        studentFeedback: "Engaging classes and great examples.",
-        pointsEarned: 48,
+        studentFeedback: "80",
+        pointsEarned: 8,
         document: "feedback2.pdf",
-        score: 95
+        score: 8
       },
       {
         semester: "Fall 2022",
         subjectCode: "EE303",
         subjectName: "Power Systems",
-        studentFeedback: "Well-structured and practical examples.",
-        pointsEarned: 46,
+        studentFeedback: "88",
+        pointsEarned: 8,
         document: "feedback3.pdf",
-        score: 90
+        score: 8
       }
     ]
 },
@@ -221,7 +222,7 @@ const facultyData = [
         scheduledClasses: 40,
         actualClasses: 38,
         document: "link_to_document1.pdf",
-        score: 94
+        score: 9
       },
       {
         semester: "Spring 2023",
@@ -230,7 +231,7 @@ const facultyData = [
         scheduledClasses: 44,
         actualClasses: 43,
         document: "link_to_document2.pdf",
-        score: 93
+        score: 9
       },
       {
         semester: "Fall 2022",
@@ -239,7 +240,7 @@ const facultyData = [
         scheduledClasses: 48,
         actualClasses: 47,
         document: "link_to_document3.pdf",
-        score: 89
+        score: 9
       }
     ],
     studentsFeedback: [
@@ -247,28 +248,28 @@ const facultyData = [
         semester: "Fall 2023",
         subjectCode: "EE101",
         subjectName: "Circuit Analysis",
-        studentFeedback: "Clear explanations and interactive sessions.",
-        pointsEarned: 49,
+        studentFeedback: "78",
+        pointsEarned: 7,
         document: "feedback1.pdf",
-        score: 97
+        score: 7
       },
       {
         semester: "Spring 2023",
         subjectCode: "EE202",
         subjectName: "Electromagnetics",
-        studentFeedback: "Engaging classes and great examples.",
-        pointsEarned: 48,
+        studentFeedback: "58",
+        pointsEarned: 5,
         document: "feedback2.pdf",
-        score: 95
+        score: 5
       },
       {
         semester: "Fall 2022",
         subjectCode: "EE303",
         subjectName: "Power Systems",
-        studentFeedback: "Well-structured and practical examples.",
-        pointsEarned: 46,
+        studentFeedback: "92",
+        pointsEarned: 9,
         document: "feedback3.pdf",
-        score: 90
+        score: 9
       }
     ]
   },
@@ -304,7 +305,7 @@ const facultyData = [
         scheduledClasses: 42,
         actualClasses: 40,
         document: "link_to_document1.pdf",
-        score: 93
+        score: 9
       },
       {
         semester: "Spring 2023",
@@ -313,7 +314,7 @@ const facultyData = [
         scheduledClasses: 40,
         actualClasses: 39,
         document: "link_to_document2.pdf",
-        score: 91
+        score: 9
       },
       {
         semester: "Fall 2022",
@@ -322,7 +323,7 @@ const facultyData = [
         scheduledClasses: 44,
         actualClasses: 42,
         document: "link_to_document3.pdf",
-        score: 89
+        score: 9
       }
     ],
     studentsFeedback: [
@@ -330,28 +331,28 @@ const facultyData = [
         semester: "Fall 2023",
         subjectCode: "ME101",
         subjectName: "Thermodynamics",
-        studentFeedback: "Excellent knowledge and approachable.",
-        pointsEarned: 48,
+        studentFeedback: "85",
+        pointsEarned: 8,
         document: "feedback1.pdf",
-        score: 96
+        score:8
       },
       {
         semester: "Spring 2023",
         subjectCode: "ME201",
         subjectName: "Heat Transfer",
-        studentFeedback: "Detailed explanations with practical examples.",
-        pointsEarned: 46,
+        studentFeedback: "78",
+        pointsEarned: 7,
         document: "feedback2.pdf",
-        score: 92
+        score: 7
       },
       {
         semester: "Fall 2022",
         subjectCode: "ME301",
         subjectName: "Fluid Mechanics",
-        studentFeedback: "Engaging and informative lectures.",
-        pointsEarned: 45,
+        studentFeedback: "86",
+        pointsEarned: 8,
         document: "feedback3.pdf",
-        score: 90
+        score: 8
       }
     ]
   }

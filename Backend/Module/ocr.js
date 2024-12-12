@@ -1,4 +1,5 @@
 const fs = require('fs').promises;
+const generateText=require('./gemini')
 const { createWorker } = require('tesseract.js');
 
 async function performOCR(pdfPath) {
@@ -17,6 +18,8 @@ async function performOCR(pdfPath) {
 }
 
   const extractedText = performOCR('dhatrak 002.jpg');
+  console.log(generateText('Name: omkar dhatrak',extractedText))
+
   console.log(extractedText,'here');
 
 

@@ -692,8 +692,8 @@ th {
         font-size: 13px;
     }
 }
- :root {
-            /* Existing color palette preserved */
+ /* Embedded CSS from the provided stylesheet */
+        :root {
             --primary-color: #201E43;
             --secondary-color: #134B70;
             --accent-color: #508C9B;
@@ -716,86 +716,141 @@ th {
             line-height: 1.6;
         }
 
-        /* Preserve existing header and navigation styles */
-        .header, .navigation {
-            /* Existing styles from the previous CSS */
-        }
-
-        .welcome {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 2rem;
+        .header {
             background-color: var(--white);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-        }
-
-        .welcome h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .welcome p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .vision-values-container {
-            background-color: #f4f6f7;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .vision-section, .values-section {
-            margin-bottom: 1rem;
-        }
-
-        .vision-section h2 {
-            color: #27ae60;
-            margin-bottom: 0.5rem;
-        }
-
-        .values-section h2 {
-            color: #3498db;
-            margin-bottom: 0.5rem;
-        }
-
-        .values-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .values-list li {
-            background-color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 0.5rem;
-            padding: 0.75rem;
-            border-radius: 4px;
+            padding: 1rem 2rem;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .emblem {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .header-text h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-text h2 {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .navigation {
+            background-color: var(--primary-color);
+            padding: 0.75rem 2rem;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
             transition: background-color 0.3s ease;
         }
 
-        .values-list li:hover {
-            background-color: rgba(255, 255, 255, 0.9);
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .values-list li strong {
-            margin-right: 0.5rem;
+        .breadcrumb {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb h2 {
+            color: var(--white);
+        }
+
+        #faculty-appraisal-links {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', sans-serif;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        #faculty-appraisal-links h2 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .welcome {
+            padding: 20px;
+            background-color: var(--white);
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .welcome ul li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: var(--background-light);
+            border-radius: 4px;
+        }
+
+        .welcome ul li a {
             color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .welcome ul li a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .welcome {
-                padding: 1rem;
-                margin: 1rem;
+            .header-content {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .welcome h2 {
-                font-size: 1.5rem;
+            .navigation {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
             }
         }
