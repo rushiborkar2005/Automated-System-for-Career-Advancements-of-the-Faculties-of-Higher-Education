@@ -484,7 +484,7 @@ body {
     </section>
     <section class="performance-section" id="institutional-section">
         <div class="section-header">
-            <h3>Institutional & Societal Contributions</h3>
+            <h3>Departmental Activities</h3>
             <div class="score-badge" id="institutional-score">{{c}}</div>
         </div>
         <table class="performance-table">
@@ -497,7 +497,7 @@ body {
                 </tr>
             </thead>
             <tbody id="institutional-table-body">
-                {{#each contributionSociety}}
+                {{#each departmentActivities}}
                 <tr>
                     <td>{{activity}}</td>
                     <td>{{criteria}}</td>
@@ -508,6 +508,58 @@ body {
             </tbody>
         </table>
     </section>
+    <section class="performance-section" id="institutional-section">
+      <div class="section-header">
+          <h3>Societal Contributions</h3>
+          <div class="score-badge" id="institutional-score">{{c}}</div>
+      </div>
+      <table class="performance-table">
+          <thead>
+              <tr>
+                  <th>Activity</th>
+                  <th>Criteria</th>
+                  <th>Semester</th>
+                  <th>Score</th>
+              </tr>
+          </thead>
+          <tbody id="institutional-table-body">
+              {{#each contributionSociety}}
+              <tr>
+                  <td>{{activity}}</td>
+                  <td>{{criteria}}</td>
+                  <td>{{semester}}</td>
+                  <td>{{score}}</td>
+              </tr>
+              {{/each}}
+          </tbody>
+      </table>
+  </section>
+  <section class="performance-section" id="institutional-section">
+    <div class="section-header">
+        <h3>Institutionsl Activities</h3>
+        <div class="score-badge" id="institutional-score">{{c}}</div>
+    </div>
+    <table class="performance-table">
+        <thead>
+            <tr>
+                <th>Activity</th>
+                <th>Criteria</th>
+                <th>Semester</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="institutional-table-body">
+            {{#each instituteActivities}}
+            <tr>
+                <td>{{activity}}</td>
+                <td>{{criteria}}</td>
+                <td>{{semester}}</td>
+                <td>{{score}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
 </div>
 
 </body>

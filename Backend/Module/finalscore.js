@@ -68,7 +68,6 @@ const updatescore = async (faculty) => {
                     }
         }
 
-
          tscore=(s1+s2+es1+es2)/2;
         
 
@@ -129,7 +128,7 @@ const updatescore = async (faculty) => {
       dscore+=3;
       
       });
-      let iscore;
+      let iscore=0;
     faculty.instituteActivities.forEach((entry, index) => {
       entry['score']=5;
       iscore+=5;
@@ -210,15 +209,32 @@ rescore+=score;
       });
       
 
+      if(tscore>20)
+        {
+            dscore=20
+        }
+      if(tscore>20)
+      {
+        iscore=20
+      }
+      if(tscore>20)
+      {
+        rescore=20
+      }
+      if(tscore>20)
+      {
+        cscore=20;
+      }
+
 
     faculty.t=tscore;
     faculty.f=fscore;
-    faculty.d=dscore>20?20:dscore;
-    faculty.i=iscore>20?20:iscore;
+    faculty.d=dscore;
+    faculty.i=iscore;
     faculty.r=rscore;
-    faculty.p=rescore>20?20:rescore;
-    faculty.c=cscore>20?20:cscore;
-    faculty.total=tscore+fscore+dscore>20?20:dscore+iscore>20?20:iscore+rscore+rescore>20?20:rescore+cscore>20?20:cscore;
+    faculty.p=rescore;
+    faculty.c=cscore;
+    faculty.total=tscore+fscore+dscore+iscore+rscore+rescore+cscore;
       
       await faculty.save();
 

@@ -13,6 +13,7 @@ const InName=require('../routes/institutename')
 const faculty_login=require('../routes/facultylogin')
 const cookieParser = require('cookie-parser');
 const formbuild=require('../routes/formbuilder')
+const pdf=require('./pdf2')
 const scholar=require('./Google_scholar')
 const erp=require('./erpapi')
 //const upload = require('../Module/multer');
@@ -26,14 +27,16 @@ const corsOptions = {
 //get all the faculty details
 const getallfaculty= require ('../routes/getAllFaculty');
 
-
+app.use((req, res, next) => { req.setTimeout(0); 
+  res.setTimeout(0); 
+   next(); });
 app.use(cors(corsOptions));
 app.use(express.json()); 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api',Instituteregister,IN,InLogin,InName,addfacultyRoute,faculty_login,getf,formbuild);
-app.use('/api', getallfaculty ,erp,scholar);
+app.use('/api', getallfaculty ,erp,scholar,pdf);
 app.use((err, req, res, next) => {
   console.error(err.stack); 
   res.status(500).send({ error: 'Something went wrong!' });
