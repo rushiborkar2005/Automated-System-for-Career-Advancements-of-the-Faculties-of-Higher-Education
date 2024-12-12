@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #1A5F7A;
+  --color-primary: #263A6D;
   --color-secondary: #0f5781;
   --color-accent: #579bc5;
   --color-background: #F8F9FA;
@@ -229,8 +229,8 @@ body {
 
 /* Navigation Styles */
 .navigation {
-  background-color: var(--primary-color);
-  padding: 0.75rem 2rem;
+  background-color: #263A6D;
+  padding: 0.10rem 2rem;
 }
 
 .nav-content {
@@ -778,4 +778,3 @@ textarea {
       min-height: 100px;
   }
 }
-

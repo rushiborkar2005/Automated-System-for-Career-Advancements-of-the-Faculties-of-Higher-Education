@@ -2,12 +2,12 @@ export class FacultyData {
     constructor() {
         this.data = [
             { id: 1, name: 'Anushree Khadgi', loginId: '10301', score: 900, department: 'Computer Engineering', submittedAt: '2024-02-15', endorsed: true },
-            { id: 2, name: 'Isha Patel', loginId: '10302', score: 500, department: 'Computer Engineering', submittedAt: '2024-02-14', endorsed: false },
-            { id: 3, name: 'Aarav Sharma', loginId: '10303', score: 800, department: 'Electrical Engineering', submittedAt: '2024-02-13', endorsed: true },
-            { id: 4, name: 'Aditya Nair', loginId: '10304', score: 850, department: 'Mechanical Engineering', submittedAt: '2024-02-12', endorsed: false },
-            { id: 5, name: 'Siddharth Iyer', loginId: '10305', score: 450, department: 'Computer Engineering', submittedAt: '2024-02-11', endorsed: true },
-            { id: 6, name: 'Pooja Chauhan', loginId: '10306', score: 510, department: 'Electrical Engineering', submittedAt: '2024-02-10', endorsed: false },
-            { id: 7, name: 'Rahul Verma', loginId: '10307', score: 550, department: 'Mechanical Engineering', submittedAt: '2024-02-09', endorsed: true },
+        //     { id: 2, name: 'Isha Patel', loginId: '10302', score: 500, department: 'Computer Engineering', submittedAt: '2024-02-14', endorsed: false },
+        //     { id: 3, name: 'Aarav Sharma', loginId: '10303', score: 800, department: 'Electrical Engineering', submittedAt: '2024-02-13', endorsed: true },
+        //     { id: 4, name: 'Aditya Nair', loginId: '10304', score: 850, department: 'Mechanical Engineering', submittedAt: '2024-02-12', endorsed: false },
+        //     { id: 5, name: 'Siddharth Iyer', loginId: '10305', score: 450, department: 'Computer Engineering', submittedAt: '2024-02-11', endorsed: true },
+        //     { id: 6, name: 'Pooja Chauhan', loginId: '10306', score: 510, department: 'Electrical Engineering', submittedAt: '2024-02-10', endorsed: false },
+        //     { id: 7, name: 'Rahul Verma', loginId: '10307', score: 550, department: 'Mechanical Engineering', submittedAt: '2024-02-09', endorsed: true },
         ];
         this.listeners = [];
     }
