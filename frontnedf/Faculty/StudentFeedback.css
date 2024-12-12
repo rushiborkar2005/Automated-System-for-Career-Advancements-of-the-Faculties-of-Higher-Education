@@ -32,6 +32,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: padding 0.3s ease; /* Smooth padding transition for mobile */
 }
 
 .header-content {
@@ -44,24 +45,58 @@ body {
   width: 80px;
   height: 80px;
   object-fit: contain;
+  transition: transform 0.3s ease; /* Add hover effect */
 }
 
 .header-text h1 {
   color: var(--primary-color);
   font-size: 1.5rem;
   font-weight: 700;
+  margin: 0; /* Ensure no extra margin */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .header-text h2 {
   color: var(--secondary-color);
   font-size: 1rem;
   font-weight: 500;
+  margin: 0; /* Remove extra margin */
 }
+
+/* Add hover effect for emblem */
+.emblem:hover {
+  transform: scale(1.05); /* Slightly enlarges emblem on hover */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem; /* Reduce padding on smaller screens */
+  }
+
+  .header-content {
+    gap: 1rem; /* Reduce gap between items */
+  }
+
+  .header-text h1 {
+    font-size: 1.25rem; /* Adjust font size for mobile */
+  }
+
+  .header-text h2 {
+    font-size: 0.9rem; /* Adjust font size for mobile */
+  }
+
+  .emblem {
+    width: 60px; /* Make emblem smaller on mobile */
+    height: 60px;
+  }
+}
+
 
 /* Navigation Redesign */
 .navigation {
   background-color: var(--primary-color);
-  padding: 0.10rem 2rem;
+  padding: 0.75rem 2rem; /* Increased padding for better spacing */
 }
 
 .nav-content {
@@ -81,11 +116,12 @@ body {
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-links a:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05); /* Subtle scale effect for links */
 }
 
 .search-container {
@@ -95,9 +131,14 @@ body {
 
 .search-container input {
   padding: 0.5rem 1rem;
-  border: none;
+  border: 1px solid var(--border-color);
   border-radius: 4px 0 0 4px;
   width: 250px;
+  transition: border-color 0.3s ease;
+}
+
+.search-container input:focus {
+  border-color: var(--accent-color); /* Highlight input on focus */
 }
 
 .search-container button {
@@ -107,11 +148,53 @@ body {
   border-radius: 0 4px 4px 0;
   color: var(--white);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .search-container button:hover {
   background-color: var(--accent-color);
+  transform: scale(1.05); /* Subtle scale effect for button */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+    gap: 1rem; /* Adjust gap for vertical alignment */
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    display: none; /* Hide links by default */
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show links when activated */
+  }
+
+  .search-container {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .search-container input {
+    width: calc(100% - 90px); /* Adjust input width on mobile */
+  }
+
+  .search-container button {
+    width: 90px; /* Make button smaller on mobile */
+  }
+
+  /* Toggle Button (for mobile menu) */
+  .toggle-menu {
+    display: block;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 1.5rem;
+  }
 }
 
 /* Breadcrumb Redesign */
@@ -122,17 +205,39 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .breadcrumb a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-color); /* Change color on hover for better interaction */
 }
 
 .breadcrumb .separator {
   color: rgba(255, 255, 255, 0.5);
   margin: 0 0.5rem;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 1rem; /* Reduce padding for smaller screens */
+  }
+
+  .breadcrumb a {
+    font-size: 0.875rem; /* Smaller font size on mobile */
+  }
+
+  .breadcrumb .separator {
+    font-size: 0.75rem; /* Smaller separator for mobile */
+  }
+}
+
 
 /* Section Navigation */
 .section-nav {
