@@ -150,7 +150,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-<<<<<<< HEAD
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
   // Create scales for each section
@@ -177,31 +176,10 @@ function createScale(containerId) {
           // Remove active state from all circles in this scale
           scaleContainer.querySelectorAll(".circle").forEach((c) => c.classList.remove("selected", "low", "mid", "high"));
 
-=======
-document.addEventListener("DOMContentLoaded", function () {
-    // Function to create the scale
-    const createScale = (containerId) => {
-      const scaleContainer = document.getElementById(containerId);
-  
-      // Generate the scale circles dynamically (1 to 10)
-      for (let i = 1; i <= 10; i++) {
-        const circle = document.createElement("div");
-        circle.classList.add("circle");
-        circle.textContent = i;
-        circle.dataset.value = i; // Store the value for reference
-        scaleContainer.appendChild(circle);
-  
-        // Add click event to handle selection
-        circle.addEventListener("click", function () {
-          // Remove active state from all circles in this scale
-          scaleContainer.querySelectorAll(".circle").forEach((c) => c.classList.remove("selected", "low", "mid", "high"));
-  
->>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
           // Add active class and color based on value
           const value = parseInt(this.dataset.value);
           this.classList.add("selected");
           if (value <= 4) {
-<<<<<<< HEAD
               this.classList.add("low"); // Red for low scores
           } else if (value <= 7) {
               this.classList.add("mid"); // Orange for medium scores
@@ -211,22 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 }
-=======
-            this.classList.add("low"); // Red for low scores
-          } else if (value <= 7) {
-            this.classList.add("mid"); // Orange for medium scores
-          } else {
-            this.classList.add("high"); // Green for high scores
-          }
-        });
-      }
-    };
-  
-    // Create scales for each section
-    createScale("student-behavior-scale");
-    createScale("colleague-behavior-scale");
-  });
->>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
 
   document.addEventListener("DOMContentLoaded", function () {
     // Get the radio button and the text box
@@ -242,7 +204,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-<<<<<<< HEAD
   document.addEventListener('DOMContentLoaded', function() {
     const recommendedRadio = document.getElementById('recommended');
     const nonRecommendedRadio = document.getElementById('non-recommended');
@@ -263,6 +224,3 @@ document.addEventListener("DOMContentLoaded", function () {
         nonRecommendedTextBox.style.display = 'block'; // Show the non-recommended textbox when "Non-Recommended" is selected
     });
 });
-=======
-  
->>>>>>> 58175ea51abc9ab51ab1268b870a0ba99643f283
