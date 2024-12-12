@@ -27,6 +27,7 @@ const corsOptions = {
 //get all the faculty details
 const getallfaculty= require ('../routes/getAllFaculty');
 
+
 app.use((req, res, next) => { req.setTimeout(0); 
   res.setTimeout(0); 
    next(); });
@@ -42,6 +43,8 @@ app.use((err, req, res, next) => {
   res.status(500).send({ error: 'Something went wrong!' });
 });
 
+const recomend = require ('../routes/recomendation')
+app.use('/api', recomendation);
 
 const PORT = 5000;
 app.listen(PORT, () => {

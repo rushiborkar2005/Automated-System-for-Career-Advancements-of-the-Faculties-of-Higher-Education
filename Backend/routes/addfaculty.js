@@ -133,13 +133,14 @@ router.post('/upload',upload.single('file'), async (req, res) => {
           return res.status(400).send('No file uploaded.');
       }
       const fileId = await uploadFileToDrive(uploadedFile.path, uploadedFile.originalname);
+      console.log(fileId)
       fs.unlinkSync(uploadedFile.path);
 
 
-      
-      res.status(200).send({ fileId });
+
+      res.status(200).send(fileId);
   } catch (error) {
-      res.status(500).send('Error uploading file.');
+    res.status(500).json({ error: 'Error uploading file.' });
   }
 }
 );

@@ -19,6 +19,7 @@ async function authorize() {
 }
 
 async function uploadFileToDrive(filePath, fileName) {
+    console.log('do')
     const authClient = await authorize();
 
     return new Promise((resolve, reject) => {
