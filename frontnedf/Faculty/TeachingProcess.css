@@ -24,6 +24,7 @@ body {
 }
 
 /* Header Redesign */
+/* Header */
 .header {
   background-color: var(--white);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -57,6 +58,32 @@ body {
   font-weight: 500;
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem 1.5rem;  /* Slightly smaller padding */
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-text h1 {
+    font-size: 1.25rem;  /* Smaller font size for mobile */
+  }
+
+  .header-text h2 {
+    font-size: 0.875rem;  /* Slightly smaller font size for mobile */
+  }
+
+  .emblem {
+    width: 60px;  /* Smaller emblem for mobile */
+    height: 60px;
+  }
+}
+
+
 /* Navigation Redesign */
 .navigation {
   background-color: var(--primary-color);
@@ -67,6 +94,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;  /* Allow wrapping for small screens */
 }
 
 .nav-links {
@@ -97,6 +125,7 @@ body {
   border: none;
   border-radius: 4px 0 0 4px;
   width: 250px;
+  transition: width 0.3s ease;
 }
 
 .search-container button {
@@ -113,7 +142,64 @@ body {
   background-color: var(--accent-color);
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    display: none;  /* Hide links on small screens */
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .nav-links.active {
+    display: flex;  /* Show links when active */
+  }
+
+  .nav-links a {
+    padding: 1rem;
+    width: 100%;  /* Make links fill the width */
+    text-align: left;  /* Align text to the left */
+  }
+
+  .search-container {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .search-container input {
+    width: 100%;  /* Make the search input full-width */
+    border-radius: 4px;
+  }
+
+  .search-container button {
+    width: 100%;  /* Make the button full-width */
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* Optional: Add a toggle button for the navigation links */
+  .nav-toggle {
+    display: block;
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-toggle:hover {
+    background-color: var(--accent-color);
+  }
+}
+
+
 /* Breadcrumb Redesign */
+/* Breadcrumb */
 .breadcrumb {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--white);
@@ -121,17 +207,40 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;  /* Allow wrapping for smaller screens */
 }
 
 .breadcrumb a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-color);  /* Change color on hover */
 }
 
 .breadcrumb .separator {
   color: rgba(255, 255, 255, 0.5);
   margin: 0 0.5rem;
 }
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 0.75rem 1rem;
+  }
+
+  .breadcrumb a {
+    font-size: 0.9rem;  /* Smaller font size for mobile */
+  }
+
+  .breadcrumb .separator {
+    font-size: 0.9rem;
+  }
+}
+
 
 /* Section Navigation */
 .section-nav {
@@ -174,6 +283,7 @@ body {
 .score-section h3 {
   color: var(--secondary-color);
   margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .score-input {
@@ -188,7 +298,32 @@ body {
   border-radius: 4px;
   padding: 0.5rem;
   width: 100px;
+  transition: border-color 0.3s ease;
 }
+
+/* Focus styling for input */
+.score-input input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .score-section {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .score-input {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .score-input input {
+    width: 80%; /* Make input field more flexible on mobile */
+  }
+}
+
 
 /* Table Redesign */
 .table-container {

@@ -25,6 +25,7 @@ body {
 }
 
 /* Header Redesign */
+/* Header Redesign */
 .header {
   background-color: var(--white);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -32,6 +33,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap; /* Allow content to wrap on smaller screens */
 }
 
 .header-content {
@@ -57,6 +59,33 @@ body {
   font-size: 1rem;
   font-weight: 500;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.75rem 1rem; /* Reduce padding on smaller screens */
+  }
+
+  .header-content {
+    gap: 1rem; /* Adjust spacing between items */
+    justify-content: center; /* Center content on mobile */
+    width: 100%;
+  }
+
+  .emblem {
+    width: 60px; /* Smaller emblem on mobile */
+    height: 60px;
+  }
+
+  .header-text h1 {
+    font-size: 1.25rem; /* Slightly smaller font for better mobile view */
+  }
+
+  .header-text h2 {
+    font-size: 0.875rem; /* Smaller font for better readability */
+  }
+}
+
 
 /* Navigation Redesign */
 .navigation {
@@ -115,6 +144,7 @@ body {
 }
 
 /* Breadcrumb Redesign */
+/* Breadcrumb Redesign */
 .breadcrumb {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--white);
@@ -122,17 +152,36 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap; /* Allow breadcrumbs to wrap on smaller screens */
 }
 
 .breadcrumb a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-color); /* Highlight link on hover */
 }
 
 .breadcrumb .separator {
   color: rgba(255, 255, 255, 0.5);
   margin: 0 0.5rem;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 0.75rem 1rem; /* Adjust padding for smaller screens */
+    gap: 0.25rem; /* Reduce space between items */
+  }
+
+  .breadcrumb a {
+    font-size: 0.875rem; /* Slightly smaller font size for better mobile readability */
+  }
+}
+
 
 /* Section Navigation */
 .section-nav {
