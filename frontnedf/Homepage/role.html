@@ -27,16 +27,36 @@
   
     <nav class="navigation">
       <div class="nav-content">
-        <ul class="nav-links">
-          <li><a href="../Homepage/HomePage.html"><i class="fas fa-home"></i> Home</a></li>
-          <li><a href="AboutUs.html"><i class="bi bi-info-circle"></i> About Us</a></li>
-          <li><a href="ContactUs.html"><i class="bi bi-envelope"></i> Contact Us</a></li>
-          <li><a href="ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li>
-          <li><a href="GuideLines.html"><i class="fas fa-book"></i> Guidelines</a></li>
-        </ul>
-          </div>
-        </div> 
+          <ul class="nav-links"><br>     
+            <li><a href="FacultyHomePage.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="TeachingProcess.html"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+            <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li><br>
+            </ul>     
+            <div class="user-section">
+              <div class="profile-container">
+                <div class="profile-info">
+                  <img src="profile.png" alt="Profile" class="profile-icon">
+                  <span class="profile-name">Vaibhav Jadhav</span>
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </div>
+                
+                <div class="profile-dropdown hidden">
+                  <ul>
+                    <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> View Profile</a></li>
+                    <li><a href=""><i class="fas fa-cog"></i> Settings</a></li>
+                    <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="notification-bell">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+              </div>
+            </div>     
       </div>
+    </nav>
     </nav>
     <main>
         <section class="roles-section">
